@@ -35,3 +35,5 @@ router.get('/', (req, res) => {
 router.put('/:id', (req, res) => {
     
 });
+
+module.exports = router;
