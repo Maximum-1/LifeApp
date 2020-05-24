@@ -7,7 +7,7 @@ function* answerSaga(action){
     try {
         console.log('action.payload is', action.payload);
         //Making asyn AJAX (axios) request
-        yield axios.put(`/api/step/${action.payload.id}`, action.payload);
+        yield axios.put(`/api/step/update-step/${action.payload.id}`, action.payload);
         //Request information back from the server after change
         //yield put({type: 'FETCH_TREE', payload: action.payload.user_id});
     } catch(error) {

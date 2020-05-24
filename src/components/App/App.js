@@ -8,7 +8,7 @@ import {
 
 import {connect} from 'react-redux';
 
-import Nav from '../Nav/Nav';
+import NavigationBar from '../NavigationBar/NavigationBar';
 import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
@@ -16,8 +16,10 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 //Pages
 import AboutPage from '../Pages/AboutPage/AboutPage';
 import UserPage from '../Pages/UserPage/UserPage';
-import InfoPage from '../Pages/MyTreePage/MyTreePage';
+import MyTreePage from '../Pages/MyTreePage/MyTreePage';
+import TermsOfServicePage from '../Pages/TermsOfServicePage/TermsOfServicePage';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 class App extends Component {
@@ -29,7 +31,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Nav />
+          <NavigationBar />
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />
@@ -39,6 +41,13 @@ class App extends Component {
               exact
               path="/about"
               component={AboutPage}
+            />
+            {/* Visiting localhost:3000/about will show the about page.
+            This is a route anyone can see, no login necessary */}
+            <Route
+              exact
+              path="/termsOfService"
+              component={TermsOfServicePage}
             />
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/home will show the UserPage if the user is logged in.
@@ -53,8 +62,8 @@ class App extends Component {
             they will see the info page instead. */}
             <ProtectedRoute
               exact
-              path="/info"
-              component={InfoPage}
+              path="/my-tree"
+              component={MyTreePage}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
