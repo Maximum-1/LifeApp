@@ -69,7 +69,7 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
     const id = req.params.id;
     console.log('Tree id is', id);
     // First, we delete step data attached to the tree ID
-    const deleteQuery = `DELETE FROM "step" WHERE "tree_id" = $1;`;
+    const deleteQuery = `DELETE FROM "tree_step" WHERE "tree_id" = $1;`;
     pool.query(deleteQuery, [id])
         .then(() => {
             // Now that we have deleted the step data associated with the tree,
