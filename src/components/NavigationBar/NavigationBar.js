@@ -26,17 +26,17 @@ const NavigationBar = (props) => (
         {/* Show this link if they are logged in or not,
             but call this link 'Home' if they are logged in,
             and call this link 'Login / Register' if they are not */}
-        <Nav.Link href="/">{props.user.id ? 'Home' : 'Login / Register'}</Nav.Link>
+        <Link to="/">{props.user.id ? 'Home' : 'Login / Register'}</Link>
         {/* Show the link to the My Trees and the logout button if the user is logged in */}
         {props.user.id && (
             <>
-              <Nav.Link><Link to="/my-tree">My Trees</Link></Nav.Link>
-              <Nav.Link><LogOutButton className="nav-link-btn"/></Nav.Link>
+              <Link to="/my-tree">My Trees</Link>
+              <LogOutButton className="nav-link-btn"/>
             </>
         )}
         {/* Always show this link since the about and Terms of Service page is not protected */}
-        <Nav.Link ><Link to="/about">About</Link></Nav.Link>
-        <Nav.Link><Link to="/termsOfService">Terms Of Service</Link></Nav.Link>
+        <Link to="/about">About</Link>
+        <Link to="/termsOfService">Terms Of Service</Link>
       </Nav>
     </Navbar.Collapse>
   </Navbar>

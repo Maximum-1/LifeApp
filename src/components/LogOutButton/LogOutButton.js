@@ -6,13 +6,14 @@ import { Link } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
 
 const LogOutButton = props => (
-  <Nav.Link
+  <Link
     // This button shows up in multiple locations and is styled differently
     // because it's styled differently depending on where it is used, the className
     // is passed to it from it's parents through React props
+    to="/"
     onClick={() => props.dispatch({ type: 'LOGOUT' })}
-  ><Link>Log Out</Link>
-  </Nav.Link>
+  >Log Out
+  </Link>
 );
 
 // This component doesn't need 'mapStateToProps'

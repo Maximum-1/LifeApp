@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
+//import components to be used on this page
+import Item from '../../Item/Item';
+
 class UserPage extends Component {
   render() {
     return (
@@ -9,6 +12,7 @@ class UserPage extends Component {
           Welcome, { this.props.user.username }!
         </h1>
         <p>Your ID is: {this.props.user.id}</p>
+        <Item />
       </div>
     );
   }
