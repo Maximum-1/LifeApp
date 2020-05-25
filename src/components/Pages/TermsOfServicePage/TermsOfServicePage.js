@@ -1,15 +1,15 @@
 import React, {Component} from 'react'
 
 
-class AboutPage extends Component {
+class TermsOfService extends Component {
   render() {
     return (
     <div>
-      <h1>About Page</h1>
+      <h1>Terms of Service</h1>
       
     </div>
   )
   }
 }
 
-export default AboutPage;
+export default TermsOfService;

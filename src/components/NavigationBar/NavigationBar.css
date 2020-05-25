@@ -1,0 +1,18 @@
+nav {
+  background-color: #6A0DAD;
+}
+
+/* Needed to change the link settings */
+a {
+  color: white !important;
+}
+
+/* Hover over Login / Register */
+.nav-link:hover {
+  text-decoration: underline !important;
+}
+
+/* Needed to change the hamburger menu background color */
+.navbar-toggler {
+  background-color: #520887 !important;
+}
