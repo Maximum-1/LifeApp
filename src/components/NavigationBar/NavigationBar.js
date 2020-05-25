@@ -7,8 +7,11 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 
+//Import Styles
+import './NavigationBar.css';
+
 const NavigationBar = (props) => (
-  <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="nav">
+  <Navbar collapseOnSelect expand="lg" className="nav">
     <Navbar.Brand href="/">
         <img alt="" src="./images/Maximum_1_Logo.png"
           className="d-inline-block align-top"
@@ -19,7 +22,7 @@ const NavigationBar = (props) => (
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
     {/* A links will be in the dropdown must be children of Collapse */}
     <Navbar.Collapse id="responsive-navbar-nav">
-      <Nav className="mr-auto">
+      <Nav className="ml-auto">
         {/* Show this link if they are logged in or not,
             but call this link 'Home' if they are logged in,
             and call this link 'Login / Register' if they are not */}
@@ -28,7 +31,7 @@ const NavigationBar = (props) => (
         {props.user.id && (
             <>
               <Nav.Link><Link to="/my-tree">My Trees</Link></Nav.Link>
-              <Nav.Link><LogOutButton /></Nav.Link>
+              <Nav.Link><LogOutButton className="nav-link-btn"/></Nav.Link>
             </>
         )}
         {/* Always show this link since the about and Terms of Service page is not protected */}
