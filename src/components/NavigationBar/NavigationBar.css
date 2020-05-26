@@ -4,6 +4,7 @@ nav {
 
 /* Needed to change the link settings */
 a {
+  padding: 5px;
   color: white !important;
 }
 
@@ -15,4 +16,11 @@ a {
 /* Needed to change the hamburger menu background color */
 .navbar-toggler {
   background-color: #520887 !important;
+}
+
+/* media query to remove the  */
+@media screen and (max-width: 374px) {
+  .disappear {
+    display: none;
+  }
 }

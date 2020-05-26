@@ -2,9 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-//Import components to be used on this component
-import Nav from 'react-bootstrap/Nav';
-
 const LogOutButton = props => (
   <Link
     // This button shows up in multiple locations and is styled differently
@@ -12,7 +9,8 @@ const LogOutButton = props => (
     // is passed to it from it's parents through React props
     to="/"
     onClick={() => props.dispatch({ type: 'LOGOUT' })}
-  >Log Out
+  >
+    <i className="fa fa-sign-out" aria-hidden="true"></i> Log Out
   </Link>
 );
 
