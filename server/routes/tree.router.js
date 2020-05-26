@@ -10,8 +10,8 @@ router.get('/', (req, res) => {
     const queryText = 'SELECT "tree"."id", "tree"."name", "tree"."date_created", "tree"."date_finished", "tree"."status", "user"."id", "user"."username" FROM "tree" JOIN "user" ON "tree"."user_id" = "user"."id" order by "tree"."name"';
     pool.query(queryText)
         .then((result) => {
-            console.log('GET Tree on server', result);
-            res.send(result);
+            console.log('GET Tree on server', result.rows);
+            res.send(result.rows);
         })
         .catch((err) => {
             console.log('Error completing GET Tree query', err);
