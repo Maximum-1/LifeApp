@@ -1,0 +1,26 @@
+nav {
+  background-color: #6A0DAD;
+}
+
+/* Needed to change the link settings */
+a {
+  padding: 5px;
+  color: white !important;
+}
+
+/* Hover over Login / Register */
+.nav-link:hover {
+  text-decoration: underline !important;
+}
+
+/* Needed to change the hamburger menu background color */
+.navbar-toggler {
+  background-color: #520887 !important;
+}
+
+/* media query to remove the  */
+@media screen and (max-width: 374px) {
+  .disappear {
+    display: none;
+  }
+}
