@@ -12,7 +12,9 @@ class UserPage extends Component {
           Welcome, { this.props.user.username }!
         </h1>
         <p>Your ID is: {this.props.user.id}</p>
-        <Item />
+        <div className='container'>
+          <Item />
+        </div>
       </div>
     );
   }

@@ -3,18 +3,19 @@ body {
     margin: 0px;
 }
 
+/* This is the body of  */
+.body{
+    margin: 6px;
+}
+
+/* Buffer space for home page */
+.buffer-space {
+    margin: 80px;
+}
+
 .alert {
     background-color: #ff4545;
     margin: 50px;
-}
-
-form {
-    background-color: #dbd5d5;
-    width: 30%;
-    height: 250px;
-    margin: 20px auto;
-    padding: 25px;
-    border-radius: 2px;
 }
 
 input {
@@ -22,28 +23,43 @@ input {
     margin-bottom: 10px;
 }
 
-.log-in, .log-out, .register {
-  background-color: #00acb0;
-  border-radius: 4px;
+.log-in, .register {
+  background-color: #9554C3;
+  border-radius: 8px;
   color: #f8f8f8;
-  min-height: 50px;
-  min-width: 100px;
+  padding: 6px;
+  width: 100%;
   outline:0;
   cursor: pointer;
 }
 
-.log-in:hover, .log-out:hover, .register:hover {
-  background-color: #008183;
+.log-in:hover, .register:hover {
+  background-color: #6A0DAD;
 }
 
 /* This line makes the "Register" and "Login" buttons look like links */
 .link-button {
     background:none;
-    color:inherit;
+    color:#00d1ef;
     border:none;
     padding:0;
     font: inherit;
-    outline:0;
-    border-bottom:1px solid #444; 
+    outline:0; 
     cursor: pointer;
 }
+
+/* input fields on the login and register page */
+.login-register[type=text], .login-register[type=password], .login-register[type=email] {
+    width: 100%;
+    display: flex;
+}
+
+/* 
+    Centers all card elements and uses flexbox for 
+    reponsive web flow
+*/
+.container {
+    display: flex;
+    justify-content: center;
+}
+

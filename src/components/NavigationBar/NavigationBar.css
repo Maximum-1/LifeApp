@@ -4,6 +4,7 @@ nav {
 
 /* Needed to change the link settings */
 a {
+  padding: 5px;
   color: white !important;
 }
 
