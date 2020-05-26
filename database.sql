@@ -52,7 +52,7 @@ CREATE TABLE "tree_step" (
 --DATA INSERTS MUST CREATE USER FIRST
 -- Run to create the phases of the HBX Process
 INSERT INTO "phase" ("name", "number_of_steps") VALUES 
-('Identifying Dissonance', 4),
+('Identifying Stress', 5),
 ('Virtual Reality', 4),
 ('Going Deeper', 4),
 ('Remove the Barrier', 1),
@@ -62,7 +62,7 @@ INSERT INTO "phase" ("name", "number_of_steps") VALUES
 --Creates all the steps with names, description, optional hints and the step number to populated the step page
 --Phase 1 Step 1
 INSERT INTO "step" ("phase_id" ,"name" ,"description" ,"optional_hint", "step_number") VALUES
-(1 ,'Trigger' ,'An event that gives me feelings that keep me from doing my best ' ,
+(1 ,'Trigger' ,'An event or circumstance "pushing" you out of your window of tolerance into fight, flight, freeze, or submit ' ,
 '_____ keeps me from listening to my spouse.
 _____ pushes me to act foolishly or thoughtlessly.
 _____ leads me away from my values.
@@ -73,15 +73,25 @@ _____ keeps me from being productive at work.',
 
 --Phase 1 Step 2
 INSERT INTO "step" ("phase_id" ,"name" ,"description" ,"optional_hint", "step_number") VALUES
-(1 ,'Thought' ,'My conscious thought about the trigger' ,
-'Hint: Don’t sugarcoat it; brutal honesty is important. If there’s obscenity, violent, or even gross language, use it. Code or abbreviate to honor your convictions.',
+(1 ,'Protect Yourself' ,'Boundaries or safeguards you use to prevent harm ' ,
+'Hint: Look at your trigger. What can you do to limit how much you come into contact with it? Some things we can avoid, other things, we can’t. 
+Reducing stress is often external and internal. For example, if you’re addicted to an unwanted behavior, certain triggers might “push” you to act out. 
+You may need to avoid certain activities, locations, people, etc. to keep from needlessly creating pressure. 
+If losing your temper during conflict is common, then you may need to create a very specific process for handling disagreements so you don’t lose control 
+(e.g., asking for time to cool down, counting to ten, etc.). List things in your control you can change to reduce stress.',
 2);
+
 --Phase 1 Step 3
 INSERT INTO "step" ("phase_id" ,"name" ,"description" ,"optional_hint", "step_number") VALUES
-(1, 'Feelings', 'Specific emotions that arise from the trigger', 'Feelings', 3);
+(1 ,'Thought' ,'My conscious thought about the trigger' ,
+'Hint: Don’t sugarcoat it; brutal honesty is important. If there’s obscenity, violent, or even gross language, use it. Code or abbreviate to honor your convictions.',
+3);
 --Phase 1 Step 4
 INSERT INTO "step" ("phase_id" ,"name" ,"description" ,"optional_hint", "step_number") VALUES
-(1, 'Behaviors', 'What you do when you feel certain emotions ', 'Hint: For instance, if you feel anger when you experience a trigger, say what you do as a result of that anger—even if there’s more than one behavior. Honesty is important. Go through each emotion, and be thorough.', 4);
+(1, 'Feelings', 'Specific emotions that arise from the trigger', 'Feelings', 4);
+--Phase 1 Step 5
+INSERT INTO "step" ("phase_id" ,"name" ,"description" ,"optional_hint", "step_number") VALUES
+(1, 'Behaviors', 'What you do when you feel certain emotions ', 'Hint: For instance, if you feel anger when you experience a trigger, say what you do as a result of that anger—even if there’s more than one behavior. Honesty is important. Go through each emotion, and be thorough.', 5);
 
 --Phase 2 Step 1
 INSERT INTO "step" ("phase_id" ,"name" ,"description" ,"optional_hint", "step_number") VALUES
