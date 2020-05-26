@@ -16,7 +16,7 @@ const NavigationBar = (props) => (
         <img alt="" src="./images/Maximum_1_Logo.png"
           className="d-inline-block align-top"
         />{' '}
-        Maximum 1 Life App
+        <span className='disappear'>Maximum 1 Life App</span>
     </Navbar.Brand>
     {/* Creates the hamburger menu */}
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />

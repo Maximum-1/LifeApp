@@ -42,6 +42,7 @@ class LoginPage extends Component {
         )}
         <h1>Maximum 1 Life App Login</h1>
         <div className="buffer-space"></div>
+        <center>
           <form onSubmit={this.login}>
             <div>
                 <input
@@ -71,16 +72,19 @@ class LoginPage extends Component {
               >Login</button>
             </div>
           </form>
-          <center>
-            <span>New Here? </span>
-            <button
-              type="button"
-              className="link-button"
-              onClick={() => {this.props.dispatch({type: 'SET_TO_REGISTER_MODE'})}}
-            >
-              Create Account
-            </button>
+          
+            <div>
+              <span>New Here? </span>
+              <button
+                type="button"
+                className="link-button"
+                onClick={() => {this.props.dispatch({type: 'SET_TO_REGISTER_MODE'})}}
+              >
+                Create Account
+              </button>
+            </div>
           </center>
+          <div className="buffer-space"></div>
       </div>
     );
   }

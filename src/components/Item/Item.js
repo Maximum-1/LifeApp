@@ -16,7 +16,7 @@ class Item extends Component {
           <Card.Header>
             <h2>Tree Title</h2>
             <h5>Date Created: 01/01/2020</h5>
-            <ProgressBar now={40} />
+            <ProgressBar now={40} label={`${40}%`}/>
           </Card.Header>
           <Card.Body>
               <Card.Text>

@@ -17,3 +17,10 @@ a {
 .navbar-toggler {
   background-color: #520887 !important;
 }
+
+/* media query to remove the  */
+@media screen and (max-width: 374px) {
+  .disappear {
+    display: none;
+  }
+}

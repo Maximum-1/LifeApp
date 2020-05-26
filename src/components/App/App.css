@@ -51,7 +51,11 @@ input {
 /* input fields on the login and register page */
 .login-register[type=text], .login-register[type=password], .login-register[type=email] {
     width: 100%;
-    display: flex;
+    display: inline-block;
+    margin: 8px 0;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 1px solid grey;
 }
 
 /* 
@@ -63,3 +67,6 @@ input {
     justify-content: center;
 }
 
+center {
+   padding: 20px; 
+}
