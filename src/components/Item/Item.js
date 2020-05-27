@@ -9,6 +9,23 @@ import Card from 'react-bootstrap/Card';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
 class Item extends Component {
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  handleDelete = (id) => () => {
+    this.props.dispatch({ type: 'DELETE_TREE', payload: id });
+}
+
   render() {
     return (
       <Card style={{ width: '22rem' }}>
@@ -26,7 +43,7 @@ class Item extends Component {
               <div>
                 <button className="card-btn">View Tree</button>
                 <button className="card-btn">View Summary</button>
-                <button className="card-btn"><span>Delete <i className="fa fa-trash fa-fw" aria-hidden="true"></i></span></button>
+                <button className="card-btn" onClick={this.handleDelete(id)}><span>Delete <i className="fa fa-trash fa-fw" aria-hidden="true"></i></span></button>
               </div>
           </Card.Body>
       </Card>
