@@ -25,6 +25,7 @@ CREATE TABLE "tree" (
 -- There are 6 phases in the HBX process
 CREATE TABLE "phase" (
 	"id" SERIAL PRIMARY KEY,
+	"phase_number" INT,
 	"name" VARCHAR(120) NOT NULL,
 	"number_of_steps" INT
 );
