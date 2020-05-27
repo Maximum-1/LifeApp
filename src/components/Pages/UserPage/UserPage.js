@@ -5,15 +5,29 @@ import { connect } from 'react-redux';
 import Item from '../../Item/Item';
 
 class UserPage extends Component {
+  componentDidMount() {
+      this.props.dispatch({ type: 'GET_TREE', payload: this.props.user.id});
+  }
+
   render() {
     return (
       <div>
         <h1 id="welcome">
           Welcome, { this.props.user.username }!
         </h1>
-        <p>Your ID is: {this.props.user.id}</p>
-        <div className='container'>
-          <Item />
+        <div className='flex-container'>
+          {this.props.trees.map((tree) => {
+            return(
+                <Item
+                key={tree.id}
+                tree_id={tree.id}
+                tree_name={tree.name}
+                date_created={tree.date_created}
+                steps_completed={tree.steps_completed}
+                />
+              );
+            }
+          )}
         </div>
       </div>
     );
@@ -23,8 +37,9 @@ class UserPage extends Component {
 // Instead of taking everything from state, we just want the user info.
 // if you wanted you could write this code like this:
 // const mapStateToProps = ({user}) => ({ user });
-const mapStateToProps = state => ({
-  user: state.user,
+const mapStateToProps = reduxState => ({
+  user: reduxState.user,
+  trees: reduxState.treeReducer
 });
 
 // this allows us to use <App /> in index.js

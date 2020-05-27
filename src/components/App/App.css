@@ -59,12 +59,13 @@ input {
 }
 
 /* 
-    Centers all card elements and uses flexbox for 
+    Uses flexbox for 
     reponsive web flow
+    Item's Display
 */
-.container {
+.flex-container {
     display: flex;
-    justify-content: center;
+    flex-flow: row wrap;
 }
 
 center {

@@ -8,10 +8,13 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
  */
 
 // GET the tree info and the user info 
-router.get('/', (req, res) => {
-
-    const queryText = 'SELECT "tree"."id", "tree"."name", "tree"."date_created", "tree"."date_finished", "tree"."steps_completed", "tree"."status", "user"."id" FROM "tree" JOIN "user" ON "tree"."user_id" = "user"."id" order by "tree"."name"';
-    pool.query(queryText)
+router.get('/', rejectUnauthenticated, (req, res) => {
+    const id = req.params.id;
+    const queryText = `
+                        SELECT * FROM "tree"
+                        WHERE "user_id" = $1;
+                        `;
+    pool.query(queryText, [id])
         .then((result) => {
             console.log('GET Tree on server', result.rows);
             res.send(result.rows);
@@ -44,26 +47,33 @@ router.get('/', (req, res) => {
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, async (req, res) => {
     console.log('in post to add new tree', req.body);
-    const sqlText1 = `INSERT INTO "tree" ("user_id", "name") VALUES ($1, $2) RETURNING id`;
-    const sqlText2 = `SELECT "id" FROM "step"`;
-    const sqlText3 = `INSERT INTO "tree_step" ("tree_id", "step_id") VALUES ($1,$2)`;
-    let tree_id = '';
+    //Need to use the same database connection for the entire transaction
+    const connection = await pool.connect();
 
-    pool.query(sqlText1, [req.body.user_id, req.body.treeName]).then((response) => {
-        tree_id = response.rows[0].id;
-        pool.query(sqlText2).then((response) => {
-            const steps = response.rows.length;
-            for(let i = 0; i < steps; i++) {
-                 pool.query(sqlText3, [tree_id,response.rows[i].id])
-            }
-        })
+    try{
+        await connection.query('BEGIN;');
+        const sqlText1 = `INSERT INTO "tree" ("user_id", "name") VALUES ($1, $2) RETURNING id`;
+        // remember to await if its not return the id and console log to see what its returning
+        const result =  await connection.query(sqlText1, [req.body.user_id, req.body.treeName]);
+        console.log('result.rows is', result.rows);
+        const newTree = result.rows[0].id;
+        const sqlText2 = `SELECT "id" FROM "step"`;
+        const result2 = await connection.query(sqlText2);
+        const sqlText3 = `INSERT INTO "tree_step" ("tree_id", "step_id") VALUES ($1,$2)`;
+        for(let i = 0; i < result2.rows.length; i++) {
+            await connection.query(sqlText3, [newTree, result2.rows[i].id]);
+        }
+        await connection.query( 'COMMIT;' );
         res.sendStatus(200);
-    }).catch(error => {
+    } catch(error) {
         console.log('error in adding tree to database ', error)
         res.sendStatus(500);
-    });
+    } finally {
+        //Super important that we free that connection all the time
+        connection.release();
+    }
 });
 
 

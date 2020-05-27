@@ -25,6 +25,7 @@ CREATE TABLE "tree" (
 -- There are 6 phases in the HBX process
 CREATE TABLE "phase" (
 	"id" SERIAL PRIMARY KEY,
+	"phase_number" INT,
 	"name" VARCHAR(120) NOT NULL,
 	"number_of_steps" INT
 );
@@ -51,13 +52,13 @@ CREATE TABLE "tree_step" (
 
 --DATA INSERTS MUST CREATE USER FIRST
 -- Run to create the phases of the HBX Process
-INSERT INTO "phase" ("name", "number_of_steps") VALUES 
-('Identifying Stress', 5),
-('Virtual Reality', 4),
-('Going Deeper', 4),
-('Remove the Barrier', 1),
-('Blaze A New Trail', 4),
-('Get Predictive', 3);
+INSERT INTO "phase" ("phase_number", "name", "number_of_steps") VALUES 
+(1, 'Identifying Stress', 5),
+(2, 'Virtual Reality', 4),
+(3, 'Going Deeper', 4),
+(4, 'Remove the Barrier', 1),
+(5, 'Blaze A New Trail', 4),
+(6,'Get Predictive', 3);
 
 --Creates all the steps with names, description, optional hints and the step number to populated the step page
 --Phase 1 Step 1
