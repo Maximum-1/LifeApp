@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+//Import to do routing
+import {withRouter} from 'react-router-dom';
 
 //import styles
 import './Item.css';
@@ -10,6 +12,7 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 
 class Item extends Component {
 
+  //Method for getting the percent of how completed the tree is
   percentageComplete = () => {
     //Need to divide number of steps_completed by 21 to get percentage of tree completed
     let percentage = this.props.steps_completed/21* 100;
@@ -18,9 +21,15 @@ class Item extends Component {
     return percentage;
   }
 
+  //Method for deleting a tree
   handleDelete = (id) => {
     console.log('id is', id);
     this.props.dispatch({ type: 'DELETE_TREE', payload: {tree_id: id }});
+  }
+  
+  goToPhasePage = (id) => {
+    console.log('id is',id);
+    this.props.history.push(`/phases?tree-id=${id}`);
   }
 
   render() {
@@ -34,7 +43,10 @@ class Item extends Component {
           </Card.Header>
           <Card.Body>
               <div>
-                <button className="card-btn">View Tree</button>
+                <button 
+                  className="card-btn"
+                  onClick={() => this.goToPhasePage(this.props.tree_id)}
+                >View Tree</button>
                 <button className="card-btn">View Summary</button>
                 <button 
                   className="card-btn" 
@@ -54,4 +66,4 @@ const mapStateToProps = state => ({
 });
 
 // this allows us to use <App /> in index.js
-export default connect()(Item);
+export default withRouter(connect()(Item));
