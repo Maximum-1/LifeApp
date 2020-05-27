@@ -10,7 +10,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 // GET the tree info and the user info 
 router.get('/', (req, res) => {
 
-    const queryText = 'SELECT "tree"."id", "tree"."name", "tree"."date_created", "tree"."date_finished", "tree"."steps_completed", "tree"."status", "user"."id" FROM "tree" JOIN "user" ON "tree"."user_id" = "user"."id" order by "tree"."name"';
+    const queryText = 'SELECT "tree"."id", "tree"."name", "tree"."date_created", "tree"."date_finished", "tree"."steps_completed", "tree"."status", "user"."id" as user_id FROM "tree" JOIN "user" ON "tree"."user_id" = "user"."id" order by "tree"."name"';
     pool.query(queryText)
         .then((result) => {
             console.log('GET Tree on server', result.rows);
