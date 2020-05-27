@@ -18,9 +18,19 @@ a {
   background-color: #520887 !important;
 }
 
+/* Add Tree Button styling */
+.modal-btn {
+  margin-left: auto;
+  margin-right: 6px;
+}
+
+.hide {
+  display: none;
+}
+
 /* media query to remove the  */
-@media screen and (max-width: 374px) {
-  .disappear {
-    display: none;
+@media screen and (min-width: 992px) {
+  .show {
+    display: inline-block;
   }
 }

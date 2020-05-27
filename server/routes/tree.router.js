@@ -32,15 +32,29 @@ router.get('/', (req, res) => {
  * POST route template
  */
 router.post('/', (req, res) => {
-    console.log('in fav router', req.body);
-    let sqlText = `INSERT INTO "tree" ("user_id", "name") VALUES ($1, $2)`;
-    pool.query(sqlText, [req.body.user_id, req.body.tree_name]).then(() => {
+    console.log('in post to add new tree', req.body);
+    const sqlText1 = `INSERT INTO "tree" ("user_id", "name") VALUES ($1, $2) RETURNING id`;
+    const sqlText2 = `SELECT "id" FROM "step"`;
+    const sqlText3 = `INSERT INTO "tree_step" ("tree_id", "step_id") VALUES ($1,$2)`;
+    let tree_id = '';
+
+    pool.query(sqlText1, [req.body.user_id, req.body.treeName]).then((response) => {
+        tree_id = response.rows[0].id;
+        pool.query(sqlText2).then((response) => {
+            const steps = response.rows.length;
+            for(let i = 0; i < steps; i++) {
+                 pool.query(sqlText3, [tree_id,response.rows[i].id])
+            }
+        })
         res.sendStatus(200);
     }).catch(error => {
         console.log('error in adding tree to database ', error)
         res.sendStatus(500);
     });
 });
+
+
+
 
 
 
