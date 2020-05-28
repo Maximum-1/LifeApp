@@ -1,4 +1,4 @@
-const singleStepReducer = (state = [], action) => {
+const singleStepReducer = (state = {}, action) => {
     switch (action.type) {
         case 'STEP':
             return action.payload
