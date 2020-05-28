@@ -39,7 +39,7 @@ class UserPage extends Component {
 // const mapStateToProps = ({user}) => ({ user });
 const mapStateToProps = reduxState => ({
   user: reduxState.user,
-  trees: reduxState.treeReducer
+  trees: reduxState.allTreesReducer
 });
 
 // this allows us to use <App /> in index.js
