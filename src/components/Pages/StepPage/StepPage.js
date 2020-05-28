@@ -24,7 +24,8 @@ class StepPage extends Component {
     return (
       <div>
         <>
-          <h2 >{this.props.step.phase_name}</h2>
+        <h2>Steps Page</h2>
+         <h2 >{this.props.step.phase_name}</h2>
           <h5>{this.props.step.step_number}: {this.this.props.step.step_name}</h5>
           <h5>Description></h5>
           <p>{this.props.step.description}</p>
