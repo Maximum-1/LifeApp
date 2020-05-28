@@ -7,10 +7,13 @@ function* addItemSaga() {
 
 function* addTree(action) {
     try {
+        let id = action.payload.user_id;
         console.log('in add tree generator funciton');
         console.log('action.payload is', action.payload);
-        yield axios.post('/api/tree', action.payload);
-        yield put({ type: 'GET_TREE' });
+        const response = yield axios.post('/api/tree', action.payload);
+        console.log('response data from post TREE', response.data);
+        
+        yield put({ type: 'GET_TREE', payload: id });
     } catch (error) {
         console.log('post item to server failed', error);
     }

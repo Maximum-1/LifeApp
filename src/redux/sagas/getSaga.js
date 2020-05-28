@@ -6,6 +6,7 @@ function* getTreeSaga(action) {
     console.log('in getTreeSaga, action.payload is', action.payload);
     try {
         const response = yield axios.get(`/api/tree/${action.payload}`);
+        // const response = yield axios.get(`/api/tree/`, action.payload);
         yield put({ type: 'TREE', payload: response.data })
     }
     catch (error) {
@@ -26,16 +27,16 @@ function* getStepSaga(action) {
 }
 
 //getPhaseSaga
-// function* getPhaseSaga(action) {
-//     console.log('in getPhaseSaga', action.payload);
-//     try {
-//         const response = yield axios.get(`/api/step/`);
-//         yield put({ type: 'PHASE', payload: response.data })
-//     }
-//     catch (error) {
-//         console.log('Error with PHASE GET', error);
-//     }
-// }
+function* getPhaseSaga(action) {
+    console.log('in getPhaseSaga', action.payload);
+    try {
+        const response = yield axios.get(`/api/step/`);
+        yield put({ type: 'PHASE', payload: response.data })
+    }
+    catch (error) {
+        console.log('Error with PHASE GET', error);
+    }
+}
 
 
 function* getSaga() {

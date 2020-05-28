@@ -8,15 +8,16 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
  */
 
 // GET the tree info and the user info 
-router.get('/', rejectUnauthenticated, (req, res) => {
+router.get('/:id', rejectUnauthenticated, (req, res) => {
     const id = req.params.id;
-    const queryText = `
-                        SELECT * FROM "tree"
-                        WHERE "user_id" = $1;
+    console.log('GET tree id is:', req.params.id);
+    
+    const queryText = `SELECT * FROM "tree"
+                       WHERE user_id = $1
                         `;
     pool.query(queryText, [id])
         .then((result) => {
-            console.log('GET Tree on server', result.rows);
+            // console.log('GET Tree on server', result.rows);
             res.send(result.rows);
         })
         .catch((err) => {
@@ -67,6 +68,7 @@ router.post('/', rejectUnauthenticated, async (req, res) => {
         }
         await connection.query( 'COMMIT;' );
         res.sendStatus(200);
+        
     } catch(error) {
         console.log('error in adding tree to database ', error)
         res.sendStatus(500);
