@@ -10,9 +10,11 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 //GET the specific step info by sending in the step id:
 router.get('/:id', rejectUnauthenticated, (req, res) => {
     const id = req.params.id
-    const queryText = `SELECT "step"."id", "step"."name" as "step_name", "step"."description", "step"."optional_hint", "step"."step_number", "phase"."name" as "phase_name", "phase"."phase_number" FROM "step"
-                        JOIN "phase" ON "step"."phase_id" = "phase"."id"
-                        WHERE "step"."id"= $1;
+    const queryText = `SELECT "tree_step"."id" as "tree_step_id", "step"."name" as "step_name", "phase"."name" as "phase_name", "step"."description", "step"."optional_hint", "tree_step"."content" 
+                        FROM "tree_step" 
+                        LEFT JOIN "step" ON "tree_step"."step_id" = "step"."id" 
+                        LEFT JOIN "phase" ON "step"."phase_id" = "phase"."id" 
+                        WHERE "tree_step"."id" = $1;
                         `;
     pool.query(queryText, [id])
         .then((result) => {
