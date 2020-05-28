@@ -1,6 +1,6 @@
-const phaseReducer = (state = [], action) => {
+const allTreesReducer = (state = [], action) => {
     switch (action.type) {
-        case 'PHASE':
+        case 'ALL_TREE':
             return action.payload
         default:
             return state
@@ -8,4 +8,4 @@ const phaseReducer = (state = [], action) => {
 }
 
 
-export default phaseReducer;
+export default allTreesReducer;
