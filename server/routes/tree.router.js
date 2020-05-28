@@ -4,7 +4,8 @@ const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 /**
- * GET route template
+ * GET route 
+ * Retreives all the users trees
  */
 
 // GET the tree info and the user info 
@@ -27,26 +28,9 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
 
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /**
- * POST route template
+ * POST route
+ * Creates a tree an all associated steps of the tree
  */
 router.post('/', rejectUnauthenticated, async (req, res) => {
     console.log('in post to add new tree', req.body);
@@ -78,37 +62,9 @@ router.post('/', rejectUnauthenticated, async (req, res) => {
     }
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /**
- * DELETE route template
+ * DELETE route
+ * Removes a tree based on the trees id
  */
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
     // Set tree ID to variable
