@@ -78,8 +78,7 @@ router.put('/update-step/:id', rejectUnauthenticated, (req, res) => {
         const queryText = `
                             UPDATE tree_step 
                             SET content = $1, status = $2
-                            WHERE id = $3
-                            RETURNING tree_id;
+                            WHERE id = $3;
                           `;
         pool.query(queryText, [answer, status, tree_step_id]).then((result) => {
             res.sendStatus(204);

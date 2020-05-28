@@ -13,7 +13,7 @@ class StepPage extends Component {
     //Getting query string to obtain the step ID
     let queryString = this.props.location.search;
     //Remove unneccessary portion of URL path
-    let step_id = queryString.replace('?step-id=', '');
+    let step_id = queryString.replace('?tree_step_id=', '');
     console.log('The step id is', step_id);
     //Now we can dispatch to the Saga
     this.props.dispatch({ type: 'GET_SINGLE_STEP', payload: step_id });
@@ -23,6 +23,7 @@ class StepPage extends Component {
   render() {
     return (
       <div>
+        <h1>Step Page</h1>
         <>
           <h2 >{this.props.step.phase_name}</h2>
           <h5>{this.props.step.step_number}: {this.this.props.step.step_name}</h5>
