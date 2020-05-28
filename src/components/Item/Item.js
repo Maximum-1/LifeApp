@@ -24,7 +24,7 @@ class Item extends Component {
   //Method for deleting a tree
   handleDelete = (id) => {
     console.log('id is', id);
-    this.props.dispatch({ type: 'DELETE_TREE', payload: {tree_id: id }});
+    this.props.dispatch({ type: 'DELETE_TREE', payload: { tree_id: id, user_id: this.props.user.id }});
   }
   
   goToPhasePage = (id) => {
@@ -61,9 +61,9 @@ class Item extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  
+const mapStateToProps = reduxState => ({
+  user: reduxState.user
 });
 
 // this allows us to use <App /> in index.js
-export default withRouter(connect()(Item));
+export default withRouter(connect(mapStateToProps)(Item));
