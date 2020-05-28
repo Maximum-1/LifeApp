@@ -8,13 +8,15 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
  */
 
 //GET the specific step info by sending in the step id:
-router.get('/steps/:id', rejectUnauthenticated, (req, res) => {
+router.get('/step/:id', rejectUnauthenticated, (req, res) => {
     const id = req.params.id
-    const queryText = `
-                        SELECT "step"."id", "step"."phase_id", "step"."name", "step"."description", "step"."optional_hint", "step"."step_number" 
-                        FROM "step" WHERE id=$1`;
+    const queryText = `SELECT "step"."id", "step"."name" as "step_name", "step"."description", "step"."optional_hint", "step"."step_number", "phase"."name" as "phase_name", "phase"."phase_number" FROM "step"
+                        JOIN "phase" ON "step"."phase_id" = "phase"."id"
+                        WHERE "step"."id"= $1;
+                        `;
     pool.query(queryText, [id])
-        .then((result) => {console.log('GET Step on server', result.rows);
+        .then((result) => {
+            console.log('GET Step on server', result.rows);
             res.send(result.rows);
         })
         .catch((err) => {
@@ -24,8 +26,8 @@ router.get('/steps/:id', rejectUnauthenticated, (req, res) => {
 });
 
 // GET the PHASE and STEP information after clicking the Tree
-router.get('/phases/:id', rejectUnauthenticated, (req, res) => {    
-    const id=req.params.id;
+router.get('/phases/:id', rejectUnauthenticated, (req, res) => {
+    const id = req.params.id;
     const queryText = `
                         SELECT "step"."id" as "step_id", "tree"."name" as "tree_name", "tree"."date_created", "step"."name" as "step_name", "phase"."name" as "phase_name", "tree_step"."status" 
                         FROM "tree" 
@@ -35,7 +37,7 @@ router.get('/phases/:id', rejectUnauthenticated, (req, res) => {
                         WHERE "tree"."id" = $1
                         order by "phase"."id";
                         `;
-    pool.query(queryText,[id])
+    pool.query(queryText, [id])
         .then((result) => {
             console.log('GET Phase on server', result.rows);
             res.send(result.rows);
@@ -67,7 +69,7 @@ router.get('/phases/:id', rejectUnauthenticated, (req, res) => {
  * Updates the content field and the status to true
  */
 router.put('/update-step/:id', rejectUnauthenticated, (req, res) => {
-    if(req.isAuthenticated()) {
+    if (req.isAuthenticated()) {
         const answer = req.body.answer;
         const tree_step_id = req.params.id;
         const status = true;
@@ -79,12 +81,12 @@ router.put('/update-step/:id', rejectUnauthenticated, (req, res) => {
                             WHERE id = $3
                             RETURNING tree_id;
                           `;
-        pool.query(queryText,[answer, status, tree_step_id]).then((result) => {
-                res.sendStatus(204);
-            }).catch( (error) => {
-                console.log(`Error on query ${error}`);
-                res.sendStatus(500);
-            });
+        pool.query(queryText, [answer, status, tree_step_id]).then((result) => {
+            res.sendStatus(204);
+        }).catch((error) => {
+            console.log(`Error on query ${error}`);
+            res.sendStatus(500);
+        });
     } else {
         res.sendStatus(403);
     }
@@ -95,7 +97,7 @@ router.put('/update-step/:id', rejectUnauthenticated, (req, res) => {
  * Make sure to do this if step 20 is completed
  */
 router.put('/update-tree/:id', rejectUnauthenticated, (req, res) => {
-    if(req.isAuthenticated()) {
+    if (req.isAuthenticated()) {
         const tree_id = req.params.id;
         const status = true;
 
@@ -105,12 +107,12 @@ router.put('/update-tree/:id', rejectUnauthenticated, (req, res) => {
                             SET status = $1
                             WHERE id = $2;
                           `;
-        pool.query(queryText,[status, tree_id]).then((result) => {
-                res.sendStatus(204);
-            }).catch( (error) => {
-                console.log(`Error on query ${error}`);
-                res.sendStatus(500);
-            });
+        pool.query(queryText, [status, tree_id]).then((result) => {
+            res.sendStatus(204);
+        }).catch((error) => {
+            console.log(`Error on query ${error}`);
+            res.sendStatus(500);
+        });
     } else {
         res.sendStatus(403);
     }

@@ -28,10 +28,11 @@ function* getStepSaga(action) {
 
 
 
-
 function* getSaga() {
     yield takeLatest('GET_TREE', getTreeSaga);
     yield takeLatest('FETCH_TREE_BY_ID', getStepSaga);
+    yield takeLatest('GET_SINGLE_STEP', getSingleStepSaga);
+
 }
 
 export default getSaga;
