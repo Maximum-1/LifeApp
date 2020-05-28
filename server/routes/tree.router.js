@@ -9,9 +9,9 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
  */
 
 // GET the tree info and the user info 
-router.get('/:id', rejectUnauthenticated, (req, res) => {
-    const id = req.params.id;
-    console.log('GET tree id is:', req.params.id);
+router.get('/', rejectUnauthenticated, (req, res) => {
+    const id = req.user.id;
+    console.log('GET tree id is:', req.user);
     
     const queryText = `SELECT * FROM "tree"
                        WHERE user_id = $1

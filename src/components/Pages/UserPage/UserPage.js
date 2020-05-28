@@ -6,7 +6,7 @@ import Item from '../../Item/Item';
 
 class UserPage extends Component {
   componentDidMount() {
-      this.props.dispatch({ type: 'GET_TREE', payload: this.props.user.id});
+      this.props.dispatch({ type: 'GET_TREE'  });
   }
 
   render() {
@@ -39,7 +39,7 @@ class UserPage extends Component {
 // const mapStateToProps = ({user}) => ({ user });
 const mapStateToProps = reduxState => ({
   user: reduxState.user,
-  trees: reduxState.treeReducer
+  trees: reduxState.allTreesReducer
 });
 
 // this allows us to use <App /> in index.js

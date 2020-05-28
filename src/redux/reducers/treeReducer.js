@@ -1,6 +1,6 @@
 const treeReducer = (state = [], action) => {
     switch (action.type) {
-        case 'TREE':
+        case 'ONE_TREE':
             return action.payload
         default:
             return state
