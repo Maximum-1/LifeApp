@@ -23,11 +23,25 @@ class StepPage extends Component {
   render() {
     return (
       <div>
-        <h.}</h1>
-          div >
-                                                            const mapStateToProps = reduxState => ({
-      step: reduxState.STEP
-    });
+        <>
+          <h2 >{this.props.step.phase_name}</h2>
+          <h5>{this.props.step.step_number}: {this.this.props.step.step_name}</h5>
+          <h5>Description></h5>
+          <p>{this.props.step.description}</p>
+          <h5>Optional Sentence Starters and Hints</h5>
+          <p>{this.props.step.optional_hint}</p>
+          <h5>Self-Reflection</h5>
+        </>
+      </div>
+    )
+  }
+}
 
-    // this allows us to use <App /> in index.js
-    export default connect(mapStateToProps)(StepPage);
+
+
+const mapStateToProps = reduxState => ({
+  step: reduxState.STEP
+});
+
+// this allows us to use <App /> in index.js
+export default connect(mapStateToProps)(StepPage);
