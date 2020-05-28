@@ -27,14 +27,14 @@ function* getStepSaga(action) {
 }
 
 //getPhaseSaga
-function* getPhaseSaga(action) {
-    console.log('in getPhaseSaga', action.payload);
+function* getSingleStepSaga(action) {
+    console.log('in getSingleStepSaga', action.payload);
     try {
-        const response = yield axios.get(`/api/step/`);
-        yield put({ type: 'PHASE', payload: response.data })
+        const response = yield axios.get(`/api/step/${action.payload}`);
+        yield put({ type: 'STEP', payload: response.data })
     }
     catch (error) {
-        console.log('Error with PHASE GET', error);
+        console.log('Error with single step GET', error);
     }
 }
 
@@ -42,7 +42,7 @@ function* getPhaseSaga(action) {
 function* getSaga() {
     yield takeLatest('GET_TREE', getTreeSaga);
     yield takeLatest('FETCH_TREE_BY_ID', getStepSaga);
-    yield takeLatest('GET_PHASE', getPhaseSaga);
+    yield takeLatest('GET_SINGLE_STEP', getSingleStepSaga);
 }
 
 export default getSaga;

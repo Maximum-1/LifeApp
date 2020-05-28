@@ -5,6 +5,7 @@ import user from './userReducer';
 import treeReducer from './treeReducer';
 import stepReducer from './stepReducer';
 import phaseReducer from './phaseReducer';
+import singleStepReducer from './singleStepReducer'
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   treeReducer,
   stepReducer,
   phaseReducer,
+  singleStepReducer,
 });
 
 export default rootReducer;
