@@ -8,7 +8,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
  */
 
 //GET the specific step info by sending in the step id:
-router.get('/step/:id', rejectUnauthenticated, (req, res) => {
+router.get('/:id', rejectUnauthenticated, (req, res) => {
     const id = req.params.id
     const queryText = `SELECT "step"."id", "step"."name" as "step_name", "step"."description", "step"."optional_hint", "step"."step_number", "phase"."name" as "phase_name", "phase"."phase_number" FROM "step"
                         JOIN "phase" ON "step"."phase_id" = "phase"."id"
