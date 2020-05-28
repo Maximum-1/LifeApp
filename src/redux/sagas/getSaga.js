@@ -18,7 +18,7 @@ function* getTreeSaga(action) {
 function* getStepSaga(action) {
     console.log('in getStepSaga', action.payload);
     try {
-        const response = yield axios.get(`/api/step/${action.payload}`);
+        const response = yield axios.get(`/api/step/phases/${action.payload}`);
         yield put({ type: 'STEP', payload: response.data })
     }
     catch (error) {
