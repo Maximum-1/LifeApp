@@ -40,7 +40,7 @@ class Item extends Component {
         <Card.Img variant="top" src="./images/tree.jpg" />
         <Card.Header>
           <h2>{this.props.tree_name}</h2>
-          <h5>Date Created: {this.props.date_created.replace('T05:00:00.000Z', '')}</h5>
+          <h5>Date Created: {this.props.date_created.substring(0, 10)}</h5>
           <ProgressBar now={this.percentageComplete()} label={`${this.percentageComplete()}%`} />
         </Card.Header>
         <Card.Body>
