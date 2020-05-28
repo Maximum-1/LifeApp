@@ -13,7 +13,7 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
     console.log('GET tree id is:', req.params.id);
     
     const queryText = `SELECT * FROM "tree"
-                        WHERE user_id = $1
+                       WHERE user_id = $1
                         `;
     pool.query(queryText, [id])
         .then((result) => {
@@ -68,6 +68,7 @@ router.post('/', rejectUnauthenticated, async (req, res) => {
         }
         await connection.query( 'COMMIT;' );
         res.sendStatus(200);
+        
     } catch(error) {
         console.log('error in adding tree to database ', error)
         res.sendStatus(500);
