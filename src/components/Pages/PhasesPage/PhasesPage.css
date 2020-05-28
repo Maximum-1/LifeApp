@@ -1,0 +1,12 @@
+/* Dropdown Styling */
+.dropdown {
+    width: 100%;
+}
+
+.dropdown-menu {
+    width: 100%;
+}
+/* Select the text color for the steps */
+.steps-text {
+    color: blue;
+}
