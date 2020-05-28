@@ -73,12 +73,17 @@ class PhasesPage extends Component {
       {step_links = this.props.steps.map(step => {
         if(phase === step.phase_name) {
           return(
-            <Dropdown.Item block><span className='steps-text'>{step.step_name}</span></Dropdown.Item>
+            <Dropdown.Item block onClick={() => this.goToStepPage(step.tree_step_id)}><span className='steps-text'>{step.step_name}</span></Dropdown.Item>
           );
         }
       })}
     }
     return step_links;
+  }
+
+  goToStepPage = (id) => {
+    console.log('id is',id);
+    this.props.history.push(`/step?step-id=${id}`);
   }
 
   render() {
