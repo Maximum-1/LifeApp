@@ -83,7 +83,7 @@ class PhasesPage extends Component {
 
   goToStepPage = (id) => {
     console.log('id is',id);
-    this.props.history.push(`/step?step-id=${id}`);
+    this.props.history.push(`/step?tree_step_id=${id}`);
   }
 
   render() {
