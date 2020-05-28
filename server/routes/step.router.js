@@ -29,7 +29,7 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
 router.get('/phases/:id', rejectUnauthenticated, (req, res) => {
     const id = req.params.id;
     const queryText = `
-                        SELECT "step"."id" as "step_id", "tree"."name" as "tree_name", "tree"."date_created", "step"."name" as "step_name", "phase"."name" as "phase_name", "tree_step"."status" 
+                        SELECT "step"."id" as "step_id","tree_step"."id" as "tree_step_id", "tree"."name" as "tree_name", "tree"."date_created", "step"."name" as "step_name", "phase"."name" as "phase_name", "tree_step"."status" 
                         FROM "tree" 
                         LEFT JOIN "tree_step" ON "tree"."id" = "tree_step"."tree_id" 
                         LEFT JOIN "step" ON "tree_step"."step_id" = "step"."id" 

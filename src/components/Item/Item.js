@@ -31,7 +31,6 @@ class Item extends Component {
   goToPhasePage = (id) => {
     console.log('id is',id);
     this.props.history.push(`/phases?tree-id=${id}`);
-
   }
 
   render() {
