@@ -6,7 +6,7 @@ import Item from '../../Item/Item';
 
 class UserPage extends Component {
   componentDidMount() {
-      this.props.dispatch({ type: 'GET_TREE'});
+      this.props.dispatch({ type: 'GET_TREE', payload: this.props.user.id});
   }
 
   render() {

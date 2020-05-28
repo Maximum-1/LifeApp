@@ -3,9 +3,10 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 // getTreesaga
 function* getTreeSaga(action) {
-    console.log('in getTreeSaga');
+    console.log('in getTreeSaga, action.payload is', action.payload);
     try {
-        const response = yield axios.get(`/api/tree/`);
+        const response = yield axios.get(`/api/tree/${action.payload}`);
+        // const response = yield axios.get(`/api/tree/`, action.payload);
         yield put({ type: 'TREE', payload: response.data })
     }
     catch (error) {
@@ -40,7 +41,7 @@ function* getPhaseSaga(action) {
 
 function* getSaga() {
     yield takeLatest('GET_TREE', getTreeSaga);
-    yield takeLatest('GET_STEP', getStepSaga);
+    yield takeLatest('FETCH_TREE_BY_ID', getStepSaga);
     yield takeLatest('GET_PHASE', getPhaseSaga);
 }
 
