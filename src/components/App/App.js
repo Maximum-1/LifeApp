@@ -19,6 +19,7 @@ import UserPage from '../Pages/UserPage/UserPage';
 import MyTreePage from '../Pages/MyTreePage/MyTreePage';
 import TermsOfServicePage from '../Pages/TermsOfServicePage/TermsOfServicePage';
 import PhasesPage from '../Pages/PhasesPage/PhasesPage';
+import StepPage from '../Pages/StepPage/StepPage';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -73,6 +74,13 @@ class App extends Component {
                 //if using query strings no /:id
                 path="/phases"
                 component={PhasesPage}
+              />
+              <ProtectedRoute
+                exact
+                //if using params to pass id use /step/:id
+                //if using query strings no /:id
+                path="/step"
+                component={StepPage}
               />
               {/* If none of the other routes matched, we will show a 404. */}
               <Route render={() => <h1>404</h1>} />

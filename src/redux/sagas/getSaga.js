@@ -26,6 +26,16 @@ function* getStepSaga(action) {
     }
 }
 
+function* getSingleStepSaga(action) {
+    console.log('in getStepSaga', action.payload);
+    try {
+        const response = yield axios.get(`/api/step/${action.payload}`);
+        yield put({ type: 'STEP', payload: response.data })
+    }
+    catch (error) {
+        console.log('Error with STEP GET', error);
+    }
+}
 
 
 function* getSaga() {
