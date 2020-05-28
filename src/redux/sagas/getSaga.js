@@ -5,7 +5,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 function* getTreeSaga(action) {
     console.log('in getTreeSaga, action.payload is', action.payload);
     try {
-        const response = yield axios.get(`/api/tree/${action.payload}`);
+        const response = yield axios.get(`/api/tree/${action.payload}`, action.payload);
         yield put({ type: 'TREE', payload: response.data })
     }
     catch (error) {
