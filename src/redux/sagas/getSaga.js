@@ -18,7 +18,7 @@ function* getStepSaga(action) {
     console.log('in getStepSaga', action.payload);
     try {
         const response = yield axios.get(`/api/step/phases/${action.payload}`);
-        yield put({ type: 'STEP', payload: response.data })
+        yield put({ type: 'ALL_STEPS', payload: response.data })
     }
     catch (error) {
         console.log('Error with STEP GET', error);

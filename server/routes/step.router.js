@@ -18,8 +18,8 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
                         `;
     pool.query(queryText, [id])
         .then((result) => {
-            console.log('GET Step on server', result.rows);
-            res.send(result.rows);
+            console.log('GET Step on server', result.rows[0]);
+            res.send(result.rows[0]);
         })
         .catch((err) => {
             console.log('Error completing GET Step query', err);
