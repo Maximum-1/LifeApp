@@ -61,7 +61,8 @@ class StepPage extends Component {
     });
     let queryString = this.props.location.search;
     let tree_step_id = queryString.replace('?tree_step_id=', '');
-    //this.props.history.push(`/step?tree_step_id=${tree_step_id++}`);
+    let tree_step = tree_step_id++
+    this.props.history.push(`/step?tree_step_id=${tree_step}`);
   }
 
   handlePreviousStep = (event) => {
