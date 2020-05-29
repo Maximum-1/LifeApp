@@ -26,7 +26,7 @@ function* getStepSaga(action) {
 }
 
 function* getSingleStepSaga(action) {
-    console.log('in getStepSaga', action.payload);
+    console.log('in getSingleStepSaga', action.payload);
     try {
         const response = yield axios.get(`/api/step/${action.payload}`);
         yield put({ type: 'STEP', payload: response.data })
