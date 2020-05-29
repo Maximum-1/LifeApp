@@ -1,0 +1,31 @@
+p {
+    background-color: #ff4545;
+}
+
+h1 {
+    font-size:26pt;
+    font-family:Calibri,sans-serif;
+    color:#17365d;
+    background-color:transparent;
+    font-weight:400;
+    font-style:normal;
+    font-variant:normal;
+    text-decoration:none;
+    vertical-align:baseline;
+    white-space:pre;
+    white-space:pre-wrap;
+}
+
+h2 {
+    font-size:13pt;
+    font-family:Calibri,sans-serif;
+    color:#4f81bd;
+    background-color:transparent;
+    font-weight:700;
+    font-style:normal;
+    font-variant:normal;
+    text-decoration:none;
+    vertical-align:baseline;
+    white-space:pre;
+    white-space:pre-wrap;
+}
