@@ -43,15 +43,12 @@ class PhasesPage extends Component {
     //Flag to check if its the same phase
     let phase_name = '';
     //Dropdowns to return
-    let phaseDropDowns = [];
-
-    if(this.props.steps.length) {
-      {phaseDropDowns = this.props.steps.map(step => {
+    const phaseDropDowns = this.props.steps.map(step => {
         if(phase_name !== step.phase_name) {
           phase_name = step.phase_name;
           return(
               <Dropdown key={step.phase_name}>
-                <Dropdown.Toggle id="dropdown-basic" block>
+                <Dropdown.Toggle id="dropdown-basic" block="true">
                   {step.phase_name}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
@@ -61,23 +58,35 @@ class PhasesPage extends Component {
             );
           }
         });
-      }//end of map
-    }//end of top if
+ 
     return phaseDropDowns; 
   }
 
   stepsRendering = (phase) => {
-    console.log('phase is',phase);
-    let step_links = '';
-    if(this.props.steps.length){
-      {step_links = this.props.steps.map(step => {
-        if(phase === step.phase_name) {
+      const step_links = this.props.steps.map(step => {
+        if(phase === step.phase_name && step.status === false) {
           return(
-            <Dropdown.Item block onClick={() => this.goToStepPage(step.tree_step_id)}><span className='steps-text'>{step.step_name}</span></Dropdown.Item>
+            <Dropdown.Item
+              key={step.step_name}
+              block="true" 
+            >
+              <span className='steps-text'>{step.step_name}</span>
+              <span className='lock-icon'><i className="fa fa-lock" aria-hidden="true"></i></span>
+            </Dropdown.Item>
+          );
+        //end of inner if
+        } else if(phase === step.phase_name){
+          return(
+            <Dropdown.Item
+              key={step.step_name}
+              block="true"
+              onClick={() => this.goToStepPage(step.tree_step_id)}
+            >
+              <span className='steps-text'>{step.step_name}</span>
+            </Dropdown.Item>
           );
         }
-      })}
-    }
+      })
     return step_links;
   }
 
@@ -86,9 +95,14 @@ class PhasesPage extends Component {
     this.props.history.push(`/step?tree_step_id=${id}`);
   }
 
+  progressCompleted = () => {
+    const completedSteps = this.props.steps.filter(step => step.status === true);
+    console.log()
+  }
+
   render() {
     return (
-      <div>
+      <div className='phases-page'>
         <h1>Phases</h1>
         <hr />
         {this.dropdownRendering()}
