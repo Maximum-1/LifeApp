@@ -9,6 +9,11 @@ import Card from 'react-bootstrap/Card';
 
 class StepPage extends Component {
 
+  state = {
+    id: 0,
+    answer: ''
+}
+
   componentDidMount() {
     this.getSingleStep();
   }
@@ -20,9 +25,28 @@ class StepPage extends Component {
     //Remove unneccessary portion of URL path
     let step_id = queryString.replace('?tree_step_id=', '');
     console.log('The step id is', step_id);
+    this.setState({
+      id: step_id
+    });
     //Now we can dispatch to the Saga
     this.props.dispatch({ type: 'GET_SINGLE_STEP', payload: step_id });
   }
+
+  handleAnswerChange = (event) => {
+    console.log('in handleChange', event.target.value);
+    this.setState({
+        answer: event.target.value
+    });
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    console.log('in handleSubmit');
+    this.props.dispatch({ type: 'PUT_ANSWER', payload: this.state })
+    this.setState({
+        answer: ''
+    });
+}
 
 
   render() {
@@ -56,16 +80,18 @@ class StepPage extends Component {
               <FormControl
                 as="textarea"
                 aria-label="With textarea"
-                placeholder={this.props.step.content} />
+                placeholder={this.props.step.content}
+                onChange={(event) => this.handleAnswerChange(event)}
+                onSubmit={(event) => this.handleSubmit(event)} />
             </InputGroup>
           </Card.Body>
         </Card>
-        {this.props.step.step_name == 'Trigger' ?
-        <button className="card-btn">View Phases</button>
-        : <button className="card-btn">Previous Step</button>}
-        {this.props.step.step_name == 'Status' ?
-        <button className="card-btn">Finish Tree</button>
-        : <button className="card-btn">Next Step</button>}
+        {this.props.step.step_name === 'Trigger' ?
+        <button className="card-btn" onClick={(event) => this.handleSubmit(event)}>View Phases</button>
+        : <button className="card-btn" onClick={(event) => this.handleSubmit(event)}>Previous Step</button>}
+        {this.props.step.step_name === 'Status' ?
+        <button className="card-btn" onClick={(event) => this.handleSubmit(event)}>Finish Tree</button>
+        : <button className="card-btn" onClick={(event) => this.handleSubmit(event)}>Next Step</button>}
       </>
     )
   }
