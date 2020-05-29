@@ -12,21 +12,21 @@ class TermsOfService extends Component {
       
     {/* Start term of services insert */}
         <div style = {divStyle}>
-          <h3>Terms of Service</h3>
+          <h2>Terms of Service</h2>
           <br/>
           <p>Last updated: May 20, 2020</p>
 
           <p>Please read these terms and conditions carefully before using Our Service.</p>
 
-          <h1>Interpretation and Definitions</h1>
+          <h2>Interpretation and Definitions</h2>
 
-          <h2>Interpretation</h2>
+          <h3>Interpretation</h3>
 
           <p>The words of which the initial letter is capitalized have meanings defined under the following conditions.</p>
 
           <p>The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</p>
 
-          <h2 dir="ltr" >Definitions</h2>
+          <h3 dir="ltr" >Definitions</h3>
 
           <p>For the purposes of these Terms and Conditions:</p>
 
@@ -60,7 +60,7 @@ class TermsOfService extends Component {
 
           <p>You means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.</p>
 
-          <h1>Acknowledgement</h1>
+          <h2>Acknowledgement</h2>
 
           <p>These are the Terms and Conditions governing the use of this Service and the agreement that operates between You and the Company. These Terms and Conditions set out the rights and obligations of all users regarding the use of the Service.</p>
 
@@ -72,25 +72,25 @@ class TermsOfService extends Component {
 
           <p>Your access to and use of the Service is also conditioned on Your acceptance of and compliance with the Privacy Policy of the Company. Our Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your personal information when You use the Application or the Website and tells You about Your privacy rights and how the law protects You. Please read Our Privacy Policy carefully before using Our Service.</p>
 
-          <h1>Subscriptions</h1>
+          <h2>Subscriptions</h2>
 
-          <h2 dir="ltr" >Subscription period</h2>
+          <h3 dir="ltr" >Subscription period</h3>
 
           <p>The Service or some parts of the Service are available only with a paid Subscription. You will be billed in advance on a recurring and periodic basis (such as daily, weekly, monthly or annually), depending on the type of Subscription plan you select when purchasing the Subscription.</p>
 
           <p>At the end of each period, Your Subscription will automatically renew under the exact same conditions unless You cancel it or the Company cancels it.</p>
 
-          <h2 dir="ltr" >Subscription cancellations</h2>
+          <h3 dir="ltr" >Subscription cancellations</h3>
 
           <p>You may cancel Your Subscription renewal either through Your Account settings page or by contacting the Company. You will not receive a refund for the fees You already paid for Your current Subscription period and You will be able to access the Service until the end of Your current Subscription period.</p>
 
-          <h2 dir="ltr" >Billing</h2>
+          <h3 dir="ltr" >Billing</h3>
 
           <p>You shall provide the Company with accurate and complete billing information including full name, address, state, zip code, telephone number, and a valid payment method information.</p>
 
           <p>Should automatic billing fail to occur for any reason, the Company will issue an electronic invoice indicating that you must proceed manually, within a certain deadline date, with the full payment corresponding to the billing period as indicated on the invoice.</p>
 
-          <h2 dir="ltr" >Fee Changes</h2>
+          <h3 dir="ltr" >Fee Changes</h3>
 
           <p>The Company, in its sole discretion and at any time, may modify the Subscription fees. Any Subscription fee change will become effective at the end of the then-current Subscription period.</p>
 
@@ -98,13 +98,13 @@ class TermsOfService extends Component {
 
           <p>Your continued use of the Service after the Subscription fee change comes into effect constitutes Your agreement to pay the modified Subscription fee amount.</p>
 
-          <h2 dir="ltr" >Refunds</h2>
+          <h3 dir="ltr" >Refunds</h3>
 
           <p>Except when required by law, paid Subscription fees are non-refundable.</p>
 
           <p>Certain refund requests for Subscriptions may be considered by the Company on a case-by-case basis and granted at the sole discretion of the Company.</p>
 
-          <h2 dir="ltr" >Free Trial</h2>
+          <h3 dir="ltr" >Free Trial</h3>
 
           <p>The Company may, at its sole discretion, offer a Subscription with a Free trial for a limited period of time.</p>
 
@@ -114,7 +114,7 @@ class TermsOfService extends Component {
 
           <p>At any time and without notice, the Company reserves the right to (i) modify the terms and conditions of the Free Trial offer, or (ii) cancel such Free trial offer.</p>
 
-          <h1>User Accounts</h1>
+          <h2>User Accounts</h2>
 
           <p>When You create an account with Us, You must provide Us information that is accurate, complete, and current at all times. Failure to do so constitutes a breach of the Terms, which may result in immediate termination of Your account on Our Service.</p>
 
@@ -124,9 +124,9 @@ class TermsOfService extends Component {
 
           <p>You may not use as a username the name of another person or entity or that is not lawfully available for use, a name or trademark that is subject to any rights of another person or entity other than You without appropriate authorization, or a name that is otherwise offensive, vulgar or obscene.</p>
 
-          <h1>Content</h1>
+          <h2>Content</h2>
 
-          <h2 dir="ltr" >Your Right to Post Content</h2>
+          <h3 dir="ltr" >Your Right to Post Content</h3>
 
           <p>Our Service allows You to post Content. You are responsible for the Content that You post to the Service, including its legality, reliability, and appropriateness. </p>
 
@@ -134,7 +134,7 @@ class TermsOfService extends Component {
 
           <p>You represent and warrant that: (i) the Content is Yours (You own it) or You have the right to use it and grant Us the rights and license as provided in these Terms, and (ii) the posting of Your Content on or through the Service does not violate the privacy rights, publicity rights, copyrights, contract rights or any other rights of any person.</p>
 
-          <h2 dir="ltr" >Content Restrictions</h2>
+          <h3 dir="ltr" >Content Restrictions</h3>
 
           <p>The Company is not responsible for the content of the Service's users. You expressly understand and agree that You are solely responsible for the Content and for all activity that occurs under your account, whether done so by You or any third person using Your account.</p>
 
@@ -169,7 +169,7 @@ class TermsOfService extends Component {
 
           <p>The Company can also limit or revoke the use of the Service if You post or transmit such objectionable Content. You understand that by using the Service, You may choose to share Content for rehabilitation purposes (e.g. sharing with a mental health practitioner) or personal reasons (e.g. to receive guidance or support). You agree that under no circumstances will the Company be liable in any way for any Content, including any errors or omissions in any content, or any loss or damage of any kind incurred as a result of your use of any Content. </p>
 
-          <h2 dir="ltr" >Content Backups</h2>
+          <h3 dir="ltr" >Content Backups</h3>
 
           <p>Although regular backups of Content are performed, the Company do not guarantee there will be no loss or corruption of data.</p>
 
@@ -179,15 +179,15 @@ class TermsOfService extends Component {
 
           <p>You agree to maintain a complete and accurate copy of any Content in a location independent of the Service.</p>
 
-          <h1>Copyright Policy</h1>
+          <h2>Copyright Policy</h2>
 
-          <h2 dir="ltr" >Intellectual Property Infringement</h2>
+          <h3 dir="ltr" >Intellectual Property Infringement</h3>
 
           <p>If You are a copyright owner, or authorized on behalf of one, and You believe that the copyrighted work has been copied in a way that constitutes copyright infringement that is taking place through the Service, You must submit Your notice in writing to the attention of our copyright agent via email at marius.massie@iammaximum1.com and include in Your notice a detailed description of the alleged infringement.</p>
 
           <p>You may be held accountable for damages (including costs and attorneys' fees) for misrepresenting that any Content is infringing Your copyright.</p>
 
-          <h2 dir="ltr" >DMCA Notice and DMCA Procedure for Copyright Infringement Claims</h2>
+          <h3 dir="ltr" >DMCA Notice and DMCA Procedure for Copyright Infringement Claims</h3>
 
           <p>You may submit a notification pursuant to the Digital Millennium Copyright Act (DMCA) by providing our Copyright Agent with the following information in writing (see 17 U.S.C 512(c)(3) for further detail):</p>
 
@@ -214,7 +214,7 @@ class TermsOfService extends Component {
 
           <p>You can contact our copyright agent via email at marius.massie@iammaximum1.com. Upon receipt of a notification, the Company will take whatever action, in its sole discretion, it deems appropriate, including removal of the challenged content from the Service.</p>
 
-          <h1>Intellectual Property</h1>
+          <h2>Intellectual Property</h2>
 
           <p>The Service and its original content (excluding Content provided by You or other users), features and functionality are and will remain the exclusive property of the Company and its licensors.</p>
 
@@ -222,11 +222,11 @@ class TermsOfService extends Component {
 
           <p>Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of the Company.</p>
 
-          <h1>Your Feedback to Us</h1>
+          <h2>Your Feedback to Us</h2>
 
           <p>You assign all rights, title and interest in any Feedback You provide the Company. If for any reason such assignment is ineffective, You agree to grant the Company a non-exclusive, perpetual, irrevocable, royalty free, worldwide right and licence to use, reproduce, disclose, sub-licence, distribute, modify and exploit such Feedback without restriction.</p>
 
-          <h1>Links to Other Websites</h1>
+          <h2>Links to Other Websites</h2>
 
           <p>Our Service may contain links to third-party web sites or services that are not owned or controlled by the Company.</p>
 
@@ -234,13 +234,13 @@ class TermsOfService extends Component {
 
           <p>We strongly advise You to read the terms and conditions and privacy policies of any third-party web sites or services that You visit.</p>
 
-          <h1>Termination</h1>
+          <h2>Termination</h2>
 
           <p>We may terminate or suspend Your Account immediately, without prior notice or liability, for any reason whatsoever, including without limitation if You breach these Terms and Conditions.</p>
 
           <p>Upon termination, Your right to use the Service will cease immediately. If You wish to terminate Your Account, You may simply discontinue using the Service.</p>
 
-          <h1>Limitation of Liability</h1>
+          <h2>Limitation of Liability</h2>
 
           <p>Notwithstanding any damages that You might incur, the entire liability of the Company and any of its suppliers under any provision of this Terms and Your exclusive remedy for all of the foregoing shall be limited to the amount actually paid by You through the Service or 100 USD if You haven't purchased anything through the Service.</p>
 
@@ -248,7 +248,7 @@ class TermsOfService extends Component {
 
           <p>Some states do not allow the exclusion of implied warranties or limitation of liability for incidental or consequential damages, which means that some of the above limitations may not apply. In these states, each party's liability will be limited to the greatest extent permitted by law.</p>
 
-          <h1>"AS IS" and "AS AVAILABLE" Disclaimer</h1>
+          <h2>"AS IS" and "AS AVAILABLE" Disclaimer</h2>
 
           <p>The Service is provided to You "AS IS" and "AS AVAILABLE" and with all faults and defects without warranty of any kind. To the maximum extent permitted under applicable law, the Company, on its own behalf and on behalf of its Affiliates and its and their respective licensors and service providers, expressly disclaims all warranties, whether express, implied, statutory or otherwise, with respect to the Service, including all implied warranties of merchantability, fitness for a particular purpose, title and non-infringement, and warranties that may arise out of course of dealing, course of performance, usage or trade practice. Without limitation to the foregoing, the Company provides no warranty or undertaking, and makes no representation of any kind that the Service will meet Your requirements, achieve any intended results, be compatible or work with any other software, applications, systems or services, operate without interruption, meet any performance or reliability standards or be error free or that any errors or defects can or will be corrected.</p>
 
@@ -256,47 +256,47 @@ class TermsOfService extends Component {
 
           <p>Some jurisdictions do not allow the exclusion of certain types of warranties or limitations on applicable statutory rights of a consumer, so some or all of the above exclusions and limitations may not apply to You. But in such a case the exclusions and limitations set forth in this section shall be applied to the greatest extent enforceable under applicable law.</p>
 
-          <h1>Governing Law</h1>
+          <h2>Governing Law</h2>
 
           <p>The laws of the Country, excluding its conflicts of law rules, shall govern this Terms and Your use of the Service. Your use of the Application may also be subject to other local, state, national, or international laws.</p>
 
-          <h1>Disputes Resolution</h1>
+          <h2>Disputes Resolution</h2>
 
           <p>If You have any concern or dispute about the Service, You agree to first try to resolve the dispute informally by contacting the Company.</p>
 
-          <h1>For European Union (EU) Users</h1>
+          <h2>For European Union (EU) Users</h2>
 
           <p>If You are a European Union consumer, you will benefit from any mandatory provisions of the law of the country in which you are resident in.</p>
 
-          <h1>United States Federal Government End Use Provisions</h1>
+          <h2>United States Federal Government End Use Provisions</h2>
 
           <p>If You are a U.S. federal government end user, our Service is a "Commercial Item" as that term is defined at 48 C.F.R. §2.101.</p>
 
-          <h1>United States Legal Compliance</h1>
+          <h2>United States Legal Compliance</h2>
 
           <p>You represent and warrant that (i) You are not located in a country that is subject to the United States government embargo, or that has been designated by the United States government as a "terrorist supporting" country, and (ii) You are not listed on any United States government list of prohibited or restricted parties.</p>
 
-          <h1>Severability and Waiver</h1>
+          <h2>Severability and Waiver</h2>
 
-          <h2 dir="ltr" >Severability</h2>
+          <h3 dir="ltr" >Severability</h3>
 
           <p>If any provision of these Terms is held to be unenforceable or invalid, such provision will be changed and interpreted to accomplish the objectives of such provision to the greatest extent possible under applicable law and the remaining provisions will continue in full force and effect.</p>
 
-          <h2 dir="ltr" >Waiver</h2>
+          <h3 dir="ltr" >Waiver</h3>
 
           <p>Except as provided herein, the failure to exercise a right or to require performance of an obligation under this Terms shall not effect a party's ability to exercise such right or require such performance at any time thereafter nor shall be the waiver of a breach constitute a waiver of any subsequent breach.</p>
 
-          <h1>Translation Interpretation</h1>
+          <h2>Translation Interpretation</h2>
 
           <p>These Terms and Conditions may have been translated if We have made them available to You on our Service. You agree that the original English text shall prevail in the case of a dispute.</p>
 
-          <h1>Changes to These Terms and Conditions</h1>
+          <h2>Changes to These Terms and Conditions</h2>
 
           <p>We reserve the right, at Our sole discretion, to modify or replace these Terms at any time. If a revision is material We will make reasonable efforts to provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at Our sole discretion.</p>
 
           <p>By continuing to access or use Our Service after those revisions become effective, You agree to be bound by the revised terms. If You do not agree to the new terms, in whole or in part, please stop using the website and the Service.</p>
 
-          <h1>Contact Us</h1>
+          <h2>Contact Us</h2>
 
           <p>If you have any questions about these Terms and Conditions, You can contact us:</p>
 
