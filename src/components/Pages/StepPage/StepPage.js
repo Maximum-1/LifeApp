@@ -30,6 +30,7 @@ class StepPage extends Component {
       <>
         <div className="phase-step-names">
           <h1>{this.props.step.phase_name}</h1>
+          <hr />
           <h3>{this.props.step.step_name}</h3>
         </div>
         <Card className="text-center">
@@ -59,9 +60,12 @@ class StepPage extends Component {
             </InputGroup>
           </Card.Body>
         </Card>
-
-        <button className="card-btn">Previous Step</button>
-        <button className="card-btn">Next Step</button>
+        {this.props.step.step_name == 'Trigger' ?
+        <button className="card-btn">View Phases</button>
+        : <button className="card-btn">Previous Step</button>}
+        {this.props.step.step_name == 'Status' ?
+        <button className="card-btn">Finish Tree</button>
+        : <button className="card-btn">Next Step</button>}
       </>
     )
   }
