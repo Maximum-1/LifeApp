@@ -65,6 +65,9 @@ class PhasesPage extends Component {
   }
 
   stepsRendering = (phase) => {
+      const querystring = this.props.location.search;
+      //Removing extra part of the path
+      const tree_id = querystring.replace('?tree-id=', '');
       const step_links = this.props.steps.map(step => {
         if(phase === step.phase_name && step.locked === true) {
           return(
@@ -82,7 +85,7 @@ class PhasesPage extends Component {
             <Dropdown.Item
               key={step.step_name}
               block="true"
-              onClick={() => this.goToStepPage(step.tree_step_id)}
+              onClick={() => this.goToStepPage(tree_id,step.step_number)}
             >
               <span className='steps-text'>{step.step_name}</span>
             </Dropdown.Item>
@@ -93,9 +96,8 @@ class PhasesPage extends Component {
     return step_links;
   }
 
-  goToStepPage = (id) => {
-    console.log('id is',id);
-    this.props.history.push(`/step?tree_step_id=${id}`);
+  goToStepPage = (tree_id,step_number) => {
+    this.props.history.push(`/step?tree-id=${tree_id}&step_number=${step_number}`);
   }
 
   progressCompleted = () => {
@@ -107,7 +109,6 @@ class PhasesPage extends Component {
     return (
       <div className='phases-page'>
         {this.dropdownRendering()}
-        <a href="http://localhost:3000/#/step?tree_step_id=1">test</a>
       </div>
     )
   }

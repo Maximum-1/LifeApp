@@ -21,7 +21,7 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
                         `;
     pool.query(queryText, [id])
         .then((result) => {
-            res.send(result.rows[0]);
+            res.send(result.rows);
         })
         .catch((err) => {
             console.log('Error completing GET Step query', err);
@@ -37,10 +37,14 @@ router.get('/phases/:id', rejectUnauthenticated, (req, res) => {
                         "tree_step"."id" as "tree_step_id",
                         "tree"."name" as "tree_name", 
                         "tree"."date_created", 
-                        "step"."name" as "step_name", 
+                        "step"."name" as "step_name",
+                        "step"."description",
+                        "step"."optional_hint", 
                         "phase"."name" as "phase_name", 
                         "tree_step"."status", 
-                        "tree_step"."locked"
+                        "tree_step"."locked",
+                        "tree_step"."step_number",
+                        "tree_step"."content"
                         FROM "tree" 
                         LEFT JOIN "tree_step" ON "tree"."id" = "tree_step"."tree_id" 
                         LEFT JOIN "step" ON "tree_step"."step_id" = "step"."id" 
