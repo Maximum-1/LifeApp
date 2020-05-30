@@ -32,7 +32,7 @@ class PhasesPage extends Component {
       return(
         <div>
           <h2>{this.props.steps[0].tree_name}</h2>
-          <h5>{this.props.steps[0].date_created}</h5>
+          <h5>{this.props.steps[0].date_created.substring(0, 10)}</h5>
           {this.phasesRendering()}
         </div>
       );
@@ -64,7 +64,7 @@ class PhasesPage extends Component {
 
   stepsRendering = (phase) => {
       const step_links = this.props.steps.map(step => {
-        if(phase === step.phase_name && step.status === false) {
+        if(phase === step.phase_name && step.locked === true) {
           return(
             <Dropdown.Item
               key={step.step_name}
@@ -75,7 +75,7 @@ class PhasesPage extends Component {
             </Dropdown.Item>
           );
         //end of inner if
-        } else if(phase === step.phase_name){
+        } else if(phase === step.phase_name && step.locked === false){
           return(
             <Dropdown.Item
               key={step.step_name}
@@ -87,6 +87,7 @@ class PhasesPage extends Component {
           );
         }
       })
+    //Need to use reverse to get the steps in the proper order  
     return step_links;
   }
 
@@ -106,6 +107,7 @@ class PhasesPage extends Component {
         <h1>Phases</h1>
         <hr />
         {this.dropdownRendering()}
+        <a href="http://localhost:3000/#/step?tree_step_id=1">test</a>
       </div>
     )
   }
