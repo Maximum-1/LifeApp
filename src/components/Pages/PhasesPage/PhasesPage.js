@@ -31,8 +31,10 @@ class PhasesPage extends Component {
     if(this.props.steps.length) {
       return(
         <div>
-          <h2>{this.props.steps[0].tree_name}</h2>
+          <h1>{this.props.steps[0].tree_name}</h1>
           <h5>{this.props.steps[0].date_created.substring(0, 10)}</h5>
+          <hr />
+          <h2>HBX Phases</h2>
           {this.phasesRendering()}
         </div>
       );
@@ -104,8 +106,6 @@ class PhasesPage extends Component {
   render() {
     return (
       <div className='phases-page'>
-        <h1>Phases</h1>
-        <hr />
         {this.dropdownRendering()}
         <a href="http://localhost:3000/#/step?tree_step_id=1">test</a>
       </div>

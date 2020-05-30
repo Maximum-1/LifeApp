@@ -46,9 +46,9 @@ router.post('/', rejectUnauthenticated, async (req, res) => {
         const newTree = result.rows[0].id;
         const sqlText2 = `SELECT "id" FROM "step"`;
         const result2 = await connection.query(sqlText2);
-        const sqlText3 = `INSERT INTO "tree_step" ("tree_id", "step_id") VALUES ($1,$2)`;
-        for(let i = 0; i < result2.rows.length; i++) {
-            await connection.query(sqlText3, [newTree, result2.rows[i].id]);
+        const sqlText3 = `INSERT INTO "tree_step" ("tree_id", "step_id", "step_number") VALUES ($1,$2, $3)`;
+        for(let i = 0, step_counter = 1; i < result2.rows.length; i++, step_counter++) {
+            await connection.query(sqlText3, [newTree, result2.rows[i].id, step_counter]);
         }
         await connection.query( 'COMMIT;' );
         res.sendStatus(200);
