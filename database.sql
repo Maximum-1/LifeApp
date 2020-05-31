@@ -47,7 +47,9 @@ CREATE TABLE "tree_step" (
 	"tree_id" INT REFERENCES "tree",
 	"step_id" INT REFERENCES "step",
 	"content" TEXT,
-	"status" BOOLEAN DEFAULT 'FALSE'
+	"status" BOOLEAN DEFAULT 'FALSE',
+	"locked" BOOLEAN DEFAULT 'TRUE',
+	"step_number" INT
 );
 
 --DATA INSERTS MUST CREATE USER FIRST

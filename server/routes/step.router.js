@@ -82,23 +82,43 @@ router.get('/phases/:id', rejectUnauthenticated, (req, res) => {
  * PUT route for when a step is answered in a tree/phase
  * Updates the content field and the status to true
  */
-router.put('/update-step/:id', rejectUnauthenticated, (req, res) => {
+router.put('/update-step/:id', rejectUnauthenticated, async(req, res) => {
     const answer = req.body.answer;
-    const tree_step_id = req.params.id;
+    const tree_step_id = Number(req.params.id);
     const status = true;
+    const locked = false;
 
-    //Updates the step with the answer the user provided
-    const queryText = `
-                        UPDATE tree_step 
-                        SET content = $1, status = $2
-                        WHERE id = $3;
-                        `;
-    pool.query(queryText, [answer, status, tree_step_id]).then((result) => {
-        res.sendStatus(204);
-    }).catch((error) => {
-        console.log(`Error on query ${error}`);
+    console.log('update-step variables are', answer, tree_step_id);
+    //Need to use the same database connection for the entire transaction
+    const connection = await pool.connect();
+
+    try {
+        await connection.query('BEGIN;');
+        const queryText1 = `UPDATE tree_step SET content = $1, status = $2 WHERE id = $3;`;
+        await connection.query(queryText1, [answer, status, tree_step_id]);
+        const queryText2 = `UPDATE tree_step SET locked = $1 WHERE id = $2;`;
+        await connection.query(queryText2, [locked, tree_step_id + 1]);
+        await connection.query( 'COMMIT;' );
+        res.sendStatus(200);
+    } catch(error) {
+        console.log('error in adding tree to database ', error)
         res.sendStatus(500);
-    });
+    } finally {
+        //Super important that we free that connection all the time
+        connection.release();
+    }
+    //Updates the step with the answer the user provided
+    // const queryText = `
+    //                     UPDATE tree_step 
+    //                     SET content = $1, status = $2, locked = $3
+    //                     WHERE id = $4;
+    //                     `;
+    // pool.query(queryText, [answer, status, tree_step_id]).then((result) => {
+    //     res.sendStatus(204);
+    // }).catch((error) => {
+    //     console.log(`Error on query ${error}`);
+    //     res.sendStatus(500);
+    // });
 });
 
 /**
