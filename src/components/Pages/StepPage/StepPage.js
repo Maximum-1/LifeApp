@@ -9,7 +9,8 @@ import Card from 'react-bootstrap/Card';
 
 class StepPage extends Component {
   state = {
-    step_number: 1
+    step_number: 1,
+    answer: ''
   }
 
   componentDidMount() {
@@ -34,6 +35,27 @@ class StepPage extends Component {
     this.setState({
       answer: event.target.value
     });
+  }
+
+  saveAnswer = () => {
+    this.props.dispatch({ type: 'PUT_ANSWER', payload: {answer: this.state.answer}});
+  }
+
+  //Buttons to create "Next Step, Previous Step"
+  handlePreviousStep = () => {
+    this.setState({step_number: this.state.step_number - 1});
+    this.topFunction();
+  }
+
+  handleNextStep = () => {
+    this.setState({step_number: this.state.step_number + 1});
+    this.topFunction();
+  }
+
+  //Method used to scroll to the top after they click the next or previous buttons
+  topFunction = () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
   }
 
   render() {
@@ -65,12 +87,16 @@ class StepPage extends Component {
                 <FormControl
                   as="textarea"
                   aria-label="With textarea"
-                  placeholder=""
+                  placeholder={this.props.steps[this.state.step_number].content || ''}
                   onChange={(event) => this.handleAnswerChange(event)}
-                  onSubmit={(event) => this.handleSubmit(event)} />
+                />
               </InputGroup>
             </Card.Body>
           </Card>
+          <div className="card-body">
+            <button className="card-btn" onClick={(event) => this.handlePreviousStep(event)}>Previous Step</button>
+            <button className="card-btn" onClick={(event) => this.handleNextStep(event)}>Next Step</button>
+          </div>
         </>
       )
     }
