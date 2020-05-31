@@ -51,7 +51,7 @@ router.post('/', rejectUnauthenticated, async (req, res) => {
             await connection.query(sqlText3, [newTree, result2.rows[i].id, step_counter]);
         }
         await connection.query( 'COMMIT;' );
-        res.sendStatus(200);
+        res.sendStatus(201);
         
     } catch(error) {
         console.log('error in adding tree to database ', error)

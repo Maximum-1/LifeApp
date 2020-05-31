@@ -9,6 +9,7 @@ import Card from 'react-bootstrap/Card';
 
 class StepPage extends Component {
   state = {
+    tree_id: '',
     step_number: 1,
     step_info: '',
     answer: ''
@@ -25,10 +26,13 @@ class StepPage extends Component {
     const tree_id = urlParams.get('tree-id');
     const step_number = Number(urlParams.get('step_number'));
     const filterStep = this.props.steps.filter(obj => obj.step_number === step_number);
-    console.log('this.props.steps',this.props.steps);
-    console.log('filterStep is',filterStep);
+
+    //Setting state for step using step number from url query string
     this.setState({step_number: step_number});
+    //Assign object to state from filter
     this.setState({step_info: filterStep[0]});
+    this.setState({answer: filterStep[0].content});
+    this.setState({tree_id: tree_id});
 
     //Dispatch to Saga
     this.props.dispatch({ type: 'FETCH_TREE_BY_ID', payload: tree_id});
@@ -42,28 +46,22 @@ class StepPage extends Component {
     });
   }
 
-  saveAnswer = () => {
-    this.props.dispatch({ type: 'PUT_ANSWER', payload: {answer: this.state.answer}});
-  }
-
   //Buttons to create "Next Step, Previous Step"
   handlePreviousStep = () => {
-    console.log('this.props.steps',this.props.steps);
-    console.log('before step number is', this.state.step_number);
     const filterStep = this.props.steps.filter(obj => Number(obj.step_number) === Number(this.state.step_number) - 1);
-    console.log('filterStep is',filterStep);
     this.setState({step_info: filterStep[0]});
     this.setState({step_number: this.state.step_number - 1});
+    this.setState({answer: filterStep[0].content});
     this.topFunction();
   }
 
-  handleNextStep = () => {
-    console.log('this.props.steps',this.props.steps);
-    console.log('before step number is', this.state.step_number);
+  handleNextStep = (tree_step_id) => {
     const filterStep = this.props.steps.filter(obj => Number(obj.step_number) === Number(this.state.step_number) + 1);
-    console.log('filterStep is',filterStep);
     this.setState({step_info: filterStep[0]});
     this.setState({step_number: this.state.step_number + 1});
+    this.setState({answer: filterStep[0].content});
+    //Update changes to the database for the answer
+    this.props.dispatch({type: 'PUT_ANSWER', payload:{answer: this.state.answer,tree_id: this.state.tree_id,tree_step_id: tree_step_id}});
     this.topFunction();
   }
 
@@ -74,7 +72,6 @@ class StepPage extends Component {
   }
 
   render() {
-    console.log('after step number is',this.state.step_number);
     const step_info = this.state.step_info;
     if(this.props.steps.length) {
       return (
@@ -103,7 +100,7 @@ class StepPage extends Component {
                 <FormControl
                   as="textarea"
                   aria-label="With textarea"
-                  placeholder={step_info.content || ''}
+                  value={this.state.answer || ''}
                   onChange={(event) => this.handleAnswerChange(event)}
                 />
               </InputGroup>
@@ -111,7 +108,7 @@ class StepPage extends Component {
           </Card>
           <div className="card-body">
             <button className="card-btn" onClick={(event) => this.handlePreviousStep(event)}>Previous Step</button>
-            <button className="card-btn" onClick={(event) => this.handleNextStep(event)}>Next Step</button>
+            <button className="card-btn" onClick={(event) => this.handleNextStep(step_info.tree_step_id)}>Next Step</button>
           </div>
         </>
       )
