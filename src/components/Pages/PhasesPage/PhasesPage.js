@@ -31,8 +31,10 @@ class PhasesPage extends Component {
     if(this.props.steps.length) {
       return(
         <div>
-          <h2>{this.props.steps[0].tree_name}</h2>
-          <h5>{this.props.steps[0].date_created}</h5>
+          <h1>{this.props.steps[0].tree_name}</h1>
+          <h5>{this.props.steps[0].date_created.substring(0, 10)}</h5>
+          <hr />
+          <h2>HBX Phases</h2>
           {this.phasesRendering()}
         </div>
       );
@@ -63,8 +65,11 @@ class PhasesPage extends Component {
   }
 
   stepsRendering = (phase) => {
+      const querystring = this.props.location.search;
+      //Removing extra part of the path
+      const tree_id = querystring.replace('?tree-id=', '');
       const step_links = this.props.steps.map(step => {
-        if(phase === step.phase_name && step.status === false) {
+        if(phase === step.phase_name && step.locked === true) {
           return(
             <Dropdown.Item
               key={step.step_name}
@@ -75,24 +80,24 @@ class PhasesPage extends Component {
             </Dropdown.Item>
           );
         //end of inner if
-        } else if(phase === step.phase_name){
+        } else if(phase === step.phase_name && step.locked === false){
           return(
             <Dropdown.Item
               key={step.step_name}
               block="true"
-              onClick={() => this.goToStepPage(step.tree_step_id)}
+              onClick={() => this.goToStepPage(tree_id,step.step_number)}
             >
               <span className='steps-text'>{step.step_name}</span>
             </Dropdown.Item>
           );
         }
       })
+    //Need to use reverse to get the steps in the proper order  
     return step_links;
   }
 
-  goToStepPage = (id) => {
-    console.log('id is',id);
-    this.props.history.push(`/step?tree_step_id=${id}`);
+  goToStepPage = (tree_id,step_number) => {
+    this.props.history.push(`/step?tree-id=${tree_id}&step_number=${step_number}`);
   }
 
   progressCompleted = () => {
@@ -103,8 +108,6 @@ class PhasesPage extends Component {
   render() {
     return (
       <div className='phases-page'>
-        <h1>Phases</h1>
-        <hr />
         {this.dropdownRendering()}
       </div>
     )
