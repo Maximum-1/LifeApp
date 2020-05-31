@@ -10,6 +10,7 @@ import Card from 'react-bootstrap/Card';
 class StepPage extends Component {
   state = {
     step_number: 1,
+    step_info: '',
     answer: ''
   }
 
@@ -22,8 +23,12 @@ class StepPage extends Component {
     const queryString = this.props.location.search;
     const urlParams = new URLSearchParams(queryString);
     const tree_id = urlParams.get('tree-id');
-    const step_number = urlParams.get('step_number');
-    this.setState({step_number: step_number - 1});
+    const step_number = Number(urlParams.get('step_number'));
+    const filterStep = this.props.steps.filter(obj => obj.step_number == step_number);
+    console.log('this.props.steps',this.props.steps);
+    console.log('filterStep is',filterStep);
+    this.setState({step_number: step_number});
+    this.setState({step_info: filterStep[0]});
 
     //Dispatch to Saga
     this.props.dispatch({ type: 'FETCH_TREE_BY_ID', payload: tree_id});
@@ -43,11 +48,21 @@ class StepPage extends Component {
 
   //Buttons to create "Next Step, Previous Step"
   handlePreviousStep = () => {
+    console.log('this.props.steps',this.props.steps);
+    console.log('step number is', this.state.step_number);
+    const filterStep = this.props.steps.filter(obj => Number(obj.step_number) == Number(this.state.step_number) - 1);
+    console.log('filterStep is',filterStep);
+    this.setState({step_info: filterStep[0]});
     this.setState({step_number: this.state.step_number - 1});
     this.topFunction();
   }
 
   handleNextStep = () => {
+    console.log('this.props.steps',this.props.steps);
+    console.log('step number is', this.state.step_number);
+    const filterStep = this.props.steps.filter(obj => Number(obj.step_number) == Number(this.state.step_number) + 1);
+    console.log('filterStep is',filterStep);
+    this.setState({step_info: filterStep[0]});
     this.setState({step_number: this.state.step_number + 1});
     this.topFunction();
   }
@@ -59,25 +74,26 @@ class StepPage extends Component {
   }
 
   render() {
-    console.log('state step_number is', this.state.step_number);
+    console.log('render step number is',this.state.step_number);
+    const step_info = this.state.step_info;
     if(this.props.steps.length) {
       return (
         <>
           <div className="phase-step-names">
-            <h1>{this.props.steps[this.state.step_number].phase_name}</h1>
+            <h1>{step_info.phase_name}</h1>
             <hr />
-            <h3>{this.props.steps[this.state.step_number].step_name}</h3>
+            <h3>{step_info.step_name}</h3>
           </div>
           <Card className="text-left">
             <Card.Header className="header">Description</Card.Header>
             <Card.Body>
-              <pre className="card-text">{this.props.steps[this.state.step_number].description}</pre>
+              <pre className="card-text">{step_info.description}</pre>
             </Card.Body>
           </Card>
           <Card className="text-left">
             <Card.Header className="header">Optional Sentence Starters and Hints</Card.Header>
             <Card.Body>
-              <pre className="card-text">{this.props.steps[this.state.step_number].optional_hint}</pre>
+              <pre className="card-text">{step_info.optional_hint}</pre>
             </Card.Body>
           </Card>
           <Card className="text-left">
@@ -87,7 +103,7 @@ class StepPage extends Component {
                 <FormControl
                   as="textarea"
                   aria-label="With textarea"
-                  placeholder={this.props.steps[this.state.step_number].content || ''}
+                  placeholder={step_info.content || ''}
                   onChange={(event) => this.handleAnswerChange(event)}
                 />
               </InputGroup>

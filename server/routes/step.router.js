@@ -8,7 +8,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
  */
 
 //GET the specific step info by sending in the step id:
-router.get('/:id', rejectUnauthenticated, (req, res) => {
+router.get('/:id', rejectUnauthenticated, async(req, res) => {
     const id = req.params.id
     const queryText = `
                         SELECT "tree_step"."id" as "tree_step_id", "step"."name" as "step_name", "phase"."name" as "phase_name", "step"."description", "step"."optional_hint", "tree_step"."content" 
