@@ -50,7 +50,7 @@ router.get('/phases/:id', rejectUnauthenticated, (req, res) => {
                         LEFT JOIN "step" ON "tree_step"."step_id" = "step"."id" 
                         LEFT JOIN "phase" ON "step"."phase_id" = "phase"."id" 
                         WHERE "tree"."id" = $1
-                        order by "phase"."id";
+                        order by "tree_step"."step_number";
                         `;
     pool.query(queryText, [id])
         .then((result) => {

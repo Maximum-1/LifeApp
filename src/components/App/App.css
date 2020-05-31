@@ -19,10 +19,6 @@ body {
     overflow: scroll;
 }
 
-.card-img {
-    
-}
-
 pre {
     white-space: pre-wrap;       /* Since CSS 2.1 */
     white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
@@ -92,6 +88,7 @@ input {
 .flex-container {
     display: flex;
     flex-flow: row wrap;
+    justify-content: center;
 }
 
 center {

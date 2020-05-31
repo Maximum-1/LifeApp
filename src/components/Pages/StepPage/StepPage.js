@@ -24,7 +24,7 @@ class StepPage extends Component {
     const urlParams = new URLSearchParams(queryString);
     const tree_id = urlParams.get('tree-id');
     const step_number = Number(urlParams.get('step_number'));
-    const filterStep = this.props.steps.filter(obj => obj.step_number == step_number);
+    const filterStep = this.props.steps.filter(obj => obj.step_number === step_number);
     console.log('this.props.steps',this.props.steps);
     console.log('filterStep is',filterStep);
     this.setState({step_number: step_number});
@@ -49,8 +49,8 @@ class StepPage extends Component {
   //Buttons to create "Next Step, Previous Step"
   handlePreviousStep = () => {
     console.log('this.props.steps',this.props.steps);
-    console.log('step number is', this.state.step_number);
-    const filterStep = this.props.steps.filter(obj => Number(obj.step_number) == Number(this.state.step_number) - 1);
+    console.log('before step number is', this.state.step_number);
+    const filterStep = this.props.steps.filter(obj => Number(obj.step_number) === Number(this.state.step_number) - 1);
     console.log('filterStep is',filterStep);
     this.setState({step_info: filterStep[0]});
     this.setState({step_number: this.state.step_number - 1});
@@ -59,8 +59,8 @@ class StepPage extends Component {
 
   handleNextStep = () => {
     console.log('this.props.steps',this.props.steps);
-    console.log('step number is', this.state.step_number);
-    const filterStep = this.props.steps.filter(obj => Number(obj.step_number) == Number(this.state.step_number) + 1);
+    console.log('before step number is', this.state.step_number);
+    const filterStep = this.props.steps.filter(obj => Number(obj.step_number) === Number(this.state.step_number) + 1);
     console.log('filterStep is',filterStep);
     this.setState({step_info: filterStep[0]});
     this.setState({step_number: this.state.step_number + 1});
@@ -74,7 +74,7 @@ class StepPage extends Component {
   }
 
   render() {
-    console.log('render step number is',this.state.step_number);
+    console.log('after step number is',this.state.step_number);
     const step_info = this.state.step_info;
     if(this.props.steps.length) {
       return (
