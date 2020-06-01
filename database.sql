@@ -15,7 +15,7 @@ CREATE TABLE "user" (
 CREATE TABLE "tree" (
 	"id" SERIAL PRIMARY KEY,
 	"user_id" INT REFERENCES "user",
-	"name" VARCHAR(120) UNIQUE NOT NULL,
+	"name" VARCHAR(120) NOT NULL,
 	"date_created" DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	"date_finished" DATE,
 	"steps_completed" INT DEFAULT 0,
