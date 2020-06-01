@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import { InputGroup, InputGroupAddon, Button, Input } from 'reactstrap';
 
 //import components to be used on this page
 import Item from '../../Item/Item';
@@ -26,6 +27,17 @@ class UserPage extends Component {
         <h1 id="welcome">
           Welcome, { this.props.user.username }!
         </h1>
+
+        <div className="input-form">
+          <InputGroup >
+            <Input size="lg" placeholder="search a keyword" value={this.state.search} onChange={this.handleChange} />
+            <InputGroupAddon addonType="append">
+              <Button color="secondary" onClick={this.handleSubmit}>Search!!</Button>
+            </InputGroupAddon>
+          </InputGroup>
+        </div>
+
+
         <AppIntroModal
           user_id={this.props.user.id}
           show={this.state.modalShow}
