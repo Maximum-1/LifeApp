@@ -96,9 +96,8 @@ class AboutPage extends Component {
             The Message compact edition (The Message Bibles) by Eugene H. Peterson (2014) Imitation Leather
             The New Strong's Expanded Exhaustive Concordance of the Bible
             Bible Gateway
-            Maximum 1™ is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to amazon.com.
-            Find Us <a className="aTag" href="https://iammaximum1.com/"> (for training and more information)
-</a>
+            Maximum 1™ is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to amazon.com
+        <br></br> Find Us<a className="aTag" href="https://iammaximum1.com/">iammaximum1.com</a>(for training and more information)
 
 
 
