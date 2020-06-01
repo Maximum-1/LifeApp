@@ -9,9 +9,9 @@ body {
 }
 
 /* Hero Image Styling */
-.hero-image {
-    margin: 12px 0;
-    border-radius: 0%;
+.hero-text-div {
+    height: 80%;
+    overflow: hidden;
 }
 
 .hero-text {
@@ -94,3 +94,10 @@ input {
 center {
    padding: 20px; 
 }
+
+.img-thumbnail {
+    border: none !important;
+    background-color: rgba(0,0,0,0.0);;
+}
+
+
