@@ -12,25 +12,18 @@ h1 {
 h2 {
     font-size: 8px ;
     font-family:Calibri,sans-serif;
-    color:purple;
+    color:#64007e;
     background-color:transparent;
 }
 
 h3 {
     font-size: 20px;
     font-family:Calibri,sans-serif;
-    color:turquoise;
+    color:#00d1ef;
     background-color:transparent;
 }
 
-pre {
-    white-space: pre-wrap;       /* Since CSS 2.1 */
-    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-    white-space: -pre-wrap;      /* Opera 4-6 */
-    white-space: -o-pre-wrap;    /* Opera 7 */
-    word-wrap: break-word;
-    font-size: large;     overflow: auto;
-}
+
 
 /* div {
     padding: 70;

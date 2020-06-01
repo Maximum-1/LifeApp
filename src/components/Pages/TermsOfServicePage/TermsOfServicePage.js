@@ -14,10 +14,13 @@ class TermsOfService extends Component {
         <div>
           <pre><h2>Terms of Service</h2>
           <br/>
-          <p>Last updated: May 20, 2020</p>
+          <pre>
+            
+              Last updated: May 20, 2020
 
-          <p>Please read these terms and conditions carefully before using Our Service.</p>
 
+              Please read these terms and conditions carefully before using Our Service.
+          </pre>
           <h2>Interpretation and Definitions</h2>
 
           <h3>Interpretation</h3>
