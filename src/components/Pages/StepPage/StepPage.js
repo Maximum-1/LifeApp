@@ -69,17 +69,20 @@ class StepPage extends Component {
     }
   }
 
+  goToPhasePage = (tree_id) => {
+    console.log('id is',tree_id);
+    this.props.dispatch({type: 'UNLOCK_STEP', payload:{tree_id: tree_id, step: 1}});
+    this.props.history.push(`/phases?tree-id=${tree_id}`);
+  }
+
   handleGoHome = (tree_step_id) => {
     if (this.state.answer === null) {
       alert('Please enter some self-reflection. You can always come back and edit later.')
     } else {
-      const filterStep = this.props.steps.filter(obj => Number(obj.step_number) === Number(this.state.step_number) + 1);
-      this.setState({ step_info: filterStep[0] });
-      this.setState({ step_number: this.state.step_number + 1 });
-      this.setState({ answer: filterStep[0].content });
       //Update changes to the database for the answer
       this.props.dispatch({ type: 'PUT_ANSWER', payload: { answer: this.state.answer, tree_id: this.state.tree_id, tree_step_id: tree_step_id } });
-      this.topFunction();
+      alert('Congratulations on completing your tree! Please choose where you want to go next.')
+      this.props.history.push(`/`)
     }
   }
 
@@ -87,6 +90,28 @@ class StepPage extends Component {
   topFunction = () => {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
+  }
+
+  buttonRender = (step_number) => {
+    if(step_number === 1) {
+      return(
+      <>
+        <button className="card-btn" onClick={(event) => this.goToPhasePage(this.state.tree_id)}>Return to Phases</button>
+        <button className="card-btn" onClick={(event) => this.handleNextStep(this.state.step_info.tree_step_id)}>Next Step</button>
+      </>);
+    } else if(step_number === 21) {
+      return(
+      <>
+        <button className="card-btn" onClick={(event) => this.handlePreviousStep(event)}>Previous Step</button>
+        <button className="card-btn" onClick={(event) => this.handleGoHome(this.state.step_info.tree_step_id)}>Finish</button>
+      </>);
+    } else {
+      return(
+      <>
+        <button className="card-btn" onClick={(event) => this.handlePreviousStep(event)}>Previous Step</button>
+        <button className="card-btn" onClick={(event) => this.handleNextStep(this.state.step_info.tree_step_id)}>Next Step</button>
+      </>);
+    }
   }
 
   render() {
@@ -125,8 +150,7 @@ class StepPage extends Component {
             </Card.Body>
           </Card>
           <div className="card-body">
-            <button className="card-btn" onClick={(event) => this.handlePreviousStep(event)}>Previous Step</button>
-            <button className="card-btn" onClick={(event) => this.handleNextStep(step_info.tree_step_id)}>Next Step</button>
+            {this.buttonRender(this.state.step_number)}
           </div>
         </>
       )
