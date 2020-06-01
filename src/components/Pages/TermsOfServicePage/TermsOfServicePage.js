@@ -12,7 +12,7 @@ class TermsOfService extends Component {
       
     {/* Start term of services insert */}
         <div>
-          <h2>Terms of Service</h2>
+          <pre><h2>Terms of Service</h2>
           <br/>
           <p>Last updated: May 20, 2020</p>
 
@@ -313,7 +313,7 @@ class TermsOfService extends Component {
 
 
 
-
+          </pre>
           </div>
 
     {/* End term of services insert */}
