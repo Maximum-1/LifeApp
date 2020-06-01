@@ -3,15 +3,15 @@ import './TermsOfServicePage.css';
 
 class TermsOfService extends Component {
   render() {
-    const divStyle = {
-      padding: 70,
-    };
+    // const divStyle = {
+    //   padding: 70,
+    // };
 
     return (
     <div>
       
     {/* Start term of services insert */}
-        <div style = {divStyle}>
+        <div>
           <h2>Terms of Service</h2>
           <br/>
           <p>Last updated: May 20, 2020</p>
@@ -22,9 +22,9 @@ class TermsOfService extends Component {
 
           <h3>Interpretation</h3>
 
-          <pre>The words of which the initial letter is capitalized have meanings defined under the following conditions.
+          <p>The words of which the initial letter is capitalized have meanings defined under the following conditions.
 
-          The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</pre>
+          The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</p>
 
           <h3 dir="ltr" >Definitions</h3>
 
@@ -296,7 +296,7 @@ class TermsOfService extends Component {
 
           <p>By continuing to access or use Our Service after those revisions become effective, You agree to be bound by the revised terms. If You do not agree to the new terms, in whole or in part, please stop using the website and the Service.</p>
 
-          <h2>Contact Us</h2>
+          <h2>Contact Us</h2> 
 
           <p>If you have any questions about these Terms and Conditions, You can contact us:</p>
 
