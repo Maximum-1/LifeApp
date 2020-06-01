@@ -9,8 +9,8 @@ function* searchTreeSaga() {
 function* searchTree(action) {
     console.log('in searchTreeSaga', action.payload);
     try {
-        const response = yield axios.get(`/api/twitter/${action.payload}`);
-        yield put({ type: 'GET_TREE', payload: response.data })
+        const response = yield axios.get(`/api/tree/${action.payload}`);
+        yield put({ type: 'ALL_TREE', payload: response.data })
     }
     catch (error) {
         console.log('Error with Search GET tree', error);

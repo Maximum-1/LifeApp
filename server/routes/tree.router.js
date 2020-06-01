@@ -88,21 +88,21 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
 
 
 
-// GET the tree info and the user info 
-router.get('/', rejectUnauthenticated, (req, res) => {
-    const id = req.user.id;
-    console.log('GET tree id is:', req.user);
+// GET the tree info by search Keyword
+router.get('/:id', rejectUnauthenticated, (req, res) => {
+    const keyword = `%${req.params.id}%`;
+    console.log('Searched keyword term is:', keyword);
 
     const queryText = `SELECT * FROM "tree"
-                       WHERE user_id = $1
+                       WHERE name LIKE $1
                         `;
-    pool.query(queryText, [id])
+
+    pool.query(queryText, [keyword])
         .then((result) => {
-            // console.log('GET Tree on server', result.rows);
             res.send(result.rows);
         })
         .catch((err) => {
-            console.log('Error completing GET Tree query', err);
+            console.log('Error completing SEARCH Tree query', err);
             res.sendStatus(500);
         });
 
