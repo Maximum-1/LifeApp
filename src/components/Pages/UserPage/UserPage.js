@@ -11,8 +11,8 @@ import './UserPage.css';
 
 class UserPage extends Component {
   state = {
-    search: "",
-    modalShow: false,
+    search: "", 
+    modalShow: false, 
   }
 
   componentDidMount() {
