@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import './TermsOfServicePage.css';
 
 class TermsOfService extends Component {
   render() {
