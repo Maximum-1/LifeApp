@@ -3,10 +3,6 @@ import './TermsOfServicePage.css';
 
 class TermsOfService extends Component {
   render() {
-    // const divStyle = {
-    //   padding: 70,
-    // };
-
     return (
     <div>
       
@@ -18,8 +14,8 @@ class TermsOfService extends Component {
             
               Last updated: May 20, 2020
 
-
               Please read these terms and conditions carefully before using Our Service.
+
           </pre>
           <h2>Interpretation and Definitions</h2>
 
