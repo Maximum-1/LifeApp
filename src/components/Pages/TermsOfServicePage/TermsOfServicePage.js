@@ -22,9 +22,9 @@ class TermsOfService extends Component {
 
           <h3>Interpretation</h3>
 
-          <p>The words of which the initial letter is capitalized have meanings defined under the following conditions.</p>
+          <pre>The words of which the initial letter is capitalized have meanings defined under the following conditions.
 
-          <p>The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</p>
+          The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</pre>
 
           <h3 dir="ltr" >Definitions</h3>
 
