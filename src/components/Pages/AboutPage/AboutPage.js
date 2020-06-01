@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 class AboutPage extends Component {
   render() {
     return (
-      <div>
+      <div className="body">
         <h1 className="centerText" className="purpText">About THE HB-X™ & Maximum 1™ Life App</h1>
         <div>
           <br></br>
@@ -26,18 +26,29 @@ class AboutPage extends Component {
           resilientlifetherapy@gmail.com
 </pre>
           <h1 className="tealText">Helpful Strategies</h1>
-          <pre>Jesus makes the difference. Though you don’t have to be Christian to use our app, if you have a
-          relationship with Jesus, healing is highly probable if you are praying through each step allowing
-          the Holy Spirit to give you insight. Use the Resources we provide to find scriptures attacking
-          wrongly held beliefs you have at the root.
+          <pre>
+          <li><b>Jesus makes the difference.</b></li>Though you don’t have to be Christian to use our app, 
+          if you have a relationship with Jesus, healing is highly probable if you are praying through each 
+          step allowing the Holy Spirit to give you insight. Use the Resources we provide to find scriptures 
+          attacking wrongly held beliefs you have at the root.<br />
 
-          Take care of you. Throughout this process, you may feel anxious, stuck, or any number of uncomfortable or new feelings. This is normal. Use these emotions as signals to give yourself permission to step back, reset, and create some space (e.g. breaks, getting support, etc.), so you can resettle and when ready, continue.
-            <li> <b> Take your time. </b> Your goal isn’t speed, but accuracy. </li>
-            <li> <b>  Meditation is critical. </b> Learn how to quiet your mind so you can “hear” from your heart. This is heart-work, not head-work. This is, for each step, an exercise in discovery, not “figuring things out.” If you’re having difficulty, then working with a trusted and licensed mental health care professional may help. If you’re a person of faith, prayer is a valuable tool to quiet “noise” (i.e., anxiety, distractions, fear, etc.) so you can commune more effectively with your Higher Power and get guidance.
- </li>
-            <li> <b> Some behaviors have many roots </b> Don’t be discouraged if after working through one trigger and “getting to the root” that some behaviors in your tree still exist. Especially with addiction, some behaviors are “tied” into many different emotional learnings. It may take time and working through many triggers to successfully “cut off” what sources are fueling certain behaviors. Don’t quit! You’ll feel, with each completed tree, such behaviors bit-by-bit losing control.
- </li>
-            <li> <b> Get support. </b>  Before working through your tree, please find trusted and qualified allies to help keep your behaviors stable. You may have to uncover deep emotional wounds that are painful or sensitive in order to fully heal and recover your true self. It’s worth it! Imagine someone pushing down on an infected physical wound; it’ll cause us to sharply react. This reaction may include resorting to an old coping behavior that’s no longer helpful, or may even be harmful. Get help. Be accountable, and do your tree work in community.
+          <li><b>Take care of you.</b></li>Throughout this process, you may feel anxious, stuck, or any number of uncomfortable 
+          or new feelings. This is normal. Use these emotions as signals to give yourself permission to step back, 
+          reset, and create some space (e.g. breaks, getting support, etc.), so you can resettle and when ready, 
+          continue.
+            <li><b>Take your time.</b></li> Your goal isn’t speed, but accuracy. 
+            <li><b>Meditation is critical.</b></li>Learn how to quiet your mind so you can “hear” from your 
+            heart. This is heart-work, not head-work. This is, for each step, an exercise in discovery, 
+            not “figuring things out.” If you’re having difficulty, then working with a trusted and licensed 
+            mental health care professional may help. If you’re a person of faith, prayer is a valuable tool 
+            to quiet “noise” (i.e., anxiety, distractions, fear, etc.) so you can commune more effectively 
+            with your Higher Power and get guidance.
+            <li><b> Some behaviors have many roots</b></li> Don’t be discouraged if after working through one 
+            trigger and “getting to the root” that some behaviors in your tree still exist. Especially with 
+            addiction, some behaviors are “tied” into many different emotional learnings. It may take time 
+            and working through many triggers to successfully “cut off” what sources are fueling certain 
+            behaviors. Don’t quit! You’ll feel, with each completed tree, such behaviors bit-by-bit losing control.
+            <li><b>Get support.</b>Before working through your tree, please find trusted and qualified allies to help keep your behaviors stable. You may have to uncover deep emotional wounds that are painful or sensitive in order to fully heal and recover your true self. It’s worth it! Imagine someone pushing down on an infected physical wound; it’ll cause us to sharply react. This reaction may include resorting to an old coping behavior that’s no longer helpful, or may even be harmful. Get help. Be accountable, and do your tree work in community.
  </li>
             <li> <b>Brutal honesty is needed for full recovery. </b>  It’ll be tempting to “sugar-coat” your data because it’s shocking or embarrassing. Avoid doing this. Yes, maybe use abbreviations or coded language to honor your personal values, but let it come out as “raw” as it really is, or you won’t be as successful finding patterns and the “truth” of your story. You could miss the root. You’ll still get better, but not heal.
  </li>
@@ -54,7 +65,7 @@ class AboutPage extends Component {
             <h3> Mustafa Ibrahim - Full Stack Developer </h3>
           </div>
           <br></br>
-          <h1 className="tealText" >Resources</h1>
+          <h1>Resources</h1>
           <a className="aTag" href="https://www.amazon.com/gp/product/0310243149/ref=as_li_qf_asin_il_tl?ie=UTF8&tag=upward04-20&creative=9325&linkCode=as2&creativeASIN=0310243149&linkId=a1d47e333c3ff31e0802c76fcbfb961a">Boundaries in Marriage</a>
           <br></br>
           <a className="aTag" href="https://www.amazon.com/gp/product/0310351804/ref=as_li_qf_asin_il_tl?ie=UTF8&tag=upward04-20&creative=9325&linkCode=as2&creativeASIN=0310351804&linkId=8ffd0bd032e303bee8496965587e95f3"> Boundaries Updated and Expanded Edition: When to Say Yes, How to Say No to Take Control of Your Life </a>
@@ -73,10 +84,6 @@ class AboutPage extends Component {
           <br></br>
           <a className="aTag" href="https://www.youtube.com/channel/UCWbmr_ERQ-gEO3FzRQsxjQw">   DappyTKeys instrumental music</a>
           <pre>
-
-
-
-
             God's Promises for Your Every Need, NKJV
             CSB Tony Evans Study Bible, Hardcover
             CSB Tony Evans Study Bible, Black/Brown LeatherTouch
@@ -97,10 +104,7 @@ class AboutPage extends Component {
             The New Strong's Expanded Exhaustive Concordance of the Bible
             Bible Gateway
             Maximum 1™ is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to amazon.com
-        <br></br> Find Us<a className="aTag" href="https://iammaximum1.com/">iammaximum1.com</a>(for training and more information)
-
-
-
+            <br></br>Find Us<a className="aTag" href="https://iammaximum1.com/">iammaximum1.com</a>(for training and more information)
           </pre>
 
         </div>

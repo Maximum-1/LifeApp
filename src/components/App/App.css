@@ -26,7 +26,6 @@ pre {
     white-space: -o-pre-wrap;    /* Opera 7 */
     word-wrap: break-word;
     font-size: large; 
-    color: ivory;
 }
 
 
@@ -112,8 +111,7 @@ pre {
     text-align: center;
 }
 .aTag{
-        background-color:#00d1ef;
-
+        color: #00d1ef !important;
 }
 .purpText{
       color: #6A0DAD;
@@ -121,5 +119,4 @@ pre {
 }
 .tealText{
     color:#00d1ef;
-
 }

@@ -87,6 +87,7 @@ router.put('/update-step/:id', rejectUnauthenticated, async(req, res) => {
     const tree_step_id = Number(req.params.id);
     const status = true;
     const locked = false;
+    const completedStep = true;
 
     console.log('update-step variables are', answer, tree_step_id);
     //Need to use the same database connection for the entire transaction
@@ -96,8 +97,15 @@ router.put('/update-step/:id', rejectUnauthenticated, async(req, res) => {
         await connection.query('BEGIN;');
         const queryText1 = `UPDATE tree_step SET content = $1, status = $2 WHERE id = $3;`;
         await connection.query(queryText1, [answer, status, tree_step_id]);
-        const queryText2 = `UPDATE tree_step SET locked = $1 WHERE id = $2;`;
-        await connection.query(queryText2, [locked, tree_step_id + 1]);
+        const queryText2 = `UPDATE tree_step SET locked = $1 WHERE id = $2 RETURNING tree_id;`;
+        const result1 = await connection.query(queryText2, [locked, tree_step_id + 1]);
+        const queryText3 = `SELECT COUNT("tree_step"."status") as "steps_completed"
+                            FROM "tree_step"
+                            WHERE "tree_step"."status" = $1 AND "tree_id" = $2;`;
+        const result2 = await connection.query(queryText3, [completedStep, result1.rows[0].tree_id]);
+        const queryText4 = `UPDATE tree SET steps_completed = $1 WHERE id = $2;`;
+        console.log('steps_completed', result2.rows[0]);
+        await connection.query(queryText4, [result2.rows[0].steps_completed, result1.rows[0].tree_id]);
         await connection.query( 'COMMIT;' );
         res.sendStatus(200);
     } catch(error) {
@@ -107,18 +115,6 @@ router.put('/update-step/:id', rejectUnauthenticated, async(req, res) => {
         //Super important that we free that connection all the time
         connection.release();
     }
-    //Updates the step with the answer the user provided
-    // const queryText = `
-    //                     UPDATE tree_step 
-    //                     SET content = $1, status = $2, locked = $3
-    //                     WHERE id = $4;
-    //                     `;
-    // pool.query(queryText, [answer, status, tree_step_id]).then((result) => {
-    //     res.sendStatus(204);
-    // }).catch((error) => {
-    //     console.log(`Error on query ${error}`);
-    //     res.sendStatus(500);
-    // });
 });
 
 /**
