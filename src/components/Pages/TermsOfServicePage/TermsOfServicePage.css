@@ -5,21 +5,21 @@ p {
 h1 {
     font-size: 15px;
     font-family:Calibri,sans-serif;
-    color:#17365d;
+    color:black;
     background-color:transparent;
 }
 
 h2 {
     font-size: 8px ;
     font-family:Calibri,sans-serif;
-    color:#4f81bd;
+    color:purple;
     background-color:transparent;
 }
 
 h3 {
     font-size: 20px;
     font-family:Calibri,sans-serif;
-    color:black;
+    color:turquoise;
     background-color:transparent;
 }
 
