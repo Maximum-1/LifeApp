@@ -3,10 +3,21 @@ import { connect } from 'react-redux';
 
 //import components to be used on this page
 import Item from '../../Item/Item';
-
+import AppIntroModal from '../../Modal/AppIntroModal';
 class UserPage extends Component {
+  state = {
+    modalShow: false,
+  }
+
   componentDidMount() {
       this.props.dispatch({ type: 'GET_TREE'  });
+      if(this.props.user.first_time === true) {
+        this.setState({modalShow: true});
+      }
+  }
+
+  setModalShow = (bool) => {
+    this.setState({modalShow: bool});
   }
 
   render() {
@@ -15,6 +26,11 @@ class UserPage extends Component {
         <h1 id="welcome">
           Welcome, { this.props.user.username }!
         </h1>
+        <AppIntroModal
+          user_id={this.props.user.id}
+          show={this.state.modalShow}
+          onHide={() => this.setModalShow(false)}
+        />
         <div className='flex-container'>
           {this.props.trees.map((tree) => {
             return(
@@ -25,6 +41,7 @@ class UserPage extends Component {
                 date_created={tree.date_created}
                 steps_completed={tree.steps_completed}
                 />
+                
               );
             }
           )}

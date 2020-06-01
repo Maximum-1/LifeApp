@@ -31,8 +31,10 @@ class PhasesPage extends Component {
     if(this.props.steps.length) {
       return(
         <div>
-          <h2>{this.props.steps[0].tree_name}</h2>
-          <h5>{this.props.steps[0].date_created}</h5>
+          <h1>{this.props.steps[0].tree_name}</h1>
+          <h5>{this.props.steps[0].date_created.substring(0, 10)}</h5>
+          <hr />
+          <h2>HBX Phases</h2>
           {this.phasesRendering()}
         </div>
       );
@@ -43,15 +45,12 @@ class PhasesPage extends Component {
     //Flag to check if its the same phase
     let phase_name = '';
     //Dropdowns to return
-    let phaseDropDowns = [];
-
-    if(this.props.steps.length) {
-      {phaseDropDowns = this.props.steps.map(step => {
+    const phaseDropDowns = this.props.steps.map(step => {
         if(phase_name !== step.phase_name) {
           phase_name = step.phase_name;
           return(
               <Dropdown key={step.phase_name}>
-                <Dropdown.Toggle id="dropdown-basic" block>
+                <Dropdown.Toggle id="dropdown-basic" block="true">
                   {step.phase_name}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
@@ -61,36 +60,54 @@ class PhasesPage extends Component {
             );
           }
         });
-      }//end of map
-    }//end of top if
+ 
     return phaseDropDowns; 
   }
 
   stepsRendering = (phase) => {
-    console.log('phase is',phase);
-    let step_links = '';
-    if(this.props.steps.length){
-      {step_links = this.props.steps.map(step => {
-        if(phase === step.phase_name) {
+      const querystring = this.props.location.search;
+      //Removing extra part of the path
+      const tree_id = querystring.replace('?tree-id=', '');
+      const step_links = this.props.steps.map(step => {
+        if(phase === step.phase_name && step.locked === true) {
           return(
-            <Dropdown.Item block onClick={() => this.goToStepPage(step.tree_step_id)}><span className='steps-text'>{step.step_name}</span></Dropdown.Item>
+            <Dropdown.Item
+              key={step.step_name}
+              block="true" 
+            >
+              <span className='steps-text'>{step.step_name}</span>
+              <span className='lock-icon'><i className="fa fa-lock" aria-hidden="true"></i></span>
+            </Dropdown.Item>
+          );
+        //end of inner if
+        } else if(phase === step.phase_name && step.locked === false){
+          return(
+            <Dropdown.Item
+              key={step.step_name}
+              block="true"
+              onClick={() => this.goToStepPage(tree_id,step.step_number)}
+            >
+              <span className='steps-text'>{step.step_name}</span>
+            </Dropdown.Item>
           );
         }
-      })}
-    }
+      })
+    //Need to use reverse to get the steps in the proper order  
     return step_links;
   }
 
-  goToStepPage = (id) => {
-    console.log('id is',id);
-    this.props.history.push(`/step?tree_step_id=${id}`);
+  goToStepPage = (tree_id,step_number) => {
+    this.props.history.push(`/step?tree-id=${tree_id}&step_number=${step_number}`);
+  }
+
+  progressCompleted = () => {
+    const completedSteps = this.props.steps.filter(step => step.status === true);
+    console.log()
   }
 
   render() {
     return (
-      <div>
-        <h1>Phases</h1>
-        <hr />
+      <div className='phases-page'>
         {this.dropdownRendering()}
       </div>
     )

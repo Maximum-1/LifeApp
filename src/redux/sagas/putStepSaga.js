@@ -7,9 +7,9 @@ function* answerSaga(action){
     try {
         console.log('action.payload is', action.payload);
         //Making asyn AJAX (axios) request
-        yield axios.put(`/api/step/update-step/${action.payload.id}`, action.payload);
+        yield axios.put(`/api/step/update-step/${action.payload.tree_step_id}`, {answer: action.payload.answer});
         //Request information back from the server after change
-        //yield put({type: 'FETCH_TREE', payload: action.payload.user_id});
+        yield put({ type: 'FETCH_TREE_BY_ID', payload: action.payload.tree_id});
     } catch(error) {
         console.log('error with put request for adding notes', error);
     }

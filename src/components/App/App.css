@@ -3,10 +3,32 @@ body {
     margin: 0px;
 }
 
-/* This is the body of  */
-.body{
-    margin: 6px;
+/* This is the body of website  */
+.body {
+    margin: 12px;
 }
+
+/* Hero Image Styling */
+.hero-text-div {
+    height: 80%;
+    overflow: hidden;
+}
+
+.hero-text {
+    height: 100%;
+    overflow: scroll;
+}
+
+pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;
+    font-size: large; 
+    color: ivory;
+}
+
 
 /* Buffer space for home page */
 .buffer-space {
@@ -66,10 +88,16 @@ input {
 .flex-container {
     display: flex;
     flex-flow: row wrap;
+    justify-content: center;
 }
 
 center {
    padding: 20px; 
+}
+
+.img-thumbnail {
+    border: none !important;
+    background-color: rgba(0,0,0,0.0);;
 }
 
 pre {

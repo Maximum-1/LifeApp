@@ -47,7 +47,9 @@ CREATE TABLE "tree_step" (
 	"tree_id" INT REFERENCES "tree",
 	"step_id" INT REFERENCES "step",
 	"content" TEXT,
-	"status" BOOLEAN DEFAULT 'FALSE'
+	"status" BOOLEAN DEFAULT 'FALSE',
+	"locked" BOOLEAN DEFAULT 'TRUE',
+	"step_number" INT
 );
 
 --DATA INSERTS MUST CREATE USER FIRST
@@ -57,7 +59,7 @@ INSERT INTO "phase" ("phase_number", "name", "number_of_steps") VALUES
 (2, 'Virtual Reality', 4),
 (3, 'Going Deeper', 4),
 (4, 'Remove the Barrier', 1),
-(5, 'Blaze A New Trail', 4),
+(5, 'Create a New Legacy', 4),
 (6,'Get Predictive', 3);
 
 --Creates all the steps with names, description, optional hints and the step number to populated the step page
@@ -174,5 +176,5 @@ RETURNING id;
 --Ask how to bling this on the post
 INSERT INTO "tree_step"("tree_id", "step_id") VALUES
 (1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(1,7),(1,8),(1,9),(1,10),
-(1,11),(1,12),(1,13),(1,14),(1,15),(1,16),(1,17),(1,18),(1,19),(1,20);
+(1,11),(1,12),(1,13),(1,14),(1,15),(1,16),(1,17),(1,18),(1,19),(1,20),(1,21);
 

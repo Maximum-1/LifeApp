@@ -28,15 +28,15 @@ class Item extends Component {
     this.props.dispatch({ type: 'DELETE_TREE', payload: { tree_id: id, user_id: this.props.user.id }});
   }
   
-  goToPhasePage = (id) => {
-    console.log('id is',id);
-    this.props.history.push(`/phases?tree-id=${id}`);
+  goToPhasePage = (tree_id) => {
+    console.log('id is',tree_id);
+    this.props.dispatch({type: 'UNLOCK_STEP', payload:{tree_id: tree_id, step: 1}});
+    this.props.history.push(`/phases?tree-id=${tree_id}`);
   }
 
   render() {
     return (
       <Card style={{ width: '22rem' }}>
-        <Card.Img variant="top" src="./images/tree.jpg" />
         <Card.Header>
           <h2>{this.props.tree_name}</h2>
           <h5>Date Created: {this.props.date_created.substring(0, 10)}</h5>

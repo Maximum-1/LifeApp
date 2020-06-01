@@ -25,7 +25,7 @@ class NavigationBar extends Component {
     return (
     <Navbar collapseOnSelect expand="lg" className="nav">
       <Navbar.Brand href="/">
-          <img alt="" src="./images/Maximum_1_Logo.png"
+          <img alt="" src="./images/Maximum_1_Logo_Yellow.png"
             className="d-inline-block align-top"
           />{' '}
           <span className='show hide'>Maximum 1 Life App</span>
@@ -43,7 +43,7 @@ class NavigationBar extends Component {
             />
           </>: null}
       {/* Creates the hamburger menu */}
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Toggle className="custom-toggler" aria-controls="responsive-navbar-nav" />
       {/* A links will be in the dropdown must be children of Collapse */}
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="ml-auto">
