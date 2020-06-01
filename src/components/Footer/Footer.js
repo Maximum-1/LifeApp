@@ -8,7 +8,7 @@ import './Footer.css'
 
 const Footer = () => (
   <footer>
-    &copy; Prime Digital Academy
+    &copy; Footer: THE HB-X™ & Maximum 1™ Life App © 2020 | All rights reserved.
   </footer>
 );
 
