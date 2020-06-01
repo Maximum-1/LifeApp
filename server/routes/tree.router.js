@@ -86,4 +86,26 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
         })
 });
 
+
+
+// GET the tree info and the user info 
+router.get('/', rejectUnauthenticated, (req, res) => {
+    const id = req.user.id;
+    console.log('GET tree id is:', req.user);
+
+    const queryText = `SELECT * FROM "tree"
+                       WHERE user_id = $1
+                        `;
+    pool.query(queryText, [id])
+        .then((result) => {
+            // console.log('GET Tree on server', result.rows);
+            res.send(result.rows);
+        })
+        .catch((err) => {
+            console.log('Error completing GET Tree query', err);
+            res.sendStatus(500);
+        });
+
+});
+
 module.exports = router;

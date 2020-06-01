@@ -5,8 +5,13 @@ import { InputGroup, InputGroupAddon, Button, Input } from 'reactstrap';
 //import components to be used on this page
 import Item from '../../Item/Item';
 import AppIntroModal from '../../Modal/AppIntroModal';
+
+//import css file for UserPage.js
+import './UserPage.css';
+
 class UserPage extends Component {
   state = {
+    search: "",
     modalShow: false,
   }
 
@@ -16,6 +21,19 @@ class UserPage extends Component {
         this.setState({modalShow: true});
       }
   }
+
+  handleChange = event => {
+    this.setState({
+      ...this.state,
+      search: event.target.value
+    });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    console.log('this.state.search is:', this.state.search);
+    this.props.dispatch({ type: "SEARCH_TREE", payload: this.state.search });
+  };
 
   setModalShow = (bool) => {
     this.setState({modalShow: bool});
@@ -30,9 +48,9 @@ class UserPage extends Component {
 
         <div className="input-form">
           <InputGroup >
-            <Input size="lg" placeholder="search a keyword" value={this.state.search} onChange={this.handleChange} />
+            <Input size="sm" placeholder="search a tree" value={this.state.search} onChange={this.handleChange} />
             <InputGroupAddon addonType="append">
-              <Button color="secondary" onClick={this.handleSubmit}>Search!!</Button>
+              <Button size="sm" color="primary" onClick={this.handleSubmit}>Find</Button>
             </InputGroupAddon>
           </InputGroup>
         </div>
