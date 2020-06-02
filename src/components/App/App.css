@@ -11,12 +11,15 @@ body {
 /* Hero Image Styling */
 .hero-text-div {
     height: 80%;
-    overflow: hidden;
 }
 
 .hero-text {
     height: 100%;
     overflow: scroll;
+}
+
+.hero-text-pre {
+    color: white;
 }
 
 pre {
@@ -25,7 +28,6 @@ pre {
     white-space: -pre-wrap;      /* Opera 4-6 */
     white-space: -o-pre-wrap;    /* Opera 7 */
     word-wrap: break-word;
-    font-size: large; 
 }
 
 
@@ -99,19 +101,13 @@ center {
     background-color: rgba(0,0,0,0.0);;
 }
 
-pre {
-    white-space: pre-wrap;       /* Since CSS 2.1 */
-    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-    white-space: -pre-wrap;      /* Opera 4-6 */
-    white-space: -o-pre-wrap;    /* Opera 7 */
-    word-wrap: break-word;
-    font-size: large;     overflow: auto;
-}
 .centerText{
     text-align: center;
 }
 .aTag{
         color: #00d1ef !important;
+        margin: 12px 0;
+        padding: 0;
 }
 .purpText{
       color: #6A0DAD;
@@ -120,3 +116,4 @@ pre {
 .tealText{
     color:#00d1ef;
 }
+
