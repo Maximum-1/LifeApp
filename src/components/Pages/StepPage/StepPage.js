@@ -71,7 +71,6 @@ class StepPage extends Component {
 
   goToPhasePage = (tree_id) => {
     console.log('id is',tree_id);
-    this.props.dispatch({type: 'UNLOCK_STEP', payload:{tree_id: tree_id, step: 1}});
     this.props.history.push(`/phases?tree-id=${tree_id}`);
   }
 
@@ -80,9 +79,10 @@ class StepPage extends Component {
       alert('Please enter some self-reflection. You can always come back and edit later.')
     } else {
       //Update changes to the database for the answer
+      console.log('answer, tree_id, tree_step_id is', this.state.answer, this.state.tree_id, tree_step_id);
       this.props.dispatch({ type: 'PUT_ANSWER', payload: { answer: this.state.answer, tree_id: this.state.tree_id, tree_step_id: tree_step_id } });
       alert('Congratulations on completing your tree! Please choose where you want to go next.')
-      this.props.history.push(`/`)
+      this.props.history.push(`/`);
     }
   }
 
