@@ -36,12 +36,23 @@ function* getSingleStepSaga(action) {
     }
 }
 
+function* sortTreeSaga(action) {
+    console.log('in sortTreeSaga, action.payload is', action.payload);
+    try {
+        const response = yield axios.get(`/api/tree/sort`, action.payload);
+        yield put({ type: 'ALL_TREE', payload: response.data })
+    }
+    catch (error) {
+        console.log('Error with TREE SORT GET', error);
+    }
+}
+
 
 function* getSaga() {
     yield takeLatest('GET_TREE', getTreeSaga);
     yield takeLatest('FETCH_TREE_BY_ID', getStepSaga);
     yield takeLatest('GET_SINGLE_STEP', getSingleStepSaga);
-
+    yield takeLatest('SORT_TREE', sortTreeSaga);
 }
 
 export default getSaga;
