@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 //Import components to be used on this component
@@ -21,10 +21,17 @@ class MyVerticallyCenteredModal extends Component {
   //What to do when the submit button is clicked
   handleSubmit = () => {
     //Sends a dispatch to update the speech_eval that were added.
-    this.props.dispatch({type: 'ADD_TREE', payload: {user_id: this.props.user_id, treeName: this.state.treeName}});
+    this.props.dispatch({ type: 'ADD_TREE', payload: { user_id: this.props.user_id, treeName: this.state.treeName } });
 
     //Close modal after user clicks on create tree
     this.props.onHide();
+    /*  Swal.fire({
+       position: 'middle-end',
+       icon: 'success',
+       title:`treeName`,
+       showConfirmButton: false,
+       timer: 1500
+     }) */
   }
 
   render() {
@@ -45,10 +52,10 @@ class MyVerticallyCenteredModal extends Component {
           <Form>
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Tree Name:</Form.Label>
-              <Form.Control 
-              type="text" 
-              placeholder="Enter Tree Name" 
-              onChange={(event) => this.handleChangeFor(event)}/>
+              <Form.Control
+                type="text"
+                placeholder="Enter Tree Name"
+                onChange={(event) => this.handleChangeFor(event)} />
             </Form.Group>
           </Form>
         </Modal.Body>
@@ -62,7 +69,7 @@ class MyVerticallyCenteredModal extends Component {
         </Modal.Footer>
       </Modal>
     );
-    }
   }
+}
 
-  export default connect()(MyVerticallyCenteredModal);
+export default connect()(MyVerticallyCenteredModal);

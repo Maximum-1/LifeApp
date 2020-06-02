@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+/* import Swal from 'sweetalert2'
+ */
 //Import to do routing
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 //import styles
 import './Item.css';
@@ -16,21 +18,46 @@ class Item extends Component {
   //Method for getting the percent of how completed the tree is
   percentageComplete = () => {
     //Need to divide number of steps_completed by 21 to get percentage of tree completed
-    let percentage = this.props.steps_completed/21* 100;
+    let percentage = this.props.steps_completed / 21 * 100;
     //Rounding percentage to the nearest tenth
     percentage = Math.round(percentage * 10) / 10;
     return percentage;
   }
 
   //Method for deleting a tree
+  /* handleDelete = (id) => {
+    console.log('id is', id);
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.value) {
+        this.props.dispatch({ type: 'DELETE_TREE', payload: { tree_id: id, user_id: this.props.user.id } });
+        Swal.fire(
+          'Smart Mark Deleted!',
+
+          'success'
+
+        )
+
+      }
+    })
+
+  } */
   handleDelete = (id) => {
     console.log('id is', id);
-    this.props.dispatch({ type: 'DELETE_TREE', payload: { tree_id: id, user_id: this.props.user.id }});
+    this.props.dispatch({ type: 'DELETE_TREE', payload: { tree_id: id, user_id: this.props.user.id } });
+
   }
-  
+
   goToPhasePage = (tree_id) => {
-    console.log('id is',tree_id);
-    this.props.dispatch({type: 'UNLOCK_STEP', payload:{tree_id: tree_id, step: 1}});
+    console.log('id is', tree_id);
+    this.props.dispatch({ type: 'UNLOCK_STEP', payload: { tree_id: tree_id, step: 1 } });
     this.props.history.push(`/phases?tree-id=${tree_id}`);
   }
 
