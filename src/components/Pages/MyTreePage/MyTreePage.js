@@ -35,11 +35,11 @@ class MyTreePage extends Component {
   };
 
   handleSort = (event) => {
-    console.log('Tree sortStatus is:', this.state.sortStatus);
     this.setState({
       sortStatus: event.target.value,
     })
-    this.props.dispatch({ type: 'SORT_TREE', payload: { sortStatus: event.target.value } });
+    console.log('Tree sortStatus is:', this.state.sortStatus);
+    this.props.dispatch({ type: 'SORT_TREE', payload: event.target.value });
   }
 
 
@@ -60,10 +60,10 @@ class MyTreePage extends Component {
           <br/>
             <FormGroup>
               <Input type="select" name="select" id="treeCategory" onChange={(event) => this.handleSort(event)}>
-                <option>All Trees</option>
-                <option>Completed Trees</option>
-                <option>In Progress Trees</option>
-                <option>No Started Trees</option>
+                <option value="1">All Trees</option>
+                <option value="2">Completed Trees</option>
+                <option value="3">In Progress Trees</option>
+                <option value="4">No Started Trees</option>
               </Input>
             </FormGroup>
           </div>

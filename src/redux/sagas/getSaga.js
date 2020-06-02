@@ -37,13 +37,13 @@ function* getSingleStepSaga(action) {
 }
 
 function* sortTreeSaga(action) {
-    console.log('in sortTreeSaga, action.payload is', action.payload);
+    console.log('in sortTreeSaga', action.payload);
     try {
-        const response = yield axios.get(`/api/tree/sort`, action.payload);
+        const response = yield axios.get(`/api/sort/${action.payload}`);
         yield put({ type: 'ALL_TREE', payload: response.data })
     }
     catch (error) {
-        console.log('Error with TREE SORT GET', error);
+        console.log('Error with SORT GET tree', error);
     }
 }
 
