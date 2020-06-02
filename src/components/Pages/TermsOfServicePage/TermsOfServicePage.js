@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class TermsOfService extends Component {
   render() {
     return (
-      <div>
+      <div className="body">
         {/* Start term of services insert */}
         <div>
           <pre>
