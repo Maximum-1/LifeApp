@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
-import { InputGroup, InputGroupAddon, Button, Input } from 'reactstrap';
+import { InputGroup, InputGroupAddon, Button, Input, FormGroup, Label } from 'reactstrap';
+
 
 import { connect } from 'react-redux';
 
@@ -32,20 +33,40 @@ class MyTreePage extends Component {
     this.props.dispatch({ type: "SEARCH_TREE", payload: this.state.search });
   };
 
+  
+
 
   render() {
     return (
     <div>
       <h1>My Trees Page</h1>
 
-        <div className="input-form">
+        <div class="form">
+          <div class="input-form">
+            <Label for="exampleSelect">Search or Sort Trees</Label>
           <InputGroup >
-            <Input size="sm" placeholder="search a tree" value={this.state.search} onChange={this.handleChange} />
+            <Input placeholder="search a tree" value={this.state.search} onChange={this.handleChange} />
             <InputGroupAddon addonType="append">
-              <Button size="sm" color="primary" onClick={this.handleSubmit}>Find</Button>
+              <Button color="primary" onClick={this.handleSubmit}>Find</Button>
             </InputGroupAddon>
           </InputGroup>
+          <br/>
+            <FormGroup>
+              <Input type="select" name="select" id="Select">
+                <option>All Trees</option>
+                <option>Completed Trees</option>
+                <option>In Progress Trees</option>
+                <option>No Started Trees</option>
+              </Input>
+            </FormGroup>
+          </div>
+
+          
+        
+
         </div>
+
+        
 
 
         <div className='flex-container'>
