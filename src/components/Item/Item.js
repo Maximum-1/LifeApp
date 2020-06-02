@@ -60,6 +60,10 @@ class Item extends Component {
     this.props.dispatch({ type: 'UNLOCK_STEP', payload: { tree_id: tree_id, step: 1 } });
     this.props.history.push(`/phases?tree-id=${tree_id}`);
   }
+  goToSummariesPage = (tree_id) => {
+    console.log('id is', tree_id);
+    this.props.history.push(`/summaries?tree-id=${tree_id}`);
+  }
 
   render() {
     return (
@@ -75,7 +79,9 @@ class Item extends Component {
               className="card-btn"
               onClick={() => this.goToPhasePage(this.props.tree_id)}
             >View Tree</button>
-            <button className="card-btn">View Summary</button>
+            <button className="card-btn"
+              onClick={() => this.goToSummariesPage(this.props.tree_id)}
+            >View Summary</button>
             <button
               className="card-btn"
               onClick={() => this.handleDelete(this.props.tree_id)}
