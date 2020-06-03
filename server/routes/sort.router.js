@@ -55,7 +55,7 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
         const queryText = `SELECT * FROM "tree"
                             WHERE user_id = $1
                            AND steps_completed = 0`;
-        pool.query(queryText)
+        pool.query(queryText, [id])
             .then((result) => {
                 res.send(result.rows);
             })
