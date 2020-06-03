@@ -12,7 +12,7 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
     console.log('USER id is:', req.user);
     console.log('The Sort Status is', sortStatus);
     if (sortStatus == 1){
-        console.log('Detected sortStatus1!');
+        console.log('In All Trees');
         const queryText = `SELECT * FROM "tree"
                            WHERE user_id = $1`;
         pool.query(queryText, [id])
@@ -24,36 +24,43 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
                 res.sendStatus(500);
             });
     } else if (sortStatus == 2) {
-        console.log('Detected sortStatus!');
-        const queryText = `SELECT * FROM "tree"`;
-        pool.query(queryText)
+        console.log('In Completed trees');
+        const queryText = `SELECT * FROM "tree"
+                           WHERE user_id = $1
+                           AND status = TRUE`;
+        pool.query(queryText, [id])
             .then((result) => {
                 res.send(result.rows);
             })
             .catch((err) => {
-                console.log('Error completing SORT Tree query 1', err);
+                console.log('Error completing SORT Tree query 2', err);
                 res.sendStatus(500);
             });
     } else if (sortStatus == 3) {
-        console.log('Detected sortStatus!');
-        const queryText = `SELECT * FROM "tree"`;
-        pool.query(queryText)
+        console.log('In In Progress trees');
+        const queryText = `SELECT * FROM "tree"
+                           WHERE user_id = $1
+                           AND steps_completed != 0
+                           AND status = FALSE`;
+        pool.query(queryText, [id])
             .then((result) => {
                 res.send(result.rows);
             })
             .catch((err) => {
-                console.log('Error completing SORT Tree query 1', err);
+                console.log('Error completing SORT Tree query 3', err);
                 res.sendStatus(500);
             });
     } else if (sortStatus == 4) {
-        console.log('Detected sortStatus!');
-        const queryText = `SELECT * FROM "tree"`;
+        console.log('In not started yet trees');
+        const queryText = `SELECT * FROM "tree"
+                            WHERE user_id = $1
+                           AND steps_completed = 0`;
         pool.query(queryText)
             .then((result) => {
                 res.send(result.rows);
             })
             .catch((err) => {
-                console.log('Error completing SORT Tree query 1', err);
+                console.log('Error completing SORT Tree query 4', err);
                 res.sendStatus(500);
             });
     }; 
