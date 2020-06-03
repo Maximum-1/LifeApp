@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './StepPage.css';
 import swal from 'sweetalert2';
 //Import Bootstrap features
@@ -79,49 +80,32 @@ class StepPage extends Component {
     this.props.history.push(`/phases?tree-id=${tree_id}`);
   }
 
-  onPick = (value) => {
-    switch (value) {
-      case "home":
-        this.props.history.push(`/`);
-        break;
-      case "phases":
-        this.goToPhasePage();
-        break;
-      case "trees":
-        this.props.history.push(`/my-tree`);
-        break;
-    }
-  }
-
-  routeButton = ({ value, onClick }) => (
-    <button
-      requestedRoute={value}
-      onClick={() => onClick(value)}
-    />
-  )
-
   handleGoHome = (tree_step_id) => {
     if (this.state.answer === null) {
-      alert('Please enter some self-reflection. You can always come back and edit later.')
+      return new swal({
+        text: "Please add your self-reflection. You can come back and edit it later.",
+        icon: "info",
+      });
     } else {
       //Update changes to the database for the answer
       this.props.dispatch({ type: 'PUT_ANSWER', payload: { answer: this.state.answer, tree_id: this.state.tree_id, tree_step_id: tree_step_id } });
       swal.fire({
         title: "Congratulations on completing your tree!",
+        text: "Where would you like to go next?",
         html: `
         <button>
           <a href="/">Home</a>
         </button><br />
 
         <button>
-          <a href="/">Back to Phases</a>
+          <a href="/#/phases?tree-id=${this.state.tree_id}">Back to Phases</a>
         </button><br />
 
         <button>
-          <a href="/">My Trees</a>
+          <a href="/#/my-tree">My Trees</a>
         </button>
         ` ,
-        showConfirmButton: false
+        confirmButtonText: "Close",
       });
     }
   }
