@@ -13,6 +13,7 @@ const phaseRouter = require('./routes/phase.router')
 const userRouter = require('./routes/user.router');
 const treeRouter = require('./routes/tree.router');
 const stepRouter = require('./routes/step.router');
+const sortRouter = require('./routes/sort.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -30,6 +31,7 @@ app.use('api/phase', phaseRouter)
 app.use('/api/user', userRouter);
 app.use('/api/tree', treeRouter);
 app.use('/api/step', stepRouter);
+app.use('/api/sort', sortRouter);
 
 // Serve static files
 app.use(express.static('build'));

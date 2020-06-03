@@ -86,4 +86,27 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
         })
 });
 
+
+
+// GET the tree info by search Keyword
+router.get('/:id', rejectUnauthenticated, (req, res) => {
+    const keyword = `%${req.params.id}%`;
+    console.log('Searched keyword term is:', keyword);
+
+    const queryText = `SELECT * FROM "tree"
+                       WHERE name LIKE $1
+                        `;
+
+    pool.query(queryText, [keyword])
+        .then((result) => {
+            res.send(result.rows);
+        })
+        .catch((err) => {
+            console.log('Error completing SEARCH Tree query', err);
+            res.sendStatus(500);
+        });
+
+});
+
+
 module.exports = router;

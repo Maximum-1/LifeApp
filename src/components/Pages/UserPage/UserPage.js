@@ -1,12 +1,16 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
+
 //import components to be used on this page
 import Item from '../../Item/Item';
 import AppIntroModal from '../../Modal/AppIntroModal';
+
+
+
 class UserPage extends Component {
   state = {
-    modalShow: false,
+    modalShow: false, 
   }
 
   componentDidMount() {
@@ -16,6 +20,7 @@ class UserPage extends Component {
       }
   }
 
+  
   setModalShow = (bool) => {
     this.setState({modalShow: bool});
   }
@@ -26,6 +31,10 @@ class UserPage extends Component {
         <h1 id="welcome">
           Welcome, { this.props.user.username }!
         </h1>
+
+        
+
+
         <AppIntroModal
           user_id={this.props.user.id}
           show={this.state.modalShow}
