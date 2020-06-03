@@ -1,5 +1,9 @@
 import React, {Component} from 'react'
-import { InputGroup, InputGroupAddon, Button, Input, FormGroup, Label } from 'reactstrap';
+// import { InputGroup, InputGroupAddon, Button, Input, FormGroup, Label } from 'reactstrap';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Button from 'react-bootstrap/Button';
+import FormControl from 'react-bootstrap/FormControl';
 
 
 import { connect } from 'react-redux';
@@ -50,27 +54,29 @@ class MyTreePage extends Component {
 
         <div class="form">
           <div class="input-form">
-            <Label for="exampleSelect">Search or Sort Trees</Label>
-          <InputGroup >
-            <Input placeholder="search a tree" value={this.state.search} onChange={this.handleChange} />
-            <InputGroupAddon addonType="append">
-              <Button color="primary" onClick={this.handleSubmit}>Find</Button>
-            </InputGroupAddon>
-          </InputGroup>
-          <br/>
-            <FormGroup>
-              <Input type="select" name="select" id="treeCategory" onChange={(event) => this.handleSort(event)}>
+            <Form.Label>Search or Sort Trees</Form.Label>
+            <InputGroup className="mb-3">
+              <FormControl
+                placeholder="Search A Tree"
+                aria-label="Search A Tree"
+                aria-describedby="basic-addon2"
+                value={this.state.search} 
+                onChange={this.handleChange}
+              />
+              <InputGroup.Append>
+                <Button variant="primary" onClick={this.handleSubmit}>Find</Button>
+              </InputGroup.Append>
+            </InputGroup>
+
+            <Form.Group controlId="Form.ControlSelect1">
+              <Form.Control as="select" onChange={(event) => this.handleSort(event)}>
                 <option value="1">All Trees</option>
                 <option value="2">Completed Trees</option>
                 <option value="3">In Progress Trees</option>
                 <option value="4">No Started Trees</option>
-              </Input>
-            </FormGroup>
+              </Form.Control>
+            </Form.Group>
           </div>
-
-          
-        
-
         </div>
 
         
