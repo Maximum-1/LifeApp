@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-/* import Swal from 'sweetalert2'
- */
+
 //Import to do routing
 import { withRouter } from 'react-router-dom';
 
@@ -11,6 +10,7 @@ import './Item.css';
 //import components to be used on this component
 import Card from 'react-bootstrap/Card';
 import ProgressBar from 'react-bootstrap/ProgressBar';
+import Swal from 'sweetalert2'
 
 class Item extends Component {
 
@@ -25,7 +25,7 @@ class Item extends Component {
   }
 
   //Method for deleting a tree
-  /* handleDelete = (id) => {
+  handleDelete = (id) => {
     console.log('id is', id);
     Swal.fire({
       title: 'Are you sure?',
@@ -37,23 +37,17 @@ class Item extends Component {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.value) {
+        console.log('this.props is',this.props.tree_name);
         this.props.dispatch({ type: 'DELETE_TREE', payload: { tree_id: id, user_id: this.props.user.id } });
-        Swal.fire(
-          'Smart Mark Deleted!',
+        Swal.fire({
+          text: `${this.props.tree_name} Deleted!`,
+          icon: 'error',
 
-          'success'
-
-        )
-
+        })
       }
     })
 
-  } */
-  handleDelete = (id) => {
-    console.log('id is', id);
-    this.props.dispatch({ type: 'DELETE_TREE', payload: { tree_id: id, user_id: this.props.user.id } });
-
-  }
+  } 
 
   goToPhasePage = (tree_id) => {
     console.log('id is', tree_id);
