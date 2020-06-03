@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 
 //import components to be used on this page
-import Dropdown from 'react-bootstrap/Dropdown';
+import Accordion from 'react-bootstrap/Accordion';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
 //import styles
 import './PhasesPage.css'
@@ -49,14 +51,22 @@ class PhasesPage extends Component {
         if(phase_name !== step.phase_name) {
           phase_name = step.phase_name;
           return(
-              <Dropdown key={step.phase_name}>
-                <Dropdown.Toggle id="dropdown-basic" block="true">
-                  {step.phase_name}
-                </Dropdown.Toggle>
-                <Dropdown.Menu>
-                  {this.stepsRendering(step.phase_name)}
-                </Dropdown.Menu>
-              </Dropdown>
+            <Accordion defaultActiveKey="1" key={step.phase_name}>
+              <Card>
+                <Card.Header className="phase-header">
+                  <Accordion.Toggle className="phase-header" as={Button} variant="link" eventKey="0" block="true">
+                    {step.phase_name}
+                  </Accordion.Toggle>
+                </Card.Header>
+                <Accordion.Collapse eventKey="0">
+                  <Card.Body>
+                    <ul>
+                      {this.stepsRendering(step.phase_name)}
+                    </ul>
+                  </Card.Body>
+                </Accordion.Collapse>
+              </Card>
+            </Accordion>
             );
           }
         });
@@ -71,24 +81,22 @@ class PhasesPage extends Component {
       const step_links = this.props.steps.map(step => {
         if(phase === step.phase_name && step.locked === true) {
           return(
-            <Dropdown.Item
-              key={step.step_name}
-              block="true" 
+            <li
+            key={step.step_name}
             >
               <span className='steps-text'>{step.step_name}</span>
               <span className='lock-icon'><i className="fa fa-lock" aria-hidden="true"></i></span>
-            </Dropdown.Item>
+            </li>
           );
         //end of inner if
         } else if(phase === step.phase_name && step.locked === false){
           return(
-            <Dropdown.Item
+            <li 
               key={step.step_name}
-              block="true"
               onClick={() => this.goToStepPage(tree_id,step.step_number)}
             >
               <span className='steps-text'>{step.step_name}</span>
-            </Dropdown.Item>
+            </li>
           );
         }
       })

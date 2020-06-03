@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Swal from 'sweetalert2';
 
 class MyVerticallyCenteredModal extends Component {
   state = {
@@ -25,13 +26,13 @@ class MyVerticallyCenteredModal extends Component {
 
     //Close modal after user clicks on create tree
     this.props.onHide();
-    /*  Swal.fire({
+     Swal.fire({
        position: 'middle-end',
        icon: 'success',
-       title:`treeName`,
+       title: `Success! You have added ${this.state.treeName}`,
        showConfirmButton: false,
-       timer: 1500
-     }) */
+       timer: 3000  //3seconds
+     });
   }
 
   render() {
