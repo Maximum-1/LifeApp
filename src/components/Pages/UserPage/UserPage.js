@@ -17,6 +17,7 @@ class UserPage extends Component {
 
   componentDidMount() {
       this.props.dispatch({ type: 'GET_TREE'  });
+      console.log('first_time is', this.props.user.first_time === true);
       if(this.props.user.first_time === true) {
         this.setState({modalShow: true});
       }

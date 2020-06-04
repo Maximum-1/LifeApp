@@ -11,6 +11,7 @@ class AppIntroModal extends Component {
     //What to do when the submit button is clicked
     handleSubmit = () => {
         this.props.dispatch({type: 'UPDATE_USER'});
+        this.props.dispatch({ type: 'FETCH_USER' });
         //Close modal after user clicks on create tree
         this.props.onHide();
     }
