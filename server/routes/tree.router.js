@@ -94,7 +94,8 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
     console.log('Searched keyword term is:', keyword);
 
     const queryText = `SELECT * FROM "tree"
-                       WHERE name LIKE $1
+                       WHERE upper(name) LIKE $1
+                       OR lower(name) LIKE $1
                         `;
 
     pool.query(queryText, [keyword])
