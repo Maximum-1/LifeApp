@@ -6,7 +6,6 @@ import getSaga from './getSaga';
 import putStepSaga from './putStepSaga';
 import deleteSaga from './deleteSaga';
 import addTreeSaga from './addTreeSaga';
-import unlockStepSaga from './unlockFirstStepSaga';
 import userStatusSaga from './userStatusSaga';
 import searchTreeSaga from './searchTreeSaga';
 
@@ -27,7 +26,6 @@ export default function* rootSaga() {
     putStepSaga(),
     deleteSaga(),
     addTreeSaga(),
-    unlockStepSaga(),
     userStatusSaga(),
     searchTreeSaga(),
   ]);

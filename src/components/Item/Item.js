@@ -51,7 +51,6 @@ class Item extends Component {
 
   goToPhasePage = (tree_id) => {
     console.log('id is', tree_id);
-    this.props.dispatch({ type: 'UNLOCK_STEP', payload: { tree_id: tree_id, step: 1 } });
     this.props.history.push(`/phases?tree-id=${tree_id}`);
   }
   goToSummariesPage = (tree_id) => {
