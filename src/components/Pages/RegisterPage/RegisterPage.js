@@ -33,7 +33,7 @@ class RegisterPage extends Component {
 
   render() {
     return (
-      <div>
+      <div className="body">
         {this.props.errors.registrationMessage && (
           <h2
             className="alert"
@@ -87,14 +87,20 @@ class RegisterPage extends Component {
           </div>
         </form>
         <center>
-          <span>Already have an account? </span>
-          <button
-            type="button"
-            className="link-button"
-            onClick={() => {this.props.dispatch({type: 'SET_TO_LOGIN_MODE'})}}
-          >
-            Log in
-          </button>
+          <div>
+            <span>Already have an account? </span>
+            <button
+              type="button"
+              className="link-button"
+              onClick={() => {this.props.dispatch({type: 'SET_TO_LOGIN_MODE'})}}
+            >
+              Log in
+            </button>
+          </div>
+          <div>
+            <span>By signing up you agree to Maximum 1's </span>
+            <a className="aTag" href="/#/termsOfService">Terms of Service</a>
+          </div>
         </center>
       </div>
     );
