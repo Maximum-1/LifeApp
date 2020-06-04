@@ -73,7 +73,7 @@ class MyTreePage extends Component {
                 <option value="1">All Trees</option>
                 <option value="2">Completed Trees</option>
                 <option value="3">In Progress Trees</option>
-                <option value="4">No Started Trees</option>
+                <option value="4">Not Started Trees</option>
               </Form.Control>
             </Form.Group>
           </div>
