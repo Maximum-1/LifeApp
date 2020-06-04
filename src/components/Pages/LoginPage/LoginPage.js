@@ -40,7 +40,7 @@ class LoginPage extends Component {
             {this.props.errors.loginMessage}
           </h2>
         )}
-        <h1>Maximum 1 Life App Login</h1>
+        <h1>App Login</h1>
         <div className="buffer-space"></div>
         <center>
           <form onSubmit={this.login}>
@@ -82,6 +82,9 @@ class LoginPage extends Component {
               >
                 Create Account
               </button>
+            </div>
+            <div>
+              <span>By Logging in you agree to Maximum 1's </span><a className="aTag" href="/#/termsOfService">Terms of Service</a>
             </div>
           </center>
           <div className="buffer-space"></div>
