@@ -2,22 +2,6 @@
 .phases-page {
     text-align: center;
 }
-/* Dropdown Styling */
-.dropdown {
-    width: 100%; 
-}
-
-#dropdown-basic {
-    background-color: #9554C3;
-}
-
-.btn-primary{
-    border-color: #9554C3 !important;
-}
-
-.dropdown .btn {
-    border-radius: 0;
-}
 
 .lock-icon {
     color: grey;
@@ -25,14 +9,22 @@
     margin-left: 12px;
 }
 
-.dropdown-menu {
-    width: 100%;
-    display: block;
-    margin: auto;
-    border-radius: 0 !important;
+
+ul {
+    background-color: tomato !important;
+    list-style: none;
 }
-/* Select the text color for the steps */
-.steps-text {
-    display: inline-block;
-    color: blue;
+
+li {
+    cursor: pointer;
 }
+
+li:hover {
+    background-color: blue;
+}
+
+.phase-header {
+    background-color: #9554C3 !important;
+    color: white !important;
+}
+

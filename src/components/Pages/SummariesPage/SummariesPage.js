@@ -77,7 +77,7 @@ class SummariesPage extends Component {
         <h1>Summaries Page</h1>
         <hr />
         {this.renderSummary()}
-        <button>Back</button>
+        <button><a href="/">Back</a></button>
         <button onClick={this.printPage}>Print</button>
       </>
     )
