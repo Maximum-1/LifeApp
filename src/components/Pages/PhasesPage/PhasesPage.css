@@ -11,8 +11,11 @@
 
 
 ul {
-    background-color: tomato !important;
-    list-style: none;
+    margin:0;
+    padding:0;
+    text-align: center;
+    list-style:none;                
+    margin-bottom: 0 !important;
 }
 
 li {
@@ -26,5 +29,9 @@ li:hover {
 .phase-header {
     background-color: #9554C3 !important;
     color: white !important;
+}
+
+.phase-cards {
+    padding: 0 !important;
 }
 

@@ -55,11 +55,11 @@ class PhasesPage extends Component {
               <Card>
                 <Card.Header className="phase-header">
                   <Accordion.Toggle className="phase-header" as={Button} variant="link" eventKey="0" block="true">
-                    {step.phase_name}
+                    {step.phase_name} <i class="fa fa-caret-down" aria-hidden="true"></i>
                   </Accordion.Toggle>
                 </Card.Header>
                 <Accordion.Collapse eventKey="0">
-                  <Card.Body>
+                  <Card.Body className="phase-cards">
                     <ul>
                       {this.stepsRendering(step.phase_name)}
                     </ul>

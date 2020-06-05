@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 //Import components to be used on this component
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
 class SummariesPage extends Component {
   componentDidMount() {
@@ -34,30 +35,37 @@ class SummariesPage extends Component {
           </Card>
 
           <Card className="text-left">
+            <Card.Header className="header">Protect Yourself</Card.Header>
+            <Card.Body>
+              <pre className="card-text">{this.props.steps[1].content}</pre>
+            </Card.Body>
+          </Card>
+
+          <Card className="text-left">
             <Card.Header className="header">Inner Consciousness</Card.Header>
             <Card.Body>
-              <pre className="card-text">{this.props.steps[14].content}</pre>
+              <pre className="card-text">{this.props.steps[13].content}</pre>
             </Card.Body>
           </Card>
 
           <Card className="text-left">
             <Card.Header className="header">Victory Road</Card.Header>
             <Card.Body>
-              <pre className="card-text">{this.props.steps[16].content}</pre>
+              <pre className="card-text">{this.props.steps[15].content}</pre>
             </Card.Body>
           </Card>
 
           <Card className="text-left">
             <Card.Header className="header">W.H.O.L.E. Affirmations™</Card.Header>
             <Card.Body>
-              <pre className="card-text">{this.props.steps[17].content}</pre>
+              <pre className="card-text">{this.props.steps[16].content}</pre>
             </Card.Body>
           </Card>
 
           <Card className="text-left">
-            <Card.Header className="header">Root New Belief</Card.Header>
+            <Card.Header className="header">New Root Belief</Card.Header>
             <Card.Body>
-              <pre className="card-text">{this.props.steps[18].content}</pre>
+              <pre className="card-text">{this.props.steps[17].content}</pre>
             </Card.Body>
           </Card>
 
@@ -77,8 +85,12 @@ class SummariesPage extends Component {
         <h1>Summaries Page</h1>
         <hr />
         {this.renderSummary()}
-        <button><a href="/">Back</a></button>
-        <button onClick={this.printPage}>Print</button>
+        <Card className="text-left">
+          <Card.Body>
+            <button className="card-btn"><a href="/">Back</a></button>
+            <button className="card-btn" onClick={this.printPage}>Print</button>
+          </Card.Body>
+        </Card>
       </>
     )
   }
