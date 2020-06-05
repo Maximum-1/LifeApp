@@ -5,13 +5,33 @@ import { connect } from 'react-redux';
 import Accordion from 'react-bootstrap/Accordion';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import RatingModal from '../../Modal/RatingModal';
 
 //import styles
 import './PhasesPage.css'
 
 class PhasesPage extends Component {
+  state = {
+    modalShow: false,
+  }
+
   componentDidMount() {
     this.getTreeById();
+    console.log('steps are',this.props.steps)
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.steps.length !== prevProps.steps.length && this.props.steps.length > 0) {
+      if(this.props.steps.length) {
+        if (this.props.steps[0].status === false) {
+          this.setState({modalShow: true});
+        }
+      }
+    }
+  }
+
+  setModalShow = (bool) => {
+    this.setState({modalShow: bool});
   }
 
   //Get the speech from the database and set to redux state
@@ -55,7 +75,7 @@ class PhasesPage extends Component {
               <Card>
                 <Card.Header className="phase-header">
                   <Accordion.Toggle className="phase-header" as={Button} variant="link" eventKey="0" block="true">
-                    {step.phase_name} <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    {step.phase_name} <i className="fa fa-caret-down" aria-hidden="true"></i>
                   </Accordion.Toggle>
                 </Card.Header>
                 <Accordion.Collapse eventKey="0">
@@ -117,13 +137,19 @@ class PhasesPage extends Component {
     return (
       <div className='phases-page'>
         {this.dropdownRendering()}
+        <RatingModal
+          user_id={this.props.user.id}
+          show={this.state.modalShow}
+          onHide={() => this.setModalShow(false)}
+        />
       </div>
     )
   }
 }
 
 const mapStateToProps = reduxStore => ({
-  steps: reduxStore.stepReducer
+  steps: reduxStore.stepReducer,
+  user: reduxStore.user,
 });
 
 export default connect(mapStateToProps)(PhasesPage);
