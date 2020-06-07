@@ -7,12 +7,13 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 /** 
  * GET route template
  */
-router.post('/', rejectUnauthenticated, (req, res) => {
+router.post('/:tree_id', rejectUnauthenticated, (req, res) => {
+    let tree_id = req.params.tree_id;
     console.log('in last rating roruter', req.body);
     const queryText = `INSERT INTO "last_rating"("tree_id","user_id","recurrence","day_week_month",
-    "duration_days","intensity","transparicy") VALUES ($1,$2,$3,$4,$5,$6,$7);`;
+    "duration_days","intensity","transparency") VALUES ($1,$2,$3,$4,$5,$6,$7);`;
 
-    pool.query(queryText, [tree_id, req.user.id, req.body.recurrence, req.body.dayWeekMonth, req.body.duration, req.body.intensity, req.body.transparicy])
+    pool.query(queryText, [tree_id, req.user.id, req.body.recurrence, req.body.dayWeekMonth, req.body.duration, req.body.intensity, req.body.transparency])
         .then((result) => {
             res.sendStatus(201);
         })
