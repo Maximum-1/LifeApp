@@ -30,8 +30,10 @@ class LastRatingModal extends Component {
 
     //What to do when the submit button is clicked
     handleSubmit = () => {
+        console.log(this.state.surveyAnswers.transparency);
+
         //Sends a dispatch to update the speech_eval that were added.
-        this.props.dispatch({ type: 'FIRST_RATING', payload: { firstRating: this.state.surveyAnswers, tree_id: this.props.tree_id } });
+        // this.props.dispatch({ type: 'FIRST_RATING', payload: { firstRating: this.state.surveyAnswers, tree_id: this.props.tree_id } });
 
         //Close modal after user clicks on create tree
         this.props.onHide();
@@ -109,30 +111,36 @@ class LastRatingModal extends Component {
                                 4) Transparency
                             </Form.Label>
                             <h5> How honest were your responses to the steps in this tree? </h5>
-                            <Form.Check
-                                type="radio"
-                                label="Completely (I was blunt)"
-                                name="formHorizontalRadios"
-                                id="formHorizontalRadios1"
-                            />
-                            <Form.Check
-                                type="radio"
-                                label="pretty honest (I may have used some nicer or less embarrassing language than was true)"
-                                name="formHorizontalRadios"
-                                id="formHorizontalRadios2"
-                            />
-                            <Form.Check
-                                type="radio"
-                                label="somewhat honest (It was really hard to say what I truly felt, but I tried)"
-                                name="formHorizontalRadios"
-                                id="formHorizontalRadios3"
-                            />
-                            <Form.Check
-                                type="radio"
-                                label="not honest (I couldn't bring myself to say what I felt)"
-                                name="formHorizontalRadios"
-                                id="formHorizontalRadios4"
-                            />
+                            <div className="inner-div" onChange={(event) => this.handleChangeFor(event, 'transparency')}>
+                                <Form.Check
+                                    type="radio"
+                                    value='1'
+                                    label="Completely (I was blunt)"
+                                    name="formHorizontalRadios"
+                                    id="formHorizontalRadios1"
+                                />
+                                <Form.Check
+                                    type="radio"
+                                    value='2'
+                                    label="pretty honest (I may have used some nicer or less embarrassing language than was true)"
+                                    name="formHorizontalRadios"
+                                    id="formHorizontalRadios2"
+                                />
+                                <Form.Check
+                                    type="radio"
+                                    value='3'
+                                    label="somewhat honest (It was really hard to say what I truly felt, but I tried)"
+                                    name="formHorizontalRadios"
+                                    id="formHorizontalRadios3"
+                                />
+                                <Form.Check
+                                    type="radio"
+                                    value='4'
+                                    label="not honest (I couldn't bring myself to say what I felt)"
+                                    name="formHorizontalRadios"
+                                    id="formHorizontalRadios4"
+                                />
+                            </div>
                         </Form.Group>
 
                     </Form>
