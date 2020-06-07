@@ -30,8 +30,10 @@ class LastRatingModal extends Component {
 
     //What to do when the submit button is clicked
     handleSubmit = () => {
+        console.log(this.state.surveyAnswers, 'tree id is,', this.props.tree_id);
+
         //Sends a dispatch to update the speech_eval that were added.
-        this.props.dispatch({ type: 'FIRST_RATING', payload: { firstRating: this.state.surveyAnswers, tree_id: this.props.tree_id } });
+        this.props.dispatch({ type: 'LAST_RATING', payload: { lastRating: this.state.surveyAnswers, tree_id: this.props.tree_id } });
 
         //Close modal after user clicks on create tree
         this.props.onHide();
@@ -63,13 +65,29 @@ class LastRatingModal extends Component {
                                 placeholder="Times Per"
                                 onChange={(event) => this.handleChangeFor(event, 'recurrence')} />
                             <h5>Times per</h5>
-                            <select
-                                onChange={(event) => this.handleChangeFor(event, 'dayWeekMonth')}>
-                                <option value='' >Select</option>
-                                <option value='day'>Day</option>
-                                <option value='week'>Week</option>
-                                <option value='month'>Month</option>
-                            </select>
+                            <div className="inner-div" onChange={(event) => this.handleChangeFor(event, 'dayWeekMonth')}>
+                                <Form.Check
+                                    type="radio"
+                                    value='day'
+                                    label="day"
+                                    name="formHorizontalRadios"
+                                    id="formHorizontalRadios1"
+                                />
+                                <Form.Check
+                                    type="radio"
+                                    value='week'
+                                    label="week"
+                                    name="formHorizontalRadios"
+                                    id="formHorizontalRadios2"
+                                />
+                                <Form.Check
+                                    type="radio"
+                                    value='month'
+                                    label="month"
+                                    name="formHorizontalRadios"
+                                    id="formHorizontalRadios3"
+                                />
+                            </div>
                             <br></br>
                             <br></br>
                             <br></br>
@@ -85,23 +103,82 @@ class LastRatingModal extends Component {
                             <br></br>
                             <br></br>
                             <br></br>
-                            <Form.Label> 3) Intensity</Form.Label>
-                            <h5>How disturbing or upsetting does the problem feel at its worst? Clue: Rate between zero
-                 and ten with zero being neutral or no disturbance and ten being the worst disturbance imaginable.</h5>
-                            <select
-                                onChange={(event) => this.handleChangeFor(event, 'intensity')}>
-                                <option value='' >Select</option>
-                                <option value='1'>1</option>
-                                <option value='2'>2</option>
-                                <option value='3'>3</option>
-                                <option value='4' >4</option>
-                                <option value='5'>5</option>
-                                <option value='6'>6</option>
-                                <option value='7'>7</option>
-                                <option value='8' >8</option>
-                                <option value='9'>9</option>
-                                <option value='10'>10</option>
-                            </select>
+                            <Form.Label>
+                                3) Intensity
+                            </Form.Label>
+                            <h5> How disturbing or upsetting does the problem feel at its worst? Clue: Rate between
+                                 zero and ten with zero being neutral or no disturbance and ten being the worst disturbance imaginable </h5>
+                            <div className="inner-div" onChange={(event) => this.handleChangeFor(event, 'intensity')}>
+                                <Form.Check
+                                    type="radio"
+                                    value='0'
+                                    label="0"
+                                    name="formHorizontalRadios"
+                                    id="formHorizontalRadios1"
+                                />
+                                <Form.Check
+                                    type="radio"
+                                    value='1'
+                                    label="1"
+                                    name="formHorizontalRadios"
+                                    id="formHorizontalRadios1"
+                                />
+                                <Form.Check
+                                    type="radio"
+                                    value='2'
+                                    label="2"
+                                    name="formHorizontalRadios"
+                                    id="formHorizontalRadios1"
+                                />   <Form.Check
+                                    type="radio"
+                                    value='3'
+                                    label="3"
+                                    name="formHorizontalRadios"
+                                    id="formHorizontalRadios1"
+                                />   <Form.Check
+                                    type="radio"
+                                    value='4'
+                                    label="4"
+                                    name="formHorizontalRadios"
+                                    id="formHorizontalRadios1"
+                                />   <Form.Check
+                                    type="radio"
+                                    value='5'
+                                    label="5"
+                                    name="formHorizontalRadios"
+                                    id="formHorizontalRadios1"
+                                />   <Form.Check
+                                    type="radio"
+                                    value='6'
+                                    label="6"
+                                    name="formHorizontalRadios"
+                                    id="formHorizontalRadios1"
+                                />   <Form.Check
+                                    type="radio"
+                                    value='7'
+                                    label="7"
+                                    name="formHorizontalRadios"
+                                    id="formHorizontalRadios1"
+                                />   <Form.Check
+                                    type="radio"
+                                    value='8'
+                                    label="8"
+                                    name="formHorizontalRadios"
+                                    id="formHorizontalRadios1"
+                                />   <Form.Check
+                                    type="radio"
+                                    value='9'
+                                    label="9"
+                                    name="formHorizontalRadios"
+                                    id="formHorizontalRadios1"
+                                />   <Form.Check
+                                    type="radio"
+                                    value='10'
+                                    label="10"
+                                    name="formHorizontalRadios"
+                                    id="formHorizontalRadios1"
+                                />
+                            </div>
                             <br></br>
                             <br></br>
                             <br></br>
@@ -109,30 +186,36 @@ class LastRatingModal extends Component {
                                 4) Transparency
                             </Form.Label>
                             <h5> How honest were your responses to the steps in this tree? </h5>
-                            <Form.Check
-                                type="radio"
-                                label="Completely (I was blunt)"
-                                name="formHorizontalRadios"
-                                id="formHorizontalRadios1"
-                            />
-                            <Form.Check
-                                type="radio"
-                                label="pretty honest (I may have used some nicer or less embarrassing language than was true)"
-                                name="formHorizontalRadios"
-                                id="formHorizontalRadios2"
-                            />
-                            <Form.Check
-                                type="radio"
-                                label="somewhat honest (It was really hard to say what I truly felt, but I tried)"
-                                name="formHorizontalRadios"
-                                id="formHorizontalRadios3"
-                            />
-                            <Form.Check
-                                type="radio"
-                                label="not honest (I couldn't bring myself to say what I felt)"
-                                name="formHorizontalRadios"
-                                id="formHorizontalRadios4"
-                            />
+                            <div className="inner-div" onChange={(event) => this.handleChangeFor(event, 'transparency')}>
+                                <Form.Check
+                                    type="radio"
+                                    value='1'
+                                    label="Completely (I was blunt)"
+                                    name="formHorizontalRadios"
+                                    id="formHorizontalRadios1"
+                                />
+                                <Form.Check
+                                    type="radio"
+                                    value='2'
+                                    label="pretty honest (I may have used some nicer or less embarrassing language than was true)"
+                                    name="formHorizontalRadios"
+                                    id="formHorizontalRadios2"
+                                />
+                                <Form.Check
+                                    type="radio"
+                                    value='3'
+                                    label="somewhat honest (It was really hard to say what I truly felt, but I tried)"
+                                    name="formHorizontalRadios"
+                                    id="formHorizontalRadios3"
+                                />
+                                <Form.Check
+                                    type="radio"
+                                    value='4'
+                                    label="not honest (I couldn't bring myself to say what I felt)"
+                                    name="formHorizontalRadios"
+                                    id="formHorizontalRadios4"
+                                />
+                            </div>
                         </Form.Group>
 
                     </Form>

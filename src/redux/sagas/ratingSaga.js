@@ -18,7 +18,7 @@ function* lastRating(action) {
     console.log('in lastRating Saga', action.payload)
     try {
         //Sends delete request and tree ID to server
-        yield axios.post(`/api/lastRating/${action.payload.tree_id}`);
+        yield axios.post(`/api/lastRating/${action.payload.tree_id}`, action.payload.lastRating);
     }
     catch (error) {
         console.log('error in lastRating Saga', error);

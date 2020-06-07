@@ -136,21 +136,21 @@ router.put('/update-step/:id', rejectUnauthenticated, async (req, res) => {
 router.put('/update-tree/:id', rejectUnauthenticated, (req, res) => {
     const tree_id = req.params.id;
     const status = true;
-    let date_created = new Date();
-    console.log('date created is', date_created)
+    let date_finished = new Date();
+    console.log('date created is', date_finished);
 
     //Updates the step with the answer the user provided
-    const queryText = `
-                        UPDATE tree 
-                        SET status = $1
-                        WHERE id = $2;
-                        `;
-    pool.query(queryText, [status, tree_id]).then((result) => {
-        res.sendStatus(204);
-    }).catch((error) => {
-        console.log(`Error on query ${error}`);
-        res.sendStatus(500);
-    });
+    // const queryText = `
+    //                     UPDATE tree 
+    //                     SET status = $1
+    //                     WHERE id = $2;
+    //                     `;
+    // pool.query(queryText, [status, tree_id]).then((result) => {
+    //     res.sendStatus(204);
+    // }).catch((error) => {
+    //     console.log(`Error on query ${error}`);
+    //     res.sendStatus(500);
+    // });
 });
 
 module.exports = router;

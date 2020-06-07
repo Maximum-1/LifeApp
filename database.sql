@@ -76,7 +76,7 @@ CREATE TABLE "last_rating"
 	"user_id" INT REFERENCES "user",
 	"recurrence"INT,
 	"day_week_month" TEXT,
-	"duration" INT,
+	"duration_days" INT,
 	"intensity" INT,
 	"transparency" INT
 );

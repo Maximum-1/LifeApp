@@ -62,13 +62,29 @@ class RatingModal extends Component {
                 placeholder="Times Per"
                 onChange={(event) => this.handleChangeFor(event, 'recurrence')} />
               <h5>Times per</h5>
-              <select
-                onChange={(event) => this.handleChangeFor(event, 'dayWeekMonth')}>
-                <option value='' >Select</option>
-                <option value='day'>Day</option>
-                <option value='week'>Week</option>
-                <option value='month'>Month</option>
-              </select>
+              <div className="inner-div" onChange={(event) => this.handleChangeFor(event, 'dayWeekMonth')}>
+                <Form.Check
+                  type="radio"
+                  value='day'
+                  label="day"
+                  name="formHorizontalRadios"
+                  id="formHorizontalRadios1"
+                />
+                <Form.Check
+                  type="radio"
+                  value='week'
+                  label="week"
+                  name="formHorizontalRadios"
+                  id="formHorizontalRadios2"
+                />
+                <Form.Check
+                  type="radio"
+                  value='month'
+                  label="month"
+                  name="formHorizontalRadios"
+                  id="formHorizontalRadios3"
+                />
+              </div>
               <br></br>
               <br></br>
               <br></br>
@@ -84,23 +100,82 @@ class RatingModal extends Component {
               <br></br>
               <br></br>
               <br></br>
-              <Form.Label> 3) Intensity</Form.Label>
-              <h5>How disturbing or upsetting does the problem feel at its worst? Clue: Rate between zero
-                 and ten with zero being neutral or no disturbance and ten being the worst disturbance imaginable.</h5>
-              <select
-                onChange={(event) => this.handleChangeFor(event, 'intensity')}>
-                <option value='' >Select</option>
-                <option value='1'>1</option>
-                <option value='2'>2</option>
-                <option value='3'>3</option>
-                <option value='4' >4</option>
-                <option value='5'>5</option>
-                <option value='6'>6</option>
-                <option value='7'>7</option>
-                <option value='8' >8</option>
-                <option value='9'>9</option>
-                <option value='10'>10</option>
-              </select>
+              <Form.Label>
+                3) Intensity
+                            </Form.Label>
+              <h5> How disturbing or upsetting does the problem feel at its worst? Clue: Rate between
+                                 zero and ten with zero being neutral or no disturbance and ten being the worst disturbance imaginable </h5>
+              <div className="inner-div" onChange={(event) => this.handleChangeFor(event, 'intensity')}>
+                <Form.Check
+                  type="radio"
+                  value='0'
+                  label="0"
+                  name="formHorizontalRadios"
+                  id="formHorizontalRadios1"
+                />
+                <Form.Check
+                  type="radio"
+                  value='1'
+                  label="1"
+                  name="formHorizontalRadios"
+                  id="formHorizontalRadios1"
+                />
+                <Form.Check
+                  type="radio"
+                  value='2'
+                  label="2"
+                  name="formHorizontalRadios"
+                  id="formHorizontalRadios1"
+                />   <Form.Check
+                  type="radio"
+                  value='3'
+                  label="3"
+                  name="formHorizontalRadios"
+                  id="formHorizontalRadios1"
+                />   <Form.Check
+                  type="radio"
+                  value='4'
+                  label="4"
+                  name="formHorizontalRadios"
+                  id="formHorizontalRadios1"
+                />   <Form.Check
+                  type="radio"
+                  value='5'
+                  label="5"
+                  name="formHorizontalRadios"
+                  id="formHorizontalRadios1"
+                />   <Form.Check
+                  type="radio"
+                  value='6'
+                  label="6"
+                  name="formHorizontalRadios"
+                  id="formHorizontalRadios1"
+                />   <Form.Check
+                  type="radio"
+                  value='7'
+                  label="7"
+                  name="formHorizontalRadios"
+                  id="formHorizontalRadios1"
+                />   <Form.Check
+                  type="radio"
+                  value='8'
+                  label="8"
+                  name="formHorizontalRadios"
+                  id="formHorizontalRadios1"
+                />   <Form.Check
+                  type="radio"
+                  value='9'
+                  label="9"
+                  name="formHorizontalRadios"
+                  id="formHorizontalRadios1"
+                />   <Form.Check
+                  type="radio"
+                  value='10'
+                  label="10"
+                  name="formHorizontalRadios"
+                  id="formHorizontalRadios1"
+                />
+              </div>
             </Form.Group>
           </Form>
         </Modal.Body>
