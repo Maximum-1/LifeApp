@@ -8,7 +8,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
  */
 
 //GET the specific step info by sending in the step id:
-router.get('/:id', rejectUnauthenticated, async(req, res) => {
+router.get('/:id', rejectUnauthenticated, async (req, res) => {
     const id = req.params.id
     const queryText = `
                         SELECT "tree_step"."id" as "tree_step_id", "step"."name" as "step_name", "phase"."name" as "phase_name", "step"."description", "step"."optional_hint", "tree_step"."content" 
@@ -41,7 +41,8 @@ router.get('/phases/:id', rejectUnauthenticated, (req, res) => {
                         "step"."description",
                         "step"."optional_hint", 
                         "phase"."name" as "phase_name", 
-                        "tree_step"."status", 
+                        "tree_step"."status",
+                        "tree"."status" as "tree_status", 
                         "tree_step"."locked",
                         "tree_step"."step_number",
                         "tree_step"."content"
@@ -82,13 +83,13 @@ router.get('/phases/:id', rejectUnauthenticated, (req, res) => {
  * PUT route for when a step is answered in a tree/phase
  * Updates the content field and the status to true
  */
-router.put('/update-step/:id', rejectUnauthenticated, async(req, res) => {
+router.put('/update-step/:id', rejectUnauthenticated, async (req, res) => {
     const answer = req.body.answer;
     const tree_step_id = Number(req.params.id);
     const status = true;
     const locked = false;
     const completedStep = true;
-    
+
 
     console.log('update-step variables are', answer, tree_step_id);
     //Need to use the same database connection for the entire transaction
@@ -104,7 +105,7 @@ router.put('/update-step/:id', rejectUnauthenticated, async(req, res) => {
         const result1 = await connection.query(queryText1, [answer, status, tree_step_id]);
         const tree_id = result1.rows[0].tree_id;
         const step_number = result1.rows[0].step_number;
-        if(step_number !== final_step) {
+        if (step_number !== final_step) {
             //Unlocks the next step so the user can access the step
             const queryText2 = `UPDATE tree_step SET locked = $1 WHERE step_number =  $2 AND tree_id = $3;`;
             await connection.query(queryText2, [locked, step_number + 1, tree_id]);
@@ -117,9 +118,9 @@ router.put('/update-step/:id', rejectUnauthenticated, async(req, res) => {
         const queryText4 = `UPDATE tree SET steps_completed = $1 WHERE id = $2;`;
         console.log('steps_completed', result2.rows[0]);
         await connection.query(queryText4, [result2.rows[0].steps_completed, tree_id]);
-        await connection.query( 'COMMIT;' );
+        await connection.query('COMMIT;');
         res.sendStatus(200);
-    } catch(error) {
+    } catch (error) {
         console.log('error in adding tree to database ', error)
         res.sendStatus(500);
     } finally {
@@ -135,6 +136,8 @@ router.put('/update-step/:id', rejectUnauthenticated, async(req, res) => {
 router.put('/update-tree/:id', rejectUnauthenticated, (req, res) => {
     const tree_id = req.params.id;
     const status = true;
+    let date_created = new Date();
+    console.log('date created is', date_created)
 
     //Updates the step with the answer the user provided
     const queryText = `

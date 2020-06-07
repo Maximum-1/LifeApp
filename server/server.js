@@ -14,6 +14,8 @@ const userRouter = require('./routes/user.router');
 const treeRouter = require('./routes/tree.router');
 const stepRouter = require('./routes/step.router');
 const sortRouter = require('./routes/sort.router');
+const firstRating = require('./routes/firstRating.router')
+const lastRating = require('./routes/lastRating.router')
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -32,6 +34,11 @@ app.use('/api/user', userRouter);
 app.use('/api/tree', treeRouter);
 app.use('/api/step', stepRouter);
 app.use('/api/sort', sortRouter);
+app.use('/api/firstRating', firstRating);
+app.use('/api/lastRating', lastRating);
+
+
+
 
 // Serve static files
 app.use(express.static('build'));

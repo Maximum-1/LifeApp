@@ -74,7 +74,7 @@ class StepPage extends Component {
   }
 
   goToPhasePage = (tree_id) => {
-    console.log('id is',tree_id);
+    console.log('id is', tree_id);
     this.props.history.push(`/phases?tree-id=${tree_id}`);
   }
 
@@ -88,24 +88,16 @@ class StepPage extends Component {
       //Update changes to the database for the answer
       console.log('answer, tree_id, tree_step_id is', this.state.answer, this.state.tree_id, tree_step_id);
       this.props.dispatch({ type: 'PUT_ANSWER', payload: { answer: this.state.answer, tree_id: this.state.tree_id, tree_step_id: tree_step_id } });
-      swal.fire({
-        title: "Congratulations on completing your tree!",
-        text: "Where would you like to go next?",
-        html: `
-        <button>
-          <a href="/">Home</a>
-        </button><br />
-
-        <button>
-          <a href="/#/phases?tree-id=${this.state.tree_id}">Back to Phases</a>
-        </button><br />
-
-        <button>
-          <a href="/#/my-tree">My Trees</a>
-        </button>
-        ` ,
-        confirmButtonText: "Close",
-      });
+      if (this.props.steps.length) {
+        swal.fire({
+          title: `Congratulations on completing ${this.props.steps[0].tree_name}`,
+          confirmButtonText: `<i className="fa fa-thumbs-up"></i> View ${this.props.steps[0].tree_name} Summary!`,
+          confirmButtonAriaLabel: 'Thumbs up, great!',
+        }).then(() => {
+          //redirect to the summary page
+          this.props.history.push(`/summaries?tree-id=${this.state.tree_id}`);
+        })
+      }
     }
   }
 

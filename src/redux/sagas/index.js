@@ -8,6 +8,7 @@ import deleteSaga from './deleteSaga';
 import addTreeSaga from './addTreeSaga';
 import userStatusSaga from './userStatusSaga';
 import searchTreeSaga from './searchTreeSaga';
+import ratingSaga from './ratingSaga'
 
 
 // rootSaga is the primary saga.
@@ -28,5 +29,7 @@ export default function* rootSaga() {
     addTreeSaga(),
     userStatusSaga(),
     searchTreeSaga(),
+    ratingSaga(),
+
   ]);
 }

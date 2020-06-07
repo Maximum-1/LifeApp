@@ -4,10 +4,31 @@ import { connect } from 'react-redux';
 //Import components to be used on this component
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import LastRatingModal from '../../Modal/LastRatingModal';
 
 class SummariesPage extends Component {
+  state = {
+    tree_id: '',
+    modalShow: false
+  }
   componentDidMount() {
     this.getTreeById();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.steps.length !== prevProps.steps.length && this.props.steps.length > 0) {
+      if (this.props.steps.length) {
+        console.log('modal conditional', (this.props.steps[0].tree_status === false && this.props.steps[20].status === true));
+        if (this.props.steps[0].tree_status === false && this.props.steps[20].status === true) {
+          this.setState({ modalShow: true });
+        }
+      }
+    }
+  }
+
+  setModalShow = (bool) => {
+    this.props.dispatch({ type: 'PUT_TREE_STATUS', payload: { tree_id: this.state.tree_id } });
+    this.setState({ modalShow: bool });
   }
 
   //Get the speech from the database and set to redux state
@@ -19,6 +40,7 @@ class SummariesPage extends Component {
     //Removing extra part of the path
     let tree_id = querystring.replace('?tree-id=', '');
     console.log('tree_id is', tree_id);
+    this.setState({ tree_id: tree_id });
     //Dispatch to Saga
     this.props.dispatch({ type: 'FETCH_TREE_BY_ID', payload: tree_id });
   }
@@ -68,6 +90,12 @@ class SummariesPage extends Component {
               <pre className="card-text">{this.props.steps[17].content}</pre>
             </Card.Body>
           </Card>
+
+          <LastRatingModal
+            tree_id={this.state.tree_id}
+            show={this.state.modalShow}
+            onHide={() => this.setModalShow(false)}
+          />
 
         </div>
       );

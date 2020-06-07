@@ -26,13 +26,13 @@ class MyVerticallyCenteredModal extends Component {
 
     //Close modal after user clicks on create tree
     this.props.onHide();
-     Swal.fire({
-       position: 'middle-end',
-       icon: 'success',
-       title: `Success! You have added ${this.state.treeName}`,
-       showConfirmButton: false,
-       timer: 3000  //3seconds
-     });
+    Swal.fire({
+      position: 'middle-end',
+      icon: 'success',
+      title: `Success! You have added ${this.state.treeName}`,
+      showConfirmButton: false,
+      timer: 3000  //3seconds
+    });
   }
 
   render() {
