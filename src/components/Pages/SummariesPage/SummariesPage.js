@@ -16,18 +16,14 @@ class SummariesPage extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.steps.length !== prevProps.steps.length && this.props.steps.length > 0) {
-      if (this.props.steps.length) {
-        console.log('modal conditional', (this.props.steps[0].tree_status === false && this.props.steps[20].status === true));
-        if (this.props.steps[0].tree_status === false && this.props.steps[20].status === true) {
-          this.setState({ modalShow: true });
-        }
+    if(this.props.steps.length > 0 && prevProps.steps.length > 0) {
+      if(this.props.steps.length > 0 && this.props.steps[20].tree_status !== prevProps.steps[20].tree_status) {
+        this.setState({ modalShow: true });
       }
-    }
+    } 
   }
 
   setModalShow = (bool) => {
-    this.props.dispatch({ type: 'PUT_TREE_STATUS', payload: { tree_id: this.state.tree_id } });
     this.setState({ modalShow: bool });
   }
 
@@ -41,6 +37,11 @@ class SummariesPage extends Component {
     let tree_id = querystring.replace('?tree-id=', '');
     console.log('tree_id is', tree_id);
     this.setState({ tree_id: tree_id });
+    if(this.props.steps.length > 0) {
+      if(this.props.steps[20].status === true) {
+        this.props.dispatch({ type: 'PUT_TREE_STATUS', payload: { tree_id: tree_id } });
+      }
+    }
     //Dispatch to Saga
     this.props.dispatch({ type: 'FETCH_TREE_BY_ID', payload: tree_id });
   }

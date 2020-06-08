@@ -17,11 +17,11 @@ function* answerSaga(action) {
 
 function* completeTreeSaga(action) {
     try {
-        console.log('updating the tree completed and date complete');
+        console.log('updating the tree completed and date complete', action.payload.tree_id);
         //Making asyn AJAX (axios) request
-        //yield axios.put(`/api/step//update-tree/${action.payload.tree_step_id}`);
+        yield axios.put(`/api/step/update-tree/${action.payload.tree_id}`);
         //Request information back from the server after change
-        //yield put({ type: 'FETCH_TREE_BY_ID', payload: action.payload.tree_id});
+        yield put({ type: 'FETCH_TREE_BY_ID', payload: action.payload.tree_id});
     } catch (error) {
         console.log('error with put request for adding notes', error);
     }
