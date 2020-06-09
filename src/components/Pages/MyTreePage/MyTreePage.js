@@ -64,7 +64,7 @@ class MyTreePage extends Component {
                 onChange={this.handleChange}
               />
               <InputGroup.Append>
-                <Button variant="primary" onClick={this.handleSubmit}>Find</Button>
+                <Button className="search-button" variant="primary" onClick={this.handleSubmit}>Find</Button>
               </InputGroup.Append>
             </InputGroup>
 

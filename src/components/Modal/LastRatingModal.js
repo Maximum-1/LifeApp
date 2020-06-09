@@ -69,22 +69,22 @@ class LastRatingModal extends Component {
                                 <Form.Check
                                     type="radio"
                                     value='day'
-                                    label="day"
-                                    name="formHorizontalRadios"
+                                    label="Day"
+                                    name="recurrence"
                                     id="formHorizontalRadios1"
                                 />
                                 <Form.Check
                                     type="radio"
                                     value='week'
-                                    label="week"
-                                    name="formHorizontalRadios"
+                                    label="Week"
+                                    name="recurrence"
                                     id="formHorizontalRadios2"
                                 />
                                 <Form.Check
                                     type="radio"
                                     value='month'
-                                    label="month"
-                                    name="formHorizontalRadios"
+                                    label="Month"
+                                    name="recurrence"
                                     id="formHorizontalRadios3"
                                 />
                             </div>
@@ -113,69 +113,69 @@ class LastRatingModal extends Component {
                                     type="radio"
                                     value='0'
                                     label="0"
-                                    name="formHorizontalRadios"
+                                    name="intensity"
                                     id="formHorizontalRadios1"
                                 />
                                 <Form.Check
                                     type="radio"
                                     value='1'
                                     label="1"
-                                    name="formHorizontalRadios"
+                                    name="intensity"
                                     id="formHorizontalRadios1"
                                 />
                                 <Form.Check
                                     type="radio"
                                     value='2'
                                     label="2"
-                                    name="formHorizontalRadios"
+                                    name="intensity"
                                     id="formHorizontalRadios1"
                                 />   <Form.Check
                                     type="radio"
                                     value='3'
                                     label="3"
-                                    name="formHorizontalRadios"
+                                    name="intensity"
                                     id="formHorizontalRadios1"
                                 />   <Form.Check
                                     type="radio"
                                     value='4'
                                     label="4"
-                                    name="formHorizontalRadios"
+                                    name="intensity"
                                     id="formHorizontalRadios1"
                                 />   <Form.Check
                                     type="radio"
                                     value='5'
                                     label="5"
-                                    name="formHorizontalRadios"
+                                    name="intensity"
                                     id="formHorizontalRadios1"
                                 />   <Form.Check
                                     type="radio"
                                     value='6'
                                     label="6"
-                                    name="formHorizontalRadios"
+                                    name="intensity"
                                     id="formHorizontalRadios1"
                                 />   <Form.Check
                                     type="radio"
                                     value='7'
                                     label="7"
-                                    name="formHorizontalRadios"
+                                    name="intensity"
                                     id="formHorizontalRadios1"
                                 />   <Form.Check
                                     type="radio"
                                     value='8'
                                     label="8"
-                                    name="formHorizontalRadios"
+                                    name="intensity"
                                     id="formHorizontalRadios1"
                                 />   <Form.Check
                                     type="radio"
                                     value='9'
                                     label="9"
-                                    name="formHorizontalRadios"
+                                    name="intensity"
                                     id="formHorizontalRadios1"
                                 />   <Form.Check
                                     type="radio"
                                     value='10'
                                     label="10"
-                                    name="formHorizontalRadios"
+                                    name="intensity"
                                     id="formHorizontalRadios1"
                                 />
                             </div>
@@ -191,28 +191,28 @@ class LastRatingModal extends Component {
                                     type="radio"
                                     value='1'
                                     label="Completely (I was blunt)"
-                                    name="formHorizontalRadios"
+                                    name="transparency"
                                     id="formHorizontalRadios1"
                                 />
                                 <Form.Check
                                     type="radio"
                                     value='2'
-                                    label="pretty honest (I may have used some nicer or less embarrassing language than was true)"
-                                    name="formHorizontalRadios"
+                                    label="Pretty Honest (I may have used some nicer or less embarrassing language than was true)"
+                                    name="transparency"
                                     id="formHorizontalRadios2"
                                 />
                                 <Form.Check
                                     type="radio"
                                     value='3'
-                                    label="somewhat honest (It was really hard to say what I truly felt, but I tried)"
-                                    name="formHorizontalRadios"
+                                    label="Somewhat Honest (It was really hard to say what I truly felt, but I tried)"
+                                    name="transparency"
                                     id="formHorizontalRadios3"
                                 />
                                 <Form.Check
                                     type="radio"
                                     value='4'
-                                    label="not honest (I couldn't bring myself to say what I felt)"
-                                    name="formHorizontalRadios"
+                                    label="Not Honest (I couldn't bring myself to say what I felt)"
+                                    name="transparency"
                                     id="formHorizontalRadios4"
                                 />
                             </div>

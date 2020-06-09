@@ -6,6 +6,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Image from 'react-bootstrap/Image';
+import './modal.css';
 
 class AppIntroModal extends Component {
     //What to do when the submit button is clicked
@@ -31,7 +32,7 @@ class AppIntroModal extends Component {
                 <Card.ImgOverlay> 
                 <Card.Title className="text-center">
                   <div><Image src="./images/Maximum_1_Logo_Yellow.png" thumbnail/> </div>
-                  <div>The Human Behavior (HB-X™)</div>
+                  <div className="hero-text">The Human Behavior Matrix (HB-X™)</div>
                 </Card.Title>
                   <div className="hero-text-div">
                     <div className="hero-text">

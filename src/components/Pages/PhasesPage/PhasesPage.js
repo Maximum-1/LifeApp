@@ -104,6 +104,7 @@ class PhasesPage extends Component {
       if (phase === step.phase_name && step.locked === true) {
         return (
           <li
+            className="step-list"
             key={step.step_name}
           >
             <span className='steps-text'>{step.step_name}</span>

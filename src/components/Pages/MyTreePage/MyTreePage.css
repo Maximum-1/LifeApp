@@ -6,3 +6,8 @@
     width: 20%;
     display: inline-block;
 }
+
+.search-button {
+    background-color: #00d1ef !important;
+    border-color: #00d1ef !important; 
+}
