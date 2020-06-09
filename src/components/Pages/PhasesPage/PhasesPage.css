@@ -22,8 +22,8 @@ li {
     cursor: pointer;
 }
 
-li:hover {
-    background-color: blue;
+.step-list:hover {
+    background-color: #00d1ef;
 }
 
 .phase-header {
