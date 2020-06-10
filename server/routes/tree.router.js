@@ -17,7 +17,6 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
     const queryText = `SELECT * FROM "tree"
                        WHERE user_id = $1 AND "is_deleted" = $2 
-            
                        ORDER BY id DESC;
                         `;
     pool.query(queryText, [id, status])
