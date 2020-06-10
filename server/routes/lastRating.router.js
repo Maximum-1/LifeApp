@@ -4,9 +4,8 @@ const pool = require('../modules/pool');
 const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
-/** 
- * GET route template
- */
+
+ // Post route to allow user insert the rating info for user after their finish of a tree
 router.post('/:tree_id', rejectUnauthenticated, (req, res) => {
     let tree_id = req.params.tree_id;
     console.log('in last rating roruter', req.body);

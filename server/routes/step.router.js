@@ -1,11 +1,9 @@
+// Step route
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
-/**
- * GET route template
- */
 
 //GET the specific step info by sending in the step id:
 router.get('/:id', rejectUnauthenticated, async (req, res) => {

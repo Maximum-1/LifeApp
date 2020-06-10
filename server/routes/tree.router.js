@@ -1,3 +1,4 @@
+// Tree route
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
@@ -44,7 +45,7 @@ router.post('/', rejectUnauthenticated, async (req, res) => {
         const sqlText1 = `INSERT INTO "tree" ("user_id", "name") VALUES ($1, $2) RETURNING id`;
         // remember to await if its not return the id and console log to see what its returning
         const result =  await connection.query(sqlText1, [req.body.user_id, req.body.treeName]);
-        console.log('result.rows is', result.rows);
+        // console.log('result.rows is', result.rows);
         const newTree = result.rows[0].id;
         const sqlText2 = `SELECT "id" FROM "step"`;
         const result2 = await connection.query(sqlText2);
@@ -70,7 +71,7 @@ router.post('/', rejectUnauthenticated, async (req, res) => {
 
 /**
  * DELETE route
- * Removes a tree based on the trees id
+ * Removes a tree based on the trees id 
  */
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
     // Set tree ID to variable
@@ -93,7 +94,7 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
 
 
 
-// GET the tree info by search Keyword
+// GET the tree info by search Keyword, which can just contain partial keyword
 router.get('/:id', rejectUnauthenticated, (req, res) => {
     const keyword = `%${req.params.id}%`;
     console.log('Searched keyword term is:', keyword);

@@ -21,7 +21,10 @@ text-align: center;
     background-color: white;
 }
 
-.hero-text {
-    text-shadow: 2px 2px 2px black;
+.hero-text-pre {
+    text-shadow: 2px 2px 8px #000000;
+    background-color: rgba(37, 30, 8, 0.8);
+    padding: 12px;
+    text-align: left;
 }
 

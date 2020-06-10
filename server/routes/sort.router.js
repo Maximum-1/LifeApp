@@ -1,3 +1,4 @@
+// Sort route
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
@@ -5,7 +6,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 
 
 
-// GET the tree info by search Keyword
+// GET the tree info by search Keyword with specific user id selected
 router.get('/:id', rejectUnauthenticated, (req, res) => {
     const sortStatus = req.params.id;
     const id = req.user.id;
@@ -24,6 +25,7 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
                 res.sendStatus(500);
             });
     } else if (sortStatus == 2) {
+        //if the sort status is 2, it return completed trees
         console.log('In Completed trees');
         const queryText = `SELECT * FROM "tree"
                            WHERE user_id = $1
@@ -37,6 +39,7 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
                 res.sendStatus(500);
             });
     } else if (sortStatus == 3) {
+        //if the sort status is 3, it return incompleted trees
         console.log('In In Progress trees');
         const queryText = `SELECT * FROM "tree"
                            WHERE user_id = $1
@@ -51,6 +54,7 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
                 res.sendStatus(500);
             });
     } else if (sortStatus == 4) {
+        //if the sort status is 4, it return not started trees
         console.log('In not started yet trees');
         const queryText = `SELECT * FROM "tree"
                             WHERE user_id = $1
