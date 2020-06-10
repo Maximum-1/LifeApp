@@ -1,9 +1,10 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 // import { InputGroup, InputGroupAddon, Button, Input, FormGroup, Label } from 'reactstrap';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl';
+import swal from 'sweetalert2';
 
 
 import { connect } from 'react-redux';
@@ -34,8 +35,15 @@ class MyTreePage extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log('this.state.search is:', this.state.search);
-    this.props.dispatch({ type: "SEARCH_TREE", payload: this.state.search });
+    if (this.state.search === "") {
+      return new swal({
+        text: "Please enter Tree name",
+        icon: "info",
+      });
+    } else {
+      console.log('this.state.search is:', this.state.search);
+      this.props.dispatch({ type: "SEARCH_TREE", payload: this.state.search });
+    }
   };
 
   handleSort = (event) => {
@@ -49,8 +57,8 @@ class MyTreePage extends Component {
 
   render() {
     return (
-    <div>
-      <h1>My Trees Page</h1>
+      <div>
+        <h1>My Trees Page</h1>
 
         <div class="form">
           <div class="input-form">
@@ -60,7 +68,7 @@ class MyTreePage extends Component {
                 placeholder="Search A Tree"
                 aria-label="Search A Tree"
                 aria-describedby="basic-addon2"
-                value={this.state.search} 
+                value={this.state.search}
                 onChange={this.handleChange}
               />
               <InputGroup.Append>
@@ -79,7 +87,7 @@ class MyTreePage extends Component {
           </div>
         </div>
 
-        
+
 
 
         <div className='flex-container'>
@@ -98,9 +106,9 @@ class MyTreePage extends Component {
           )}
         </div>
 
-    </div>
+      </div>
 
-  )
+    )
   }
 }
 

@@ -21,18 +21,25 @@ class MyVerticallyCenteredModal extends Component {
 
   //What to do when the submit button is clicked
   handleSubmit = () => {
-    //Sends a dispatch to update the speech_eval that were added.
-    this.props.dispatch({ type: 'ADD_TREE', payload: { user_id: this.props.user_id, treeName: this.state.treeName } });
+    if (this.state.treeName === '') {
+      return new Swal({
+        text: "Please enter Tree name",
+        icon: "info",
+      });
+    } else {
+      //Sends a dispatch to update the speech_eval that were added.
+      this.props.dispatch({ type: 'ADD_TREE', payload: { user_id: this.props.user_id, treeName: this.state.treeName } });
 
-    //Close modal after user clicks on create tree
-    this.props.onHide();
-    Swal.fire({
-      position: 'middle-end',
-      icon: 'success',
-      title: `Success! You have added ${this.state.treeName}`,
-      showConfirmButton: false,
-      timer: 3000  //3seconds
-    });
+      //Close modal after user clicks on create tree
+      this.props.onHide();
+      Swal.fire({
+        position: 'middle-end',
+        icon: 'success',
+        title: `Success! You have added ${this.state.treeName}`,
+        showConfirmButton: false,
+        timer: 3000  //3seconds
+      });
+    }
   }
 
   render() {
