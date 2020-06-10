@@ -58,7 +58,7 @@ class PhasesPage extends Component {
           <h1>{this.props.steps[0].tree_name}</h1>
           <h5>{this.props.steps[0].date_created.substring(0, 10)}</h5>
           <hr />
-          <h2>HBX Phases</h2>
+          <h2>HB-X Phases</h2>
           {this.phasesRendering()}
         </div>
       );
