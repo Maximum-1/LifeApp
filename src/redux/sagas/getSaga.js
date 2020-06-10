@@ -25,17 +25,6 @@ function* getStepSaga(action) {
     }
 }
 
-function* getSingleStepSaga(action) {
-    console.log('in getSingleStepSaga', action.payload);
-    try {
-        const response = yield axios.get(`/api/step/${action.payload}`);
-        yield put({ type: 'STEP', payload: response.data })
-    }
-    catch (error) {
-        console.log('Error with STEP GET', error);
-    }
-}
-
 function* sortTreeSaga(action) {
     console.log('in sortTreeSaga', action.payload);
     try {
@@ -51,7 +40,6 @@ function* sortTreeSaga(action) {
 function* getSaga() {
     yield takeLatest('GET_TREE', getTreeSaga);
     yield takeLatest('FETCH_TREE_BY_ID', getStepSaga);
-    yield takeLatest('GET_SINGLE_STEP', getSingleStepSaga);
     yield takeLatest('SORT_TREE', sortTreeSaga);
 }
 
