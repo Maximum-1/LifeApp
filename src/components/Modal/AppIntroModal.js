@@ -37,13 +37,16 @@ class AppIntroModal extends Component {
                   <div className="hero-text-div">
                     <div className="hero-text">
                       <pre className="hero-text-pre">
-                      “When I was in my 20s, I got understanding of human behavior. I used a “tree” to describe the basic
-                      connection between trauma events (roots), resulting core beliefs (trunk), thoughts and attitudes
-                      (branches), and finally behavior (fruit).<br /><br />
-                      I didn’t yet know there was much more detail, but it was a starting framework. From these ideas, I
-                      started my personal journey to wholeness and THE HB-X™ emotional health protocol featured in the
-                      Maximum 1™ Life App. It saved me from discouragement, being consumed by hate and rage, suicide,
-                      and addiction, bad habits, and also depression.”
+                      “THE HB-X™ stabilized me. 
+                      It drastically reduced, and in some cases eliminated, <b>fight, flight, freeze, and submit responses</b> I learned from past trauma that no longer serve me well. 
+                      I’ve gained courage and maturity. I process better instead of reacting. 
+                      I can stay silent or say what’s needed at the right time. 
+                      I can work effectively without being recognized.<br /><br />
+                      I want approval, but don’t need it. I once thought that impossible! I can relax, not worry, and disrupt negative thoughts. 
+                      I’m able to consistently stay in my window of tolerance. 
+                      Now, I’m much more focused and can handle complex mental tasks which is a miracle also having ADHD (Attention-Deficit/Hyperactivity Disorder). 
+                      I’m systematically eliminating internal conflict from unhealed trauma.<br /><br /> 
+                      I’m different. I’m <b><i>calm</i></b>. I’m beginning to be the person I always wanted to be.”
                       –Marius J. Massie, Creator, THE HB-X™<br /><br />
                       Much of the way we move in the world is built on emotional learning that was formed when we were
                       quite young. Some emotional learning produces healthy fruit (self-esteem, connectedness, healthy
