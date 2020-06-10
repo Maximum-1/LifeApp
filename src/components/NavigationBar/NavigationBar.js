@@ -17,6 +17,7 @@ class NavigationBar extends Component {
     modalShow: false,
   }
 
+  // to set the showing of the Modal
   setModalShow = (bool) => {
     this.setState({modalShow: bool});
   }
@@ -25,6 +26,7 @@ class NavigationBar extends Component {
     return (
     <Navbar collapseOnSelect expand="lg" className="nav">
       <Navbar.Brand href="/">
+        {/* the Maximum1 logo img */}
           <img alt="" src="./images/Maximum_1_Logo_Yellow.png"
             className="d-inline-block align-top"
           />{' '}
@@ -35,7 +37,7 @@ class NavigationBar extends Component {
             <Button className="modal-btn" variant="primary" onClick={() => this.setModalShow(true)}>
               <span><i className="fa fa-plus-circle" aria-hidden="true"></i> Add Tree</span>
             </Button>
-
+            {/* To show the add tree modal */}
             <MyVerticallyCenteredModal
               user_id={this.props.user.id}
               show={this.state.modalShow}
