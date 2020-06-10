@@ -35,9 +35,6 @@ app.use('/api/sort', sortRouter);
 app.use('/api/firstRating', firstRating);
 app.use('/api/lastRating', lastRating);
 
-
-
-
 // Serve static files
 app.use(express.static('build'));
 

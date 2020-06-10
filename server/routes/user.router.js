@@ -1,4 +1,4 @@
-// User route
+/*    User Route     */
 const express = require('express');
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 const encryptLib = require('../modules/encryption');
@@ -42,10 +42,11 @@ router.post('/logout', (req, res) => {
   res.sendStatus(200);
 });
 
+
+// Route to set user's first time status to fault after log in
 router.put('/update-status', rejectUnauthenticated, (req, res) => {
   const first_time = false;
   const user_id = req.user.id;
-  console.log('update-status', user_id);
   //Updates the step with the answer the user provided
   const queryText = `
                     UPDATE "user" 
