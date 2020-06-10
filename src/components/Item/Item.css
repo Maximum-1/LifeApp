@@ -1,3 +1,4 @@
+/* control the card css */
 .card {
     margin: 12px;
 }
@@ -21,6 +22,7 @@
     margin: 0 auto;
 }
 
+/* control the button css */
 button {
     background-color: #9554C3; /* Green */
     color: white;
