@@ -6,9 +6,13 @@ import {
   Switch,
 } from 'react-router-dom';
 import { connect } from 'react-redux';
+
+// import components
 import NavigationBar from '../NavigationBar/NavigationBar';
 import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
+
+// import bootstrap and APP.css file
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -44,7 +48,7 @@ class App extends Component {
               path="/about"
               component={AboutPage}
             />
-            {/* Visiting localhost:3000/about will show the about page.
+            {/* Visiting localhost:3000/TermsOfServicePage will show the Term of Services page.
               This is a route anyone can see, no login necessary */}
             <Route
               exact
@@ -61,12 +65,13 @@ class App extends Component {
               component={UserPage}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
-              they will see the info page instead. */}
+              they will see the my tree page. */}
             <ProtectedRoute
               exact
               path="/my-tree"
               component={MyTreePage}
             />
+            {/* phase page */}
             <ProtectedRoute
               exact
               //if using params to pass id use /phases/:id
@@ -74,6 +79,7 @@ class App extends Component {
               path="/phases"
               component={PhasesPage}
             />
+            {/* step page */}
             <ProtectedRoute
               exact
               //if using params to pass id use /step/:id
@@ -81,6 +87,7 @@ class App extends Component {
               path="/step"
               component={StepPage}
             />
+            {/* summaries page */}
             <ProtectedRoute
               exact
               //if using params to pass id use /phases/:id
