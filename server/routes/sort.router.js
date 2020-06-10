@@ -1,4 +1,4 @@
-// Sort route
+/*     Sort route     */
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
@@ -12,15 +12,15 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
     const id = req.user.id;
     console.log('USER id is:', req.user);
     console.log('The Sort Status is', sortStatus);
-    if (sortStatus == 1){
+    if (sortStatus == 1) {
         console.log('In All Trees');
         const queryText = `SELECT * FROM "tree"
                            WHERE user_id = $1`;
         pool.query(queryText, [id])
-        .then((result) => {
-            res.send(result.rows);
-        })
-        .catch((err) => {
+            .then((result) => {
+                res.send(result.rows);
+            })
+            .catch((err) => {
                 console.log('Error completing SORT Tree query 1', err);
                 res.sendStatus(500);
             });
@@ -67,8 +67,8 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
                 console.log('Error completing SORT Tree query 4', err);
                 res.sendStatus(500);
             });
-    }; 
-    
+    };
+
 
 });
 

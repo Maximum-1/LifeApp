@@ -4,7 +4,6 @@ import loginMode from './loginModeReducer';
 import user from './userReducer';
 import treeReducer from './treeReducer';
 import stepReducer from './stepReducer';
-import singleStepReducer from './singleStepReducer'
 import allTreesReducer from './allTreesReducer';
 
 
@@ -20,7 +19,6 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   treeReducer,
   stepReducer,
-  singleStepReducer,
   allTreesReducer,
 });
 
