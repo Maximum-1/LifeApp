@@ -34,6 +34,7 @@ class LastRatingModal extends Component {
 
         //Sends a dispatch to update the speech_eval that were added.
         this.props.dispatch({ type: 'LAST_RATING', payload: { lastRating: this.state.surveyAnswers, tree_id: this.props.tree_id } });
+        this.props.dispatch({ type: 'PUT_TREE_STATUS', payload: { tree_step_id: this.props.tree_id } });
 
         //Close modal after user clicks on create tree
         this.props.onHide();
@@ -87,6 +88,7 @@ class LastRatingModal extends Component {
                                     name="recurrence"
                                     id="formHorizontalRadios3"
                                 />
+
                             </div>
                             <br></br>
                             <br></br>
