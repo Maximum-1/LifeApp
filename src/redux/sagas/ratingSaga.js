@@ -2,7 +2,6 @@ import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* firstRating(action) {
-    console.log('in firstRating Saga', action.payload)
     try {
         //Sends delete request and tree ID to server
         yield axios.post(`/api/firstRating/${action.payload.tree_id}`, action.payload.firstRating);
@@ -15,7 +14,6 @@ function* firstRating(action) {
 
 
 function* lastRating(action) {
-    console.log('in lastRating Saga', action.payload)
     try {
         //Sends delete request and tree ID to server
         yield axios.post(`/api/lastRating/${action.payload.tree_id}`, action.payload.lastRating);

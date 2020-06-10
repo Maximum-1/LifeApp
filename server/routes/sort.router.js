@@ -4,16 +4,11 @@ const pool = require('../modules/pool');
 const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
-
-
 // GET the tree info by search Keyword with specific user id selected
 router.get('/:id', rejectUnauthenticated, (req, res) => {
     const sortStatus = req.params.id;
     const id = req.user.id;
-    console.log('USER id is:', req.user);
-    console.log('The Sort Status is', sortStatus);
     if (sortStatus == 1) {
-        console.log('In All Trees');
         const queryText = `SELECT * FROM "tree"
                            WHERE user_id = $1`;
         pool.query(queryText, [id])
@@ -26,7 +21,6 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
             });
     } else if (sortStatus == 2) {
         //if the sort status is 2, it return completed trees
-        console.log('In Completed trees');
         const queryText = `SELECT * FROM "tree"
                            WHERE user_id = $1
                            AND status = TRUE`;
@@ -39,8 +33,7 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
                 res.sendStatus(500);
             });
     } else if (sortStatus == 3) {
-        //if the sort status is 3, it return incompleted trees
-        console.log('In In Progress trees');
+        //if the sort status is 3, it return incompleted trees (in progress tree)
         const queryText = `SELECT * FROM "tree"
                            WHERE user_id = $1
                            AND steps_completed != 0
@@ -55,7 +48,6 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
             });
     } else if (sortStatus == 4) {
         //if the sort status is 4, it return not started trees
-        console.log('In not started yet trees');
         const queryText = `SELECT * FROM "tree"
                             WHERE user_id = $1
                            AND steps_completed = 0`;
@@ -71,9 +63,5 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
 
 
 });
-
-
-
-
 
 module.exports = router;

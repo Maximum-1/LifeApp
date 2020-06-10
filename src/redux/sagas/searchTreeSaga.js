@@ -7,7 +7,6 @@ function* searchTreeSaga() {
 
 
 function* searchTree(action) {
-    console.log('in searchTreeSaga', action.payload);
     try {
         const response = yield axios.get(`/api/tree/${action.payload}`);
         yield put({ type: 'ALL_TREE', payload: response.data })

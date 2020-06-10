@@ -2,7 +2,6 @@ import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
 function* getTreeSaga(action) {
-    console.log('in getTreeSaga, action.payload is');
     try {
         const response = yield axios.get(`/api/tree/`);
         // const response = yield axios.get(`/api/tree/`, action.payload);
@@ -15,7 +14,6 @@ function* getTreeSaga(action) {
 
 //getStepSaga
 function* getStepSaga(action) {
-    console.log('in getStepSaga', action.payload);
     try {
         const response = yield axios.get(`/api/step/phases/${action.payload}`);
         yield put({ type: 'ALL_STEPS', payload: response.data })
@@ -26,7 +24,6 @@ function* getStepSaga(action) {
 }
 
 function* sortTreeSaga(action) {
-    console.log('in sortTreeSaga', action.payload);
     try {
         const response = yield axios.get(`/api/sort/${action.payload}`);
         yield put({ type: 'ALL_TREE', payload: response.data })
