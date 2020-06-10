@@ -30,6 +30,5 @@ export default function* rootSaga() {
     userStatusSaga(),
     searchTreeSaga(),
     ratingSaga(),
-
   ]);
 }
