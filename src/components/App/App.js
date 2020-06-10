@@ -5,13 +5,12 @@ import {
   Redirect,
   Switch,
 } from 'react-router-dom';
-
 import { connect } from 'react-redux';
-
 import NavigationBar from '../NavigationBar/NavigationBar';
 import Footer from '../Footer/Footer';
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
 //Pages
 import AboutPage from '../Pages/AboutPage/AboutPage';
@@ -22,11 +21,11 @@ import PhasesPage from '../Pages/PhasesPage/PhasesPage';
 import StepPage from '../Pages/StepPage/StepPage';
 import SummariesPage from '../Pages/SummariesPage/SummariesPage'
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+
 
 class App extends Component {
   componentDidMount() {
+    // After the page loads, the APP will send the 'FETCH_USER' request to saga
     this.props.dispatch({ type: 'FETCH_USER' });
   }
 
