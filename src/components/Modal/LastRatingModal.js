@@ -21,6 +21,7 @@ class LastRatingModal extends Component {
     handleChangeFor = (event, propertyName) => {
         this.setState({
             surveyAnswers: {
+                // spread to allow modify of survey Answers
                 ...this.state.surveyAnswers,
                 [propertyName]: event.target.value,
             }
@@ -29,11 +30,8 @@ class LastRatingModal extends Component {
 
     //What to do when the submit button is clicked
     handleSubmit = () => {
-        console.log(this.state.surveyAnswers, 'tree id is,', this.props.tree_id);
-
-        //Sends a dispatch to update the speech_eval that were added.
+        //Sends a dispatch to update the last rating data that were added.
         this.props.dispatch({ type: 'LAST_RATING', payload: { lastRating: this.state.surveyAnswers, tree_id: this.props.tree_id } });
-
         //Close modal after user clicks on create tree
         this.props.onHide();
     }
@@ -55,6 +53,7 @@ class LastRatingModal extends Component {
                 <Modal.Body>
                     <Form>
                         <Form.Group controlId="formBasicEmail">
+                            {/* survey question #1 */}
                             <Form.Label>1) Recurrence</Form.Label>
                             <h5>How often do you experience the problem? Clue: Certain problems happen many times in a day
                 while others are best quantified over a longer period of time, like a week or month.</h5>
@@ -90,6 +89,7 @@ class LastRatingModal extends Component {
                             <br></br>
                             <br></br>
                             <br></br>
+                            {/* survey question #2 */}
                             <Form.Label> 2) Duration</Form.Label>
                             <h5>From the time you are prompted into the problem, how many days does it last/persist?
                             Clue: This includes the after-effects/consequences of the problem such as: an emotional hangover after a panic attack, shame after addictive behaviors, or relational disruptions after an emotional outburst.
@@ -102,6 +102,7 @@ class LastRatingModal extends Component {
                             <br></br>
                             <br></br>
                             <br></br>
+                            {/* survey question #3 */}
                             <Form.Label>
                                 3) Intensity
                             </Form.Label>
@@ -181,6 +182,7 @@ class LastRatingModal extends Component {
                             <br></br>
                             <br></br>
                             <br></br>
+                            {/* survey question #4 */}
                             <Form.Label>
                                 4) Transparency
                             </Form.Label>
@@ -220,12 +222,8 @@ class LastRatingModal extends Component {
                     </Form>
                 </Modal.Body >
                 <Modal.Footer>
-                    <Button variant="primary" type="submit" onClick={this.handleSubmit}>
-                        Submit Survey
-          </Button>
-                    <Button onClick={this.props.onHide}>
-                        Close
-          </Button>
+                    <Button variant="primary" type="submit" onClick={this.handleSubmit}>Submit Survey</Button>
+                    <Button onClick={this.props.onHide}>Close</Button>
                 </Modal.Footer>
             </Modal >
         );
