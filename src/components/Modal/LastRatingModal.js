@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 //Import components to be used on this component
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Swal from 'sweetalert2';
+import Form from 'react-bootstrap/Form'
 
 class LastRatingModal extends Component {
     state = {
