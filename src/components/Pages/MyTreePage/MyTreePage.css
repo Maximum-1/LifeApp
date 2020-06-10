@@ -1,12 +1,15 @@
+/* controll the search box allignment to center, work with the .input-form */
 .form {
     text-align: center;
 }
 
+/* control the size of the input form */
 .input-form {
     width: 20%;
     display: inline-block;
 }
 
+/* control the search button color */
 .search-button {
     background-color: #00d1ef !important;
     border-color: #00d1ef !important; 
