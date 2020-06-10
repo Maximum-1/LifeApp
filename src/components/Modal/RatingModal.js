@@ -52,6 +52,7 @@ class RatingModal extends Component {
         <Modal.Body>
           <Form>
             <Form.Group controlId="formBasicEmail">
+              {/* Survey question #1 */}
               <Form.Label>1) Recurrence</Form.Label>
               <h5>How often do you experience the problem? Clue: Certain problems happen many times in a day
                 while others are best quantified over a longer period of time, like a week or month.</h5>
@@ -87,6 +88,7 @@ class RatingModal extends Component {
               <br></br>
               <br></br>
               <br></br>
+              {/* Survey question #2 */}
               <Form.Label> 2) Duration</Form.Label>
               <h5>From the time you are prompted into the problem, how many days does it last/persist?
               Clue: This includes the after-effects/consequences of the problem such as: an emotional hangover after a panic attack, shame after addictive behaviors, or relational disruptions after an emotional outburst.
@@ -99,6 +101,7 @@ class RatingModal extends Component {
               <br></br>
               <br></br>
               <br></br>
+              {/* Survey question #3 */}
               <Form.Label>
                 3) Intensity
                             </Form.Label>
@@ -179,12 +182,8 @@ class RatingModal extends Component {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" type="submit" onClick={this.handleSubmit}>
-            Submit Survey
-          </Button>
-          <Button onClick={this.props.onHide}>
-            Close
-          </Button>
+          <Button variant="primary" type="submit" onClick={this.handleSubmit}>Submit Survey</Button>
+          <Button onClick={this.props.onHide}>Close</Button>
         </Modal.Footer>
       </Modal>
     );
