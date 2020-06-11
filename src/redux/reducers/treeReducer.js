@@ -1,3 +1,4 @@
+// One Tree Reducer
 const treeReducer = (state = [], action) => {
     switch (action.type) {
         case 'ONE_TREE':

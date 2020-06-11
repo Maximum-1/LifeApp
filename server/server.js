@@ -1,15 +1,12 @@
 
 const express = require('express');
 require('dotenv').config();
-
 const app = express();
 const bodyParser = require('body-parser');
 const sessionMiddleware = require('./modules/session-middleware');
-
 const passport = require('./strategies/user.strategy');
 
 // Route includes
-const phaseRouter = require('./routes/phase.router')
 const userRouter = require('./routes/user.router');
 const treeRouter = require('./routes/tree.router');
 const stepRouter = require('./routes/step.router');
@@ -29,16 +26,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 /* Routes */
-app.use('api/phase', phaseRouter)
 app.use('/api/user', userRouter);
 app.use('/api/tree', treeRouter);
 app.use('/api/step', stepRouter);
 app.use('/api/sort', sortRouter);
 app.use('/api/firstRating', firstRating);
 app.use('/api/lastRating', lastRating);
-
-
-
 
 // Serve static files
 app.use(express.static('build'));

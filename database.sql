@@ -21,7 +21,8 @@ CREATE TABLE "tree"
 	"date_created" DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	"date_finished" DATE,
 	"steps_completed" INT DEFAULT 0,
-	"status" BOOLEAN DEFAULT 'false'
+	"status" BOOLEAN DEFAULT 'false',
+	"is_deleted" BOOLEAN DEFAULT 'false'
 );
 
 -- There are 6 phases in the HBX process

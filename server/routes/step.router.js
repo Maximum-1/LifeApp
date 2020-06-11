@@ -1,11 +1,8 @@
+/*     Step Route     */
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
-
-/**
- * GET route template
- */
 
 //GET the specific step info by sending in the step id:
 router.get('/:id', rejectUnauthenticated, async (req, res) => {
@@ -63,22 +60,6 @@ router.get('/phases/:id', rejectUnauthenticated, (req, res) => {
         });
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /**
  * PUT route for when a step is answered in a tree/phase
  * Updates the content field and the status to true
@@ -89,14 +70,11 @@ router.put('/update-step/:id', rejectUnauthenticated, async (req, res) => {
     const status = true;
     const locked = false;
     const completedStep = true;
-
-
-    console.log('update-step variables are', answer, tree_step_id);
     //Need to use the same database connection for the entire transaction
     const connection = await pool.connect();
-
     try {
         await connection.query('BEGIN;');
+        //Sets the number of steps in the HBX Process from the database
         const queryText0 = `SELECT COUNT(*) AS "steps" FROM "step";`;
         const result0 = await connection.query(queryText0);
         const final_step = result0.rows[0].steps;
@@ -116,7 +94,6 @@ router.put('/update-step/:id', rejectUnauthenticated, async (req, res) => {
                             WHERE "tree_step"."status" = $1 AND "tree_id" = $2;`;
         const result2 = await connection.query(queryText3, [completedStep, tree_id]);
         const queryText4 = `UPDATE tree SET steps_completed = $1 WHERE id = $2;`;
-        console.log('steps_completed', result2.rows[0]);
         await connection.query(queryText4, [result2.rows[0].steps_completed, tree_id]);
         await connection.query('COMMIT;');
         res.sendStatus(200);
@@ -124,7 +101,7 @@ router.put('/update-step/:id', rejectUnauthenticated, async (req, res) => {
         console.log('error in adding tree to database ', error)
         res.sendStatus(500);
     } finally {
-        //Super important that we free that connection all the time
+        //important that we free the connection 
         connection.release();
     }
 });
@@ -137,15 +114,13 @@ router.put('/update-tree/:id', rejectUnauthenticated, (req, res) => {
     const tree_id = req.params.id;
     const status = true;
     let date_finished = new Date();
-    console.log('date created is', date_finished);
-
     //Updates the step with the answer the user provided
     const queryText = `
                         UPDATE tree 
                         SET status = $1, date_finished = $2
                         WHERE id = $3;
-                        `;
-    pool.query(queryText, [status, date_finished ,tree_id]).then((result) => {
+                      `;
+    pool.query(queryText, [status, date_finished, tree_id]).then((result) => {
         res.sendStatus(204);
     }).catch((error) => {
         console.log(`Error on query ${error}`);

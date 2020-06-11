@@ -6,13 +6,11 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Image from 'react-bootstrap/Image';
-import './modal.css';
 
 class AppIntroModal extends Component {
     //What to do when the submit button is clicked
     handleSubmit = () => {
         this.props.dispatch({type: 'UPDATE_USER'});
-        this.props.dispatch({ type: 'FETCH_USER' });
         //Close modal after user clicks on create tree
         this.props.onHide();
     }
@@ -32,10 +30,11 @@ class AppIntroModal extends Component {
                 <Card.ImgOverlay> 
                 <Card.Title className="text-center">
                   <div><Image src="./images/Maximum_1_Logo_Yellow.png" thumbnail/> </div>
-                  <div className="hero-text">The Human Behavior Matrix (HB-X™)</div>
+                  <div>The Human Behavior (HB-X™)</div>
                 </Card.Title>
                   <div className="hero-text-div">
                     <div className="hero-text">
+
                       <pre className="hero-text-pre">
                       “THE HB-X™ stabilized me. 
                       It drastically reduced, and in some cases eliminated, <b>fight, flight, freeze, and submit responses</b> I learned from past trauma that no longer serve me well. 
@@ -54,10 +53,10 @@ class AppIntroModal extends Component {
                       Most often, this emotional learning either helps us thrive or survive in our families of origin depending
                       on what the atmosphere was like. As we mature, those ways of being follow us and can either continue
                       to help us thrive or continue to keep us in survival mode (fight, flight, freeze, or submit) even when we
-                      no longer need to be.<br /><br />
+                      no longer need to be.
                       The good news is that this can change with some intention and willingness to do some deeper work. THE
                       HB-X™ is just the instrument to help. This step-by-step protocol will help you work your way to the root
-                      of the problem and then change it with new evidence that is based on truth.<br />
+                      of the problem and then change it with new evidence that is based on truth.
                       </pre>
                       <Button variant="primary" type="submit" onClick={this.handleSubmit} block="true">
                         Got it

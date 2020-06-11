@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-
+// The about page showing the basic info
 class AboutPage extends Component {
   render() {
     return (

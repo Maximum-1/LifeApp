@@ -13,7 +13,7 @@ background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
 text-align: center;
 }
 
-
+/* CSS control modal content */
 .modal_content {
     padding: 12px;
     width: 80%;
@@ -21,7 +21,11 @@ text-align: center;
     background-color: white;
 }
 
-.hero-text {
-    text-shadow: 2px 2px 2px black;
+/* CSS control the PRE tag text */
+.hero-text-pre {
+    text-shadow: 2px 2px 8px #000000;
+    background-color: rgba(37, 30, 8, 0.8);
+    padding: 12px;
+    text-align: left;
 }
 

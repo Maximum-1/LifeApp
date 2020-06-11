@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 //Import components to be used on this component
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Swal from 'sweetalert2';
+import Form from 'react-bootstrap/Form'
 
 class LastRatingModal extends Component {
     state = {
@@ -22,6 +21,7 @@ class LastRatingModal extends Component {
     handleChangeFor = (event, propertyName) => {
         this.setState({
             surveyAnswers: {
+                // spread to allow modify of survey Answers
                 ...this.state.surveyAnswers,
                 [propertyName]: event.target.value,
             }
@@ -30,10 +30,9 @@ class LastRatingModal extends Component {
 
     //What to do when the submit button is clicked
     handleSubmit = () => {
-        console.log(this.state.surveyAnswers, 'tree id is,', this.props.tree_id);
-
-        //Sends a dispatch to update the speech_eval that were added.
+        //Sends a dispatch to update the last rating in that were added.
         this.props.dispatch({ type: 'LAST_RATING', payload: { lastRating: this.state.surveyAnswers, tree_id: this.props.tree_id } });
+
         this.props.dispatch({ type: 'PUT_TREE_STATUS', payload: { tree_step_id: this.props.tree_id } });
 
         //Close modal after user clicks on create tree

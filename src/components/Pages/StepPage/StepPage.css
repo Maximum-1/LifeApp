@@ -1,11 +1,14 @@
+/* CSS to control the phase step names */
 .phase-step-names {
     text-align: center;
 }
 
+/* CSS to control the card text color */
 .card-text {
     color: black;
 }
 
+/* CSS to control the header background color */
 .header {
     background-color: #00d1ef !important;
 }

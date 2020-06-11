@@ -1,3 +1,4 @@
+/*    Tree Route     */
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
@@ -8,10 +9,9 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
  * Retreives all the users trees
  * Used for the home page needs to show only trees that are uncompleted
  */
-
-// GET the tree info and the user info 
 router.get('/', rejectUnauthenticated, (req, res) => {
     const id = req.user.id;
+
     const status = false;
     console.log('GET tree id is:', req.user);
 
@@ -21,14 +21,12 @@ router.get('/', rejectUnauthenticated, (req, res) => {
                         `;
     pool.query(queryText, [id, status])
         .then((result) => {
-            // console.log('GET Tree on server', result.rows);
             res.send(result.rows);
         })
         .catch((err) => {
             console.log('Error completing GET Tree query', err);
             res.sendStatus(500);
         });
-
 });
 
 /**
@@ -36,7 +34,6 @@ router.get('/', rejectUnauthenticated, (req, res) => {
  * Creates a tree an all associated steps of the tree
  */
 router.post('/', rejectUnauthenticated, async (req, res) => {
-    console.log('in post to add new tree', req.body);
     //Need to use the same database connection for the entire transaction
     const connection = await pool.connect();
 
@@ -64,15 +61,16 @@ router.post('/', rejectUnauthenticated, async (req, res) => {
         console.log('error in adding tree to database ', error)
         res.sendStatus(500);
     } finally {
-        //Super important that we free that connection all the time
+        //important we free the connection
         connection.release();
     }
 });
 
 /**
  * DELETE route
- * Removes a tree based on the trees id
+ * Removes a tree based on the trees id 
  */
+
 // router.delete('/:id', rejectUnauthenticated, (req, res) => {
 //     // Set tree ID to variable
 //     const id = req.params.id;
@@ -91,6 +89,7 @@ router.post('/', rejectUnauthenticated, async (req, res) => {
 //             res.sendStatus(500);
 //         })
 // });
+
 
 /* set is deleted to true so users can no longer see the tree */
 router.put('/:id', rejectUnauthenticated, (req, res) => {

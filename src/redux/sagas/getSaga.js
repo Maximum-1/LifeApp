@@ -1,8 +1,9 @@
+// Get Tree Saga
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
+// getTreeSaga Saga: will be fired on "GET_TREE" actions
 function* getTreeSaga(action) {
-    console.log('in getTreeSaga, action.payload is');
     try {
         const response = yield axios.get(`/api/tree/`);
         // const response = yield axios.get(`/api/tree/`, action.payload);
@@ -13,9 +14,8 @@ function* getTreeSaga(action) {
     }
 }
 
-//getStepSaga
+//getStepSaga Saga: will be fired on "FETCH_TREE_BY_ID" actions
 function* getStepSaga(action) {
-    console.log('in getStepSaga', action.payload);
     try {
         const response = yield axios.get(`/api/step/phases/${action.payload}`);
         yield put({ type: 'ALL_STEPS', payload: response.data })
@@ -25,19 +25,8 @@ function* getStepSaga(action) {
     }
 }
 
-function* getSingleStepSaga(action) {
-    console.log('in getSingleStepSaga', action.payload);
-    try {
-        const response = yield axios.get(`/api/step/${action.payload}`);
-        yield put({ type: 'STEP', payload: response.data })
-    }
-    catch (error) {
-        console.log('Error with STEP GET', error);
-    }
-}
-
+// sortTreeSaga saga: will be fired on "SORT_TREE" actions
 function* sortTreeSaga(action) {
-    console.log('in sortTreeSaga', action.payload);
     try {
         const response = yield axios.get(`/api/sort/${action.payload}`);
         yield put({ type: 'ALL_TREE', payload: response.data })
@@ -47,11 +36,9 @@ function* sortTreeSaga(action) {
     }
 }
 
-
 function* getSaga() {
     yield takeLatest('GET_TREE', getTreeSaga);
     yield takeLatest('FETCH_TREE_BY_ID', getStepSaga);
-    yield takeLatest('GET_SINGLE_STEP', getSingleStepSaga);
     yield takeLatest('SORT_TREE', sortTreeSaga);
 }
 

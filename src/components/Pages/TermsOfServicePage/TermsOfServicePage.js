@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+// Term of Service Page
 class TermsOfService extends Component {
   render() {
     return (

@@ -3,13 +3,14 @@
     text-align: center;
 }
 
+/* css to control the lock icon */
 .lock-icon {
     color: grey;
     display: inline;
     margin-left: 12px;
 }
 
-
+/* css to control the unordered list element */
 ul {
     margin:0;
     padding:0;
@@ -18,19 +19,23 @@ ul {
     margin-bottom: 0 !important;
 }
 
+/* css to control the list element */
 li {
     cursor: pointer;
 }
 
+/* css to control hover of the step list */
 .step-list:hover {
     background-color: #00d1ef;
 }
 
+/* css to control the phase header */
 .phase-header {
     background-color: #9554C3 !important;
     color: white !important;
 }
 
+/* css to control the phase card */
 .phase-cards {
     padding: 0 !important;
 }

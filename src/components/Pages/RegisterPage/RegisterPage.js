@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 
+// register page allows user to register
 class RegisterPage extends Component {
   state = {
     username: '',
@@ -8,9 +9,9 @@ class RegisterPage extends Component {
     email: '',
   };
 
+  // allow user to rigster account and send to database
   registerUser = (event) => {
     event.preventDefault();
-
     if (this.state.username && this.state.password) {
       this.props.dispatch({
         type: 'REGISTER',
@@ -25,6 +26,7 @@ class RegisterPage extends Component {
     }
   } // end registerUser
 
+  // handle register data input
   handleInputChangeFor = propertyName => (event) => {
     this.setState({
       [propertyName]: event.target.value,

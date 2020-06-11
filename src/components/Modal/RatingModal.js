@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Swal from 'sweetalert2';
+
 
 class RatingModal extends Component {
   state = {
@@ -29,7 +29,7 @@ class RatingModal extends Component {
 
   //What to do when the submit button is clicked
   handleSubmit = () => {
-    //Sends a dispatch to update the speech_eval that were added.
+    //Sends a dispatch to update the tree that were added.
     this.props.dispatch({ type: 'FIRST_RATING', payload: { firstRating: this.state.surveyAnswers, tree_id: this.props.tree_id } });
 
     //Close modal after user clicks on create tree

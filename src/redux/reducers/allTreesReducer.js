@@ -1,3 +1,4 @@
+// All Tree Reducer
 const allTreesReducer = (state = [], action) => {
     switch (action.type) {
         case 'ALL_TREE':

@@ -21,6 +21,7 @@ class MyVerticallyCenteredModal extends Component {
 
   //What to do when the submit button is clicked
   handleSubmit = () => {
+
     if (this.state.treeName === '') {
       return new Swal({
         text: "Please enter Tree name",

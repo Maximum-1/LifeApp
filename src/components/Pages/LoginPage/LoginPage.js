@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+// Login page to allow user rigister and login
 class LoginPage extends Component {
   state = {
     username: '',
     password: '',
   };
 
+  // login info 
   login = (event) => {
     event.preventDefault();
-
     if (this.state.username && this.state.password) {
       this.props.dispatch({
         type: 'LOGIN',
@@ -23,6 +24,7 @@ class LoginPage extends Component {
     }
   } // end login
 
+  // handle the input of the login info
   handleInputChangeFor = propertyName => (event) => {
     this.setState({
       [propertyName]: event.target.value,
@@ -72,7 +74,6 @@ class LoginPage extends Component {
               >Login</button>
             </div>
           </form>
-          
             <div>
               <span>New Here? </span>
               <button

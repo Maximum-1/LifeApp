@@ -1,13 +1,12 @@
-import React, { Component } from 'react'
-// import { InputGroup, InputGroupAddon, Button, Input, FormGroup, Label } from 'reactstrap';
+import React, {Component} from 'react'
+import { connect } from 'react-redux';
+
+// import component from bootstrap
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl';
 import swal from 'sweetalert2';
-
-
-import { connect } from 'react-redux';
 
 //import components to be used on this page
 import Item from '../../Item/Item';
@@ -16,16 +15,17 @@ import Item from '../../Item/Item';
 import './MyTreePage.css';
 
 class MyTreePage extends Component {
-
   state = {
     search: "",
     sortStatus: ""
   }
 
+  // Retrieve the current Tree list from database once the page loaded
   componentDidMount() {
     this.props.dispatch({ type: 'GET_TREE' });
   }
 
+  // control the input of the search keyword
   handleChange = event => {
     this.setState({
       ...this.state,
@@ -33,6 +33,7 @@ class MyTreePage extends Component {
     });
   };
 
+  // send the search query to database to match the tree name
   handleSubmit = event => {
     event.preventDefault();
     if (this.state.search === "") {
@@ -44,19 +45,20 @@ class MyTreePage extends Component {
       console.log('this.state.search is:', this.state.search);
       this.props.dispatch({ type: "SEARCH_TREE", payload: this.state.search });
     }
+
   };
 
+  // control and show the completed, in-progress and not started trees
   handleSort = (event) => {
     this.setState({
       sortStatus: event.target.value,
     })
-    console.log('Tree sortStatus is:', this.state.sortStatus);
     this.props.dispatch({ type: 'SORT_TREE', payload: event.target.value });
   }
 
-
   render() {
     return (
+
       <div>
         <h1>My Trees Page</h1>
 
@@ -64,6 +66,7 @@ class MyTreePage extends Component {
           <div class="input-form">
             <Form.Label>Search or Sort Trees</Form.Label>
             <InputGroup className="mb-3">
+              {/* the input form for search keyword */}
               <FormControl
                 placeholder="Search A Tree"
                 aria-label="Search A Tree"
@@ -75,7 +78,7 @@ class MyTreePage extends Component {
                 <Button className="search-button" variant="primary" onClick={this.handleSubmit}>Find</Button>
               </InputGroup.Append>
             </InputGroup>
-
+              {/* the input drop down menu to show and sort trees */}
             <Form.Group controlId="Form.ControlSelect1">
               <Form.Control as="select" onChange={(event) => this.handleSort(event)}>
                 <option value="1">All Trees</option>
@@ -86,9 +89,6 @@ class MyTreePage extends Component {
             </Form.Group>
           </div>
         </div>
-
-
-
 
         <div className='flex-container'>
           {this.props.trees.map((tree) => {
@@ -106,12 +106,14 @@ class MyTreePage extends Component {
           )}
         </div>
 
+
       </div>
 
     )
   }
 }
 
+//reducer containing trees and user data
 const mapStateToProps = reduxState => ({
   user: reduxState.user,
   trees: reduxState.allTreesReducer

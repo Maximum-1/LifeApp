@@ -1,29 +1,26 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
-
 //import components to be used on this page
 import Item from '../../Item/Item';
 import AppIntroModal from '../../Modal/AppIntroModal';
 import Card from 'react-bootstrap/Card';
 import Image from 'react-bootstrap/Image';
 
-
-
 class UserPage extends Component {
   state = {
     modalShow: false, 
   }
 
+  // Render Tree list from database when page loads
   componentDidMount() {
       this.props.dispatch({ type: 'GET_TREE'  });
-      console.log('first_time is', this.props.user.first_time === true);
       if(this.props.user.first_time === true) {
         this.setState({modalShow: true});
       }
   }
 
-  
+  // Method to set modal to show
   setModalShow = (bool) => {
     this.setState({modalShow: bool});
   }
@@ -64,7 +61,6 @@ class UserPage extends Component {
                 date_created={tree.date_created}
                 steps_completed={tree.steps_completed}
                 />
-                
               );
             }
           )}
