@@ -1,11 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import './StepPage.css';
-import swal from 'sweetalert2';
+
 //Import Bootstrap features
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Card from 'react-bootstrap/Card';
+
+// import CSS styling
+import './StepPage.css';
+
+// import sweetalert
+import swal from 'sweetalert2';
 
 
 class StepPage extends Component {
@@ -16,6 +21,7 @@ class StepPage extends Component {
     answer: ''
   }
 
+// render tree when page loads
   componentDidMount() {
     this.getTreeById();
   }
@@ -27,21 +33,18 @@ class StepPage extends Component {
     const tree_id = urlParams.get('tree-id');
     const step_number = Number(urlParams.get('step_number'));
     const filterStep = this.props.steps.filter(obj => obj.step_number === step_number);
-
     //Setting state for step using step number from url query string
     this.setState({ step_number: step_number });
     //Assign object to state from filter
     this.setState({ step_info: filterStep[0] });
     this.setState({ answer: filterStep[0].content });
     this.setState({ tree_id: tree_id });
-
     //Dispatch to Saga
     this.props.dispatch({ type: 'FETCH_TREE_BY_ID', payload: tree_id });
   }
 
   //Handles change to text box
   handleAnswerChange = (event) => {
-    console.log('in handleChange', event.target.value);
     this.setState({
       answer: event.target.value
     });
@@ -56,6 +59,7 @@ class StepPage extends Component {
     this.topFunction();
   }
 
+  // Buttons to handle going to the next page
   handleNextStep = (tree_step_id) => {
     if (this.state.answer === null) {
       return new swal({
@@ -73,11 +77,12 @@ class StepPage extends Component {
     }
   }
 
+  // handle redirection to the phase page
   goToPhasePage = (tree_id) => {
-    console.log('id is', tree_id);
     this.props.history.push(`/phases?tree-id=${tree_id}`);
   }
 
+  // handle redirection to the home page
   handleGoHome = (tree_step_id) => {
     if (this.state.answer === null) {
       return new swal({
@@ -86,7 +91,6 @@ class StepPage extends Component {
       });
     } else {
       //Update changes to the database for the answer
-      console.log('answer, tree_id, tree_step_id is', this.state.answer, this.state.tree_id, tree_step_id);
       this.props.dispatch({ type: 'PUT_ANSWER', payload: { answer: this.state.answer, tree_id: this.state.tree_id, tree_step_id: tree_step_id } });
       if (this.props.steps.length) {
         swal.fire({
@@ -107,6 +111,7 @@ class StepPage extends Component {
     document.documentElement.scrollTop = 0;
   }
 
+  // Method to render the button for next and previous
   buttonRender = (step_number) => {
     if (step_number === 1) {
       return (
@@ -173,8 +178,7 @@ class StepPage extends Component {
   }
 }
 
-
-
+// reducer containing steps data
 const mapStateToProps = reduxStore => ({
   steps: reduxStore.stepReducer
 });
