@@ -242,37 +242,3 @@ INSERT INTO "step"
 	("phase_id" ,"name" ,"description" ,"optional_hint", "step_number")
 VALUES
 	(6, 'Status', 'Where you are currently in the process', 'Hint: “In-process,” “Growing,” “Showing evidence,” etc.', 3);
-
---Post for the creation of the tree and returns the id to use in the tree_step table to create all the steps in a tree
-INSERT INTO "tree"
-	("user_id", "name")
-VALUES
-	(1, 'help')
-RETURNING id;
-
---Ask how to bling this on the post
-INSERT INTO "tree_step"
-	("tree_id", "step_id")
-VALUES
-	(1, 1),
-	(1, 2),
-	(1, 3),
-	(1, 4),
-	(1, 5),
-	(1, 6),
-	(1, 7),
-	(1, 8),
-	(1, 9),
-	(1, 10),
-	(1, 11),
-	(1, 12),
-	(1, 13),
-	(1, 14),
-	(1, 15),
-	(1, 16),
-	(1, 17),
-	(1, 18),
-	(1, 19),
-	(1, 20),
-	(1, 21);
-
