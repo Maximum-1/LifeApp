@@ -83,7 +83,8 @@ CREATE TABLE "last_rating"
 );
 
 
---DATA INSERTS MUST CREATE USER FIRST
+
+-----------------------------------------------------DATA INSERTS------------------------------------------------------------
 -- Run to create the phases of the HBX Process
 INSERT INTO "phase"
 	("phase_number", "name", "number_of_steps")
