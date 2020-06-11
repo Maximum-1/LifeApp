@@ -6,7 +6,8 @@ import axios from 'axios';
 function* deleteTree(action) {
   try {
     //Sends delete request and tree ID to server
-    yield axios.delete(`/api/tree/${action.payload.tree_id}`);
+    yield axios.put(`/api/tree/${action.payload.tree_id}`);
+
     yield put({ type: 'GET_TREE' });
   }
   catch (error) {

@@ -11,12 +11,15 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
  */
 router.get('/', rejectUnauthenticated, (req, res) => {
     const id = req.user.id;
-    const queryText = `
-                       SELECT * FROM "tree"
-                       WHERE user_id = $1
+
+    const status = false;
+    console.log('GET tree id is:', req.user);
+
+    const queryText = `SELECT * FROM "tree"
+                       WHERE user_id = $1 AND "is_deleted" = $2 
                        ORDER BY id DESC;
-                      `;
-    pool.query(queryText, [id])
+                        `;
+    pool.query(queryText, [id, status])
         .then((result) => {
             res.send(result.rows);
         })
@@ -33,11 +36,13 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 router.post('/', rejectUnauthenticated, async (req, res) => {
     //Need to use the same database connection for the entire transaction
     const connection = await pool.connect();
+
     try {
         await connection.query('BEGIN;');
         const sqlText1 = `INSERT INTO "tree" ("user_id", "name") VALUES ($1, $2) RETURNING id`;
         // remember to await if its not return the id and console log to see what its returning
         const result = await connection.query(sqlText1, [req.body.user_id, req.body.treeName]);
+        console.log('result.rows is', result.rows);
         const newTree = result.rows[0].id;
         const sqlText2 = `SELECT "id" FROM "step"`;
         const result2 = await connection.query(sqlText2);
@@ -51,6 +56,7 @@ router.post('/', rejectUnauthenticated, async (req, res) => {
         }
         await connection.query('COMMIT;');
         res.sendStatus(201);
+
     } catch (error) {
         console.log('error in adding tree to database ', error)
         res.sendStatus(500);
@@ -64,34 +70,55 @@ router.post('/', rejectUnauthenticated, async (req, res) => {
  * DELETE route
  * Removes a tree based on the trees id 
  */
-router.delete('/:id', rejectUnauthenticated, (req, res) => {
-    // Set tree ID to variable
-    const id = req.params.id;
-    // First, we delete step data attached to the tree ID
-    const deleteQuery = `DELETE FROM "tree_step" WHERE "tree_id" = $1;`;
-    pool.query(deleteQuery, [id]).then(() => {
-        // Now that we have deleted the step data associated with the tree,
-        // we can now delete the whole tree
-        const deleteTreeQuery = `DELETE FROM "tree" WHERE "id" = $1;`;
-        pool.query(deleteTreeQuery, [id])
+
+// router.delete('/:id', rejectUnauthenticated, (req, res) => {
+//     // Set tree ID to variable
+//     const id = req.params.id;
+//     console.log('Tree id is', id);
+//     // First, we delete step data attached to the tree ID
+//     const deleteQuery = `DELETE FROM "tree_step" WHERE "tree_id" = $1;`;
+//     pool.query(deleteQuery, [id]).then(() => {
+//         // Now that we have deleted the step data associated with the tree,
+//         // we can now delete the whole tree
+//         const deleteTreeQuery = `DELETE FROM "tree" WHERE "id" = $1;`;
+//         pool.query(deleteTreeQuery, [id])
+//         res.sendStatus(200);
+//     })
+//         .catch((error) => {
+//             console.log('Cannot complete DELETE tree request', error);
+//             res.sendStatus(500);
+//         })
+// });
+
+
+/* set is deleted to true so users can no longer see the tree */
+router.put('/:id', rejectUnauthenticated, (req, res) => {
+    const tree_id = req.params.id;
+    const status = true;
+    console.log('in tree put router', tree_id);
+
+    const queryText = `UPDATE tree SET "is_deleted" = $1 WHERE "id" = $2;`;
+    pool.query(queryText, [status, tree_id]).then((result) => {
         res.sendStatus(200);
-    })
-        .catch((error) => {
-            console.log('Cannot complete DELETE tree request', error);
-            res.sendStatus(500);
-        })
+    }).catch((error) => {
+        console.log(`Error on query ${error}`);
+        res.sendStatus(500);
+    });
 });
 
-
-// GET the tree info by search keyword, which can just contain partial keyword
+// GET the tree info by search Keyword
 router.get('/:id', rejectUnauthenticated, (req, res) => {
     const keyword = `%${req.params.id}%`;
-    const queryText = `
-                       SELECT * FROM "tree"
-                       WHERE upper(name) LIKE $1
-                       OR lower(name) LIKE $1
-                      `;
-    pool.query(queryText, [keyword])
+    const status = false;
+
+    console.log('Searched keyword term is:', keyword);
+
+    const queryText = `SELECT * FROM "tree"
+                       WHERE upper(name) LIKE $1 AND "is_deleted" = $2
+                       OR lower(name) LIKE $1 AND "is_deleted" = $2
+                        `;
+
+    pool.query(queryText, [keyword, status])
         .then((result) => {
             res.send(result.rows);
         })

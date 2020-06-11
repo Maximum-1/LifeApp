@@ -1,13 +1,22 @@
-# Prime Project
-This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
+# Maximum 1™ Life App
 
-We **STRONGLY** recommend following these instructions carefully. It's a lot, and will take some time to set up, but your life will be much easier this way in the long run.
+## About This Application
+*Duration: 2 Week Sprint*
 
-## Download (Don't Clone) This Repository
+**The Human Behavior Matrix**
 
-* Don't Fork or Clone. Instead, click the `Clone or Download` button and select `Download Zip`.
-* Unzip the project and start with the code in that folder.
-* Create a new GitHub project and push this code to the new repository.
+The Human Behavior Matrix™ from Maximum 1™ is a self-guided emotional behavior system that works to alter problematic behaviors by resolving past trauma through self-reflection. This system is centered around working through individual problematic attitudes or behaviors in a paper form known as a "tree". Each "tree" is broken down into six major phases that contain their own groups of steps. As each step and phase is completed, the user identifies the attitude or behavior they want to change, explores subconscious actions and trauma that prompted the attitude or behavior, and add further self-reflection to refute and reframe the attitude or behavior into one that is more beneficial.
+
+**The Maximum 1 Life App**
+
+With the creation of the Maximum 1™ Life App, a user is able to create multiple trees, work through each tree in a linear fashion and at their own pace, and review a summary of important steps for each tree. Users can also search to more easily access specific trees.
+
+## Screen Shots
+
+![View of the Phases Page](/public/images/phases-page-view.png)
+![View of a specific step](/public/images/step-view.png)
+![View of search functionality](/public/images/search-functionality.png)
+
 
 ## Prerequisites
 
@@ -17,99 +26,51 @@ Before you get started, make sure you have the following software installed on y
 - [PostrgeSQL](https://www.postgresql.org/)
 - [Nodemon](https://nodemon.io/)
 
-## Create database and table
+## Installation
 
-Create a new database called `prime_app` and create a `user` table:
-
-```SQL
-CREATE TABLE "user" (
-    "id" SERIAL PRIMARY KEY,
-    "username" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
-);
-```
-
-If you would like to name your database something else, you will need to change `prime_app` to the name of your new database name in `server/modules/pool.js`
-
-## Development Setup Instructions
-
-* Run `npm install`
-* Create a `.env` file at the root of the project and paste this line into the file:
+1. Create a new database called `maximum_1`
+    * The `database.sql` file contains the queries you will need to be able to set up the required tables for this application
+2. Run `npm install`
+3. Create a `.env` file at the root of the project and paste this line into the file:
     ```
     SERVER_SESSION_SECRET=superDuperSecret
     ```
-    While you're in your new `.env` file, take the time to replace `superDuperSecret` with some long random string like `25POUbVtx6RKVNWszd9ERB9Bb6` to keep your application secure. Here's a site that can help you: [https://passwordsgenerator.net/](https://passwordsgenerator.net/). If you don't do this step, create a secret with less than eight characters, or leave it as `superDuperSecret`, you will get a warning.
-* Start postgres if not running already by using `brew services start postgresql`
-* Run `npm run server`
-* Run `npm run client`
-* Navigate to `localhost:3000`
+    * While you're in your new `.env` file, take the time to replace `superDuperSecret` with some long random string like `25POUbVtx6RKVNWszd9ERB9Bb6` to keep your application secure. Here's a site that can help you: [https://passwordsgenerator.net/](https://passwordsgenerator.net/). If you don't do this step, create a secret with less than eight characters, or leave it as `superDuperSecret`, you will get a warning.
+4. If Postgres is not already running, start it by entering `brew services start postgresql` into the terminal
+5. Run `npm run server`
+6. Run `npm run client`
+7. Running the two previous commands will open a web browser with the application
 
-## Debugging
+## Usage
 
-To debug, you will need to run the client-side separately from the server. Start the client by running the command `npm run client`. Start the debugging server by selecting the Debug button.
+1. Login with your username and password or navigate to the Register page to set up an account with your username, password, and email address.
+2. Users can access the "About" page or "Terms of Service" page whether or not the user is logged in. The "About" page provides additional information on Maximum 1™.
+2. If it is your first time logging in to the application, you will see an introduction modal that tells you a bit more about Maximum 1™ and the Human Behavior Matrix™. Click "Got It" to disable the modal and view the Home page.
+3. In the navigation bar, clicking the button labeled "Add Tree" will prompt a pop-up modal that will allow you to enter a name for your new tree. Once you have entered a tree name and clicked "Add Tree", the modal will disappear and you will see the tree added to the Home page.
+4. Clicking on "View Tree" will take you the phases menu for the specific tree. *Note:* If this is your first time viewing the specific tree, you will be given the option to complete a survey. This survey prompts you to reflect on how powerful a particular attitude or behavior is at that time, and how long you are affected by the attitude or behavior. Because this is a linear process, you will need to start from the first step of the first phase. Steps will have a lock icon next to their name until the previous step has been completed.
+5. Clicking on any available step will allow you to view a description of the step, optional sentence starters and hints if you need help, and a text box to enter your self-reflection.
+6. Click on "Previous Step" if you need to reference the step before, and click "Next Step" once you have completed your self-reflection to move on to the next step.
+7. Once you complete the final step of a tree, or if you click "View Summary" for a tree, you are taken to the Summary page. This displays your self-reflections for selected steps. Click the "Print" button to save the document as a PDF to your computer and print a copy of the summary.
+8. Navigating to the "My Trees" page will allow you to search through all of your trees. This can be done by typing in a keyword, or by sorting based on completion.
+9. Clicking "Delete" on any specific tree will remove that tree from the page.
 
-![VSCode Toolbar](documentation/images/vscode-toolbar.png)
+## Built With
 
-Then make sure `Launch Program` is selected from the dropdown, then click the green play arrow.
+* React
+* React Sagas
+* Redux
+* JavaScript
+* React Bootstrap
+* Sweet Alerts
+* Node.js
+* Express
+* PostgreSQL
+* Passport
 
-![VSCode Debug Bar](documentation/images/vscode-debug-bar.png)
-
-
-## Testing Routes with Postman
-
-To use Postman with this repo, you will need to set up requests in Postman to register a user and login a user at a minimum. 
-
-Keep in mind that once you using the login route, Postman will manage your session cookie for you just like a browser, ensuring it is sent with each subsequent request. If you delete the `localhost` cookie in Postman, it will effectively log you out.
-
-1. Start the server - `npm run server`
-2. [Import the sample routes JSON file](./PostmanPrimeSoloRoutes.json) by clicking `Import` in Postman. Select the file.
-3. Click `Collections` and `Send` the following three calls in order:
-    1. `POST /api/user/register` registers a new user, see body to change username/password
-    2. `POST /api/user/login` will login a user, see body to change username/password
-    3. `GET /api/user` will get user information, by default it's not very much
-
-After running the login route above, you can try any other route you've created that requires a logged in user!
+## Acknowledgement
+Thanks to [Prime Digital Academy](https://www.primeacademy.io) for providing the knowledge to create this application
+Thanks to [Maximum 1™](https://www.iammaximum1.com) for providing the vision for this application
+Thanks to [Adrian Niu](https://github.com/AdrianNiu), [Ashley Scott](https://github.com/aescott87), [Jordan Walker](https://jaden-reklaw.github.io/My_Developer_Site/), and [Mustafa Ibrahim](https://mustafaibrahim4.github.io/aboutMe/) for bringing this application to life
 
 
-## Production Build
 
-Before pushing to Heroku, run `npm run build` in terminal. This will create a build folder that contains the code Heroku will be pointed at. You can test this build by typing `npm start`. Keep in mind that `npm start` will let you preview the production build but will **not** auto update.
-
-* Start postgres if not running already by using `brew services start postgresql`
-* Run `npm start`
-* Navigate to `localhost:5000`
-
-## Lay of the Land
-
-* `src/` contains the React application
-* `public/` contains static assets for the client-side
-* `build/` after you build the project, contains the transpiled code from `src/` and `public/` that will be viewed on the production site
-* `server/` contains the Express App
-
-This code is also heavily commented. We recommend reading through the comments, getting a lay of the land, and becoming comfortable with how the code works before you start making too many changes. If you're wondering where to start, consider reading through component file comments in the following order:
-
-* src/components
-  * App/App
-  * Footer/Footer
-  * Nav/Nav
-  * AboutPage/AboutPage
-  * InfoPage/InfoPage
-  * UserPage/UserPage
-  * LoginPage/LoginPage
-  * RegisterPage/RegisterPage
-  * LogOutButton/LogOutButton
-  * ProtectedRoute/ProtectedRoute
-
-## Deployment
-
-1. Create a new Heroku project
-1. Link the Heroku project to the project GitHub Repo
-1. Create an Heroku Postgres database
-1. Connect to the Heroku Postgres database from Postico
-1. Create the necessary tables
-1. Add an environment variable for `SERVER_SESSION_SECRET` with a nice random string for security
-1. In the deploy section, select manual deploy
-
-## Update Documentation
-
-Customize this ReadMe and the code comments in this project to read less like a starter repo and more like a project. Here is an example: https://gist.github.com/PurpleBooth/109311bb0361f32d87a2

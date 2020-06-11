@@ -6,6 +6,7 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl';
+import swal from 'sweetalert2';
 
 //import components to be used on this page
 import Item from '../../Item/Item';
@@ -35,7 +36,16 @@ class MyTreePage extends Component {
   // send the search query to database to match the tree name
   handleSubmit = event => {
     event.preventDefault();
-    this.props.dispatch({ type: "SEARCH_TREE", payload: this.state.search });
+    if (this.state.search === "") {
+      return new swal({
+        text: "Please enter Tree name",
+        icon: "info",
+      });
+    } else {
+      console.log('this.state.search is:', this.state.search);
+      this.props.dispatch({ type: "SEARCH_TREE", payload: this.state.search });
+    }
+
   };
 
   // control and show the completed, in-progress and not started trees
@@ -48,8 +58,10 @@ class MyTreePage extends Component {
 
   render() {
     return (
-    <div>
-      <h1>My Trees Page</h1>
+
+      <div>
+        <h1>My Trees Page</h1>
+
         <div class="form">
           <div class="input-form">
             <Form.Label>Search or Sort Trees</Form.Label>
@@ -59,7 +71,7 @@ class MyTreePage extends Component {
                 placeholder="Search A Tree"
                 aria-label="Search A Tree"
                 aria-describedby="basic-addon2"
-                value={this.state.search} 
+                value={this.state.search}
                 onChange={this.handleChange}
               />
               <InputGroup.Append>
@@ -78,7 +90,6 @@ class MyTreePage extends Component {
           </div>
         </div>
 
-        {/* render trees into the DOM by importing the ITEM component */}
         <div className='flex-container'>
           {this.props.trees.map((tree) => {
             return (
@@ -94,9 +105,11 @@ class MyTreePage extends Component {
           }
           )}
         </div>
-    </div>
 
-  )
+
+      </div>
+
+    )
   }
 }
 

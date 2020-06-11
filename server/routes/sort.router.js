@@ -8,10 +8,15 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 router.get('/:id', rejectUnauthenticated, (req, res) => {
     const sortStatus = req.params.id;
     const id = req.user.id;
+    const status = false;
+
+    console.log('USER id is:', req.user);
+    console.log('The Sort Status is', sortStatus);
     if (sortStatus == 1) {
+        console.log('In All Trees');
         const queryText = `SELECT * FROM "tree"
-                           WHERE user_id = $1`;
-        pool.query(queryText, [id])
+                           WHERE user_id = $1 AND "is_deleted" = $2`;
+        pool.query(queryText, [id, status])
             .then((result) => {
                 res.send(result.rows);
             })
@@ -60,6 +65,12 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
                 res.sendStatus(500);
             });
     };
+
+
+
+});
+
+
 
 
 });
