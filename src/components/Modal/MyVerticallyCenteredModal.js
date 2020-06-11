@@ -21,18 +21,18 @@ class MyVerticallyCenteredModal extends Component {
 
   //What to do when the submit button is clicked
   handleSubmit = () => {
-    //Sends a dispatch to update Tree data that were added.
+    //Sends a dispatch to update the tree that were added.
     this.props.dispatch({ type: 'ADD_TREE', payload: { user_id: this.props.user_id, treeName: this.state.treeName } });
+
     //Close modal after user clicks on create tree
     this.props.onHide();
-    // Sweet Alert to show the tree was added successfully
-    Swal.fire({
-      position: 'middle-end',
-      icon: 'success',
-      title: `Success! You have added ${this.state.treeName}`,
-      showConfirmButton: false,
-      timer: 3000  //3seconds
-    });
+     Swal.fire({
+       position: 'middle-end',
+       icon: 'success',
+       title: `Success! You have added ${this.state.treeName}`,
+       showConfirmButton: false,
+       timer: 3000  //3seconds
+     });
   }
 
   render() {
@@ -53,7 +53,6 @@ class MyVerticallyCenteredModal extends Component {
           <Form>
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Tree Name:</Form.Label>
-              {/* control the input value of the tree name */}
               <Form.Control
                 type="text"
                 placeholder="Enter Tree Name"
@@ -62,8 +61,12 @@ class MyVerticallyCenteredModal extends Component {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" type="submit" onClick={this.handleSubmit}>Add Tree</Button>
-          <Button onClick={this.props.onHide}>Close</Button>
+          <Button variant="primary" type="submit" onClick={this.handleSubmit}>
+            Add Tree
+          </Button>
+          <Button onClick={this.props.onHide}>
+            Close
+          </Button>
         </Modal.Footer>
       </Modal>
     );
