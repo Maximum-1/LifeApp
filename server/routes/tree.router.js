@@ -67,7 +67,6 @@ router.post('/', rejectUnauthenticated, async (req, res) => {
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
     // Set tree ID to variable
     const id = req.params.id;
-    console.log('Tree id is', id);
     // First, we delete step data attached to the tree ID
     const deleteQuery = `DELETE FROM "tree_step" WHERE "tree_id" = $1;`;
     pool.query(deleteQuery, [id]).then(() => {
@@ -82,7 +81,6 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
             res.sendStatus(500);
         })
 });
-
 
 
 // GET the tree info by search keyword, which can just contain partial keyword

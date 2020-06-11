@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 //Import components to be used on this component
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 import LastRatingModal from '../../Modal/LastRatingModal';
 
 class SummariesPage extends Component {

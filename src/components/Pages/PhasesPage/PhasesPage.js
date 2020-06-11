@@ -134,9 +134,9 @@ class PhasesPage extends Component {
   }
 
   // method to filter step completed in database
-  progressCompleted = () => {
-    const completedSteps = this.props.steps.filter(step => step.status === true);
-  }
+  // progressCompleted = () => {
+  //   const completedSteps = this.props.steps.filter(step => step.status === true);
+  // }
 
   render() {
     return (

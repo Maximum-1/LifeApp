@@ -2,7 +2,7 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
-// deleteTree saga
+// deleteTree saga Saga: will be fired on "DELETE_TREE" actions
 function* deleteTree(action) {
   try {
     //Sends delete request and tree ID to server

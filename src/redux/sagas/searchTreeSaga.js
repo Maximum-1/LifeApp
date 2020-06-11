@@ -3,6 +3,7 @@ import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
 // search Tree saga to send in the search query keyword
+// Saga: will be fired on "SEARCH_TREE" actions
 function* searchTree(action) {
     try {
         const response = yield axios.get(`/api/tree/${action.payload}`);

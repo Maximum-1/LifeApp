@@ -25,7 +25,6 @@ class Item extends Component {
 
   //Method for deleting a tree
   handleDelete = (id) => {
-    console.log('id is', id);
     // sweetalert for showing delete message
     Swal.fire({
       title: 'Are you sure?',
@@ -49,13 +48,11 @@ class Item extends Component {
 
   // to direct user to phasepage with specific tree id
   goToPhasePage = (tree_id) => {
-    console.log('id is', tree_id);
     this.props.history.push(`/phases?tree-id=${tree_id}`);
   }
 
   // to direct user to summaries page with specific tree id
   goToSummariesPage = (tree_id) => {
-    console.log('id is', tree_id);
     this.props.history.push(`/summaries?tree-id=${tree_id}`);
   }
 

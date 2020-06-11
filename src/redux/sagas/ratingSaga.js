@@ -1,8 +1,9 @@
 // Rating saga
-import { put, takeLatest } from 'redux-saga/effects';
+import { takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
 // Rating saga for first rating
+// Saga: will be fired on "FIRST_RATING" actions
 function* firstRating(action) {
     try {
         //Sends delete request and tree ID to server
@@ -15,6 +16,7 @@ function* firstRating(action) {
 
 
 // Rating saga for the last rating
+// Saga: will be fired on "LAST_RATING" actions
 function* lastRating(action) {
     try {
         //Sends delete request and tree ID to server

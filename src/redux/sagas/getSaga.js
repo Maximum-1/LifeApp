@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-// GetTree Saga
+// getTreeSaga Saga: will be fired on "GET_TREE" actions
 function* getTreeSaga(action) {
     try {
         const response = yield axios.get(`/api/tree/`);
@@ -14,7 +14,7 @@ function* getTreeSaga(action) {
     }
 }
 
-//getStepSaga
+//getStepSaga Saga: will be fired on "FETCH_TREE_BY_ID" actions
 function* getStepSaga(action) {
     try {
         const response = yield axios.get(`/api/step/phases/${action.payload}`);
@@ -25,7 +25,7 @@ function* getStepSaga(action) {
     }
 }
 
-// sortTreeSaga
+// sortTreeSaga saga: will be fired on "SORT_TREE" actions
 function* sortTreeSaga(action) {
     try {
         const response = yield axios.get(`/api/sort/${action.payload}`);

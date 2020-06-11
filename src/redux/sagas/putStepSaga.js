@@ -4,6 +4,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 //Generator function that uses saga to ajax get request
 //This saga will update the user's answer for a specific step on their tree
+//Saga: will be fired on "PUT_ANSWER" actions
 function* answerSaga(action) {
     try {
         //Making asyn AJAX (axios) request
@@ -15,6 +16,7 @@ function* answerSaga(action) {
     }
 }
 
+// Saga: will be fired on "PUT_TREE_STATUS" actions
 function* completeTreeSaga(action) {
     try {
         //Making asyn AJAX (axios) request
