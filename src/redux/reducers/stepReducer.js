@@ -1,3 +1,4 @@
+// Step Reducer
 const stepReducer = (state = [], action) => {
     switch (action.type) {
         case 'ALL_STEPS':

@@ -11,10 +11,13 @@ class SummariesPage extends Component {
     tree_id: '',
     modalShow: false
   }
+
+  // render tree by id when page loads
   componentDidMount() {
     this.getTreeById();
   }
 
+  // render step after update occur in page
   componentDidUpdate(prevProps) {
     if(this.props.steps.length > 0 && prevProps.steps.length > 0) {
       if(this.props.steps.length > 0 && this.props.steps[20].tree_status !== prevProps.steps[20].tree_status) {
@@ -23,19 +26,17 @@ class SummariesPage extends Component {
     } 
   }
 
+  // Set the modal to show up
   setModalShow = (bool) => {
     this.setState({ modalShow: bool });
   }
 
-  //Get the speech from the database and set to redux state
+  //Get the tree from the database and set to redux state
   getTreeById = () => {
-    console.log('this.props is', this.props);
     //Looking for query string to get id of movie
     let querystring = this.props.location.search;
-
     //Removing extra part of the path
     let tree_id = querystring.replace('?tree-id=', '');
-    console.log('tree_id is', tree_id);
     this.setState({ tree_id: tree_id });
     if(this.props.steps.length > 0) {
       if(this.props.steps[20].status === true) {
@@ -46,6 +47,7 @@ class SummariesPage extends Component {
     this.props.dispatch({ type: 'FETCH_TREE_BY_ID', payload: tree_id });
   }
 
+  // method to render Summary
   renderSummary = () => {
     if (this.props.steps.length) {
       return (
@@ -97,14 +99,13 @@ class SummariesPage extends Component {
             show={this.state.modalShow}
             onHide={() => this.setModalShow(false)}
           />
-
         </div>
       );
     }
   }
 
+  // Print function for the summaries page
   printPage = () => {
-    console.log('test');
     window.print();
   }
 
