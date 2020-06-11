@@ -1,6 +1,8 @@
+// Rating saga
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
+// Rating saga for first rating
 function* firstRating(action) {
     try {
         //Sends delete request and tree ID to server
@@ -12,7 +14,7 @@ function* firstRating(action) {
 }
 
 
-
+// Rating saga for the last rating
 function* lastRating(action) {
     try {
         //Sends delete request and tree ID to server
@@ -22,8 +24,6 @@ function* lastRating(action) {
         console.log('error in lastRating Saga', error);
     }
 }
-
-
 
 function* ratingSaga() {
     yield takeLatest('FIRST_RATING', firstRating);

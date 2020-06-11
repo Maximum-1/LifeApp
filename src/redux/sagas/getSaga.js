@@ -1,6 +1,8 @@
+// Get Tree Saga
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
+// GetTree Saga
 function* getTreeSaga(action) {
     try {
         const response = yield axios.get(`/api/tree/`);
@@ -23,6 +25,7 @@ function* getStepSaga(action) {
     }
 }
 
+// sortTreeSaga
 function* sortTreeSaga(action) {
     try {
         const response = yield axios.get(`/api/sort/${action.payload}`);
@@ -32,7 +35,6 @@ function* sortTreeSaga(action) {
         console.log('Error with SORT GET tree', error);
     }
 }
-
 
 function* getSaga() {
     yield takeLatest('GET_TREE', getTreeSaga);
