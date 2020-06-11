@@ -16,11 +16,14 @@ class PhasesPage extends Component {
     modalShow: false,
   }
 
+  // This method runs for the initial render. 
+  //  Obtain tree by idea when the page run
   componentDidMount() {
     this.getTreeById();
-    console.log('steps are', this.props.steps)
   }
 
+  // ComponentDidUpdate invoked immediately after page updating occurr. 
+  // This method is not called for the initial render. 
   componentDidUpdate(prevProps) {
     if (this.props.steps.length !== prevProps.steps.length && this.props.steps.length > 0) {
       if (this.props.steps.length) {
@@ -31,17 +34,14 @@ class PhasesPage extends Component {
     }
   }
 
+  // Method to set modal to show up
   setModalShow = (bool) => {
-    console.log('click on button to close or clicked outside modal');
     this.setState({ modalShow: bool });
   }
 
-  //Get the speech from the database and set to redux state
+  //Get the tree from the database and set to redux state
   getTreeById = () => {
-    console.log('this.props is', this.props);
-    //Looking for query string to get id of movie
     let querystring = this.props.location.search;
-
     //Removing extra part of the path
     let tree_id = querystring.replace('?tree-id=', '');
     this.setState({ tree_id: tree_id });
@@ -96,6 +96,7 @@ class PhasesPage extends Component {
     return phaseDropDowns;
   }
 
+  // method to render the steps
   stepsRendering = (phase) => {
     const querystring = this.props.location.search;
     //Removing extra part of the path
@@ -127,13 +128,14 @@ class PhasesPage extends Component {
     return step_links;
   }
 
+  // method to go to a specific step page
   goToStepPage = (tree_id, step_number) => {
     this.props.history.push(`/step?tree-id=${tree_id}&step_number=${step_number}`);
   }
 
+  // method to filter step completed in database
   progressCompleted = () => {
     const completedSteps = this.props.steps.filter(step => step.status === true);
-    console.log()
   }
 
   render() {
@@ -151,6 +153,7 @@ class PhasesPage extends Component {
   }
 }
 
+//reducer containing trees and user data
 const mapStateToProps = reduxStore => ({
   steps: reduxStore.stepReducer,
   user: reduxStore.user,
