@@ -26,12 +26,12 @@ class AboutPage extends Component {
           To propel personal security and emotional stability for high-performance living.<br /><br />
 
           <h2 className="tealText">Vision</h2>
-          To see leaders emerge who advance change in their spheres of influence.<br />
+          To see leaders emerge who advance change in their spheres of influence.<br /><br />
           “THE HB-X™ is a powerful protocol that initiates a journey of healing, directing you through prompts of
           self-reflection that uncover the roots of unwanted symptoms, behaviors and attitudes. It brings you
           from this personal insight to the imperative step of replacing the old information with evidence that is
           based on the truth. When these negative beliefs and distortions come into contact with the truth, it has
-          the potential to bring about transformational change that is lasting.”<br /><br />
+          the potential to bring about transformational change that is lasting.”<br />
           –Jess Doughty, MA, LPCC<br />
           Clinical Counselor and Owner<br />
           Resilient Life Therapy:<br />
@@ -94,17 +94,17 @@ class AboutPage extends Component {
           mind, and life together even when things go wrong.<br /><br />
           <div>
             <h2 className="tealText">Special Thanks to Our Developers</h2>
-            <p>To learn more of the developers click the links</p>
+            <p>Click the links to learn more about the developers</p>
             <h4><a className="aTag" href="https://github.com/AdrianNiu">Adrian Niu - Full Stack Developer</a></h4>
             <h4><a className="aTag" href="https://github.com/aescott87">Ashley Scott - Full Stack Developer</a></h4>
             <h4><a className="aTag" href="https://jaden-reklaw.github.io/My_Developer_Site/">Jordan S Walker - Full Stack Developer</a></h4>
             <h4><a className="aTag" href="https://mustafaibrahim4.github.io/aboutMe/">Mustafa Ibrahim - Full Stack Developer</a></h4>
-            <p>Thank you Prime Academy for equipping these developers with the skills necessary to create this applicaiton.</p>
+            <p>Thank you Prime Academy for equipping these developers with the skills necessary to create this application.</p>
             <p>To find out more about Prime Academy and the journey they took to become Full Stack Developers: <a className="aTag" href="https://primeacademy.io/courses/engineering">Prime Digital Academy</a></p>
           </div>
           <br />
-          <h2>Resources</h2>
-          <a className="aTag" href="https://www.amazon.com/gp/product/0310243149/ref=as_li_qf_asin_il_tl?ie=UTF8&tag=upward04-20&creative=9325&linkCode=as2&creativeASIN=0310243149&linkId=a1d47e333c3ff31e0802c76fcbfb961a">
+          <h2 className="tealText">Resources</h2>
+          <a className="aTag" href="https://amzn.to/2ZBWBOe">
             Boundaries in Marriage
           </a><br />
           <a className="aTag" href="https://www.amazon.com/gp/product/0310351804/ref=as_li_qf_asin_il_tl?ie=UTF8&tag=upward04-20&creative=9325&linkCode=as2&creativeASIN=0310351804&linkId=8ffd0bd032e303bee8496965587e95f3"> 
@@ -119,8 +119,6 @@ class AboutPage extends Component {
           <a className="aTag" href="https://www.amazon.com/gp/product/0310243157/ref=as_li_qf_asin_il_tl?ie=UTF8&tag=upward04-20&creative=9325&linkCode=as2&creativeASIN=0310243157&linkId=b48e8c90802116e6a925f32380648f04">
             Boundaries with Kids: How Healthy Choices Grow Healthy Children
           </a><br />
-          <a className="aTag" href="https://www.youtube.com/watch?v=6mXh4vNeoHQ&feature=youtu.be">
-            UNCOMMON | Emotional Health: How to Heal with Jess Doughty</a><br />
           <a className="aTag" href="https://www.goodtherapy.org/blog/psychpedia/window-of-tolerance">
             Window of Tolerance
           </a><br />
@@ -129,31 +127,40 @@ class AboutPage extends Component {
           </a><br />
           <a className="aTag" href="https://www.youtube.com/channel/UCWbmr_ERQ-gEO3FzRQsxjQw">
             DappyTKeys instrumental music
-          </a><br /><br />
-
-            God's Promises for Your Every Need, NKJV<br />
-            CSB Tony Evans Study Bible, Hardcover<br />
-            CSB Tony Evans Study Bible, Black/Brown LeatherTouch<br />
-            CSB Tony Evans Study Bible, Purple LeatherTouch, Indexed<br /><br />
-
-            CSB Tony Evans Study Bible, Black Genuine Leather<br />
-            The Tony Evans Bible Commentary<br />
-            NIV, KJV, NASB, Amplified, Classic Comparative Parallel Bible, Hardcover: The World’s Bestselling Bible<br />
-            Paired with Three Classic Versions<br />
-            NIV, KJV, NASB, Amplified, Classic Comparative Parallel Bible, Bonded Leather, Burgundy: NIV and KJV<br />
-            and NASB and Amplified<br />
-            KJV Study Bible, Large Print, Hardcover, Red Letter Edition: Second Edition<br />
-            KJV, The King James Study Bible, Leathersoft, Burgundy, Red Letter, Full-Color Edition: Holy Bible, King<br />
-            James Version<br />
-            NKJV, Maxwell Leadership Bible, Third Edition, Premium Cowhide Leather, Brown, Comfort Print: Holy<br />
-            Bible, New King James Version<br />
-            The Message compact edition (The Message Bibles) by Eugene H. Peterson (2014) Imitation Leather<br />
-            The New Strong's Expanded Exhaustive Concordance of the Bible<br />
-            Bible Gateway<br />
+          </a><br />
+          <a className="aTag" href="https://amzn.to/2zOvHID">
+            God's Promises for Your Every Need, NKJV
+          </a><br /> 
+          <a className="aTag" href="https://amzn.to/3gG3uEe">
+            CSB Tony Evans Study Bible, Hardcover</a><br />
+          <a className="aTag" href="https://amzn.to/2zD2Rel">
+            CSB Tony Evans Study Bible, Black/Brown LeatherTouch</a><br />
+          <a className="aTag" href="https://amzn.to/2ZRjNZ9">
+            CSB Tony Evans Study Bible, Purple LeatherTouch, Indexed</a><br />
+          <a className="aTag" href="https://amzn.to/2MddwyR">
+            CSB Tony Evans Study Bible, Black Genuine Leather</a><br />
+          <a className="aTag" href="https://amzn.to/2XND4Yy">
+            The Tony Evans Bible Commentary</a><br />
+          <a className="aTag" href="https://amzn.to/3exZrrL">
+            NIV, KJV, NASB, Amplified, Classic Comparative Parallel Bible, Hardcover: The World’s Bestselling Bible Paired with Three Classic Versions</a><br />
+          <a className="aTag" href="https://amzn.to/2XI9dkA">
+            NIV, KJV, NASB, Amplified, Classic Comparative Parallel Bible, Bonded Leather, Burgundy: NIV and KJV and NASB and Amplified</a><br />
+          <a className="aTag" href="https://amzn.to/36JX16Q">
+            KJV Study Bible, Large Print, Hardcover, Red Letter Edition: Second Edition</a><br />
+          <a className="aTag" href="https://amzn.to/36L5Ugl">
+            KJV, The King James Study Bible, Leathersoft, Burgundy, Red Letter, Full-Color Edition: Holy Bible, King James Version</a><br />
+          <a className="aTag" href="https://amzn.to/3ckpnWi">
+            NKJV, Maxwell Leadership Bible, Third Edition, Premium Cowhide Leather, Brown, Comfort Print: Holy Bible, New King James Version</a><br />
+          <a className="aTag" href="https://amzn.to/3gBTBYk">
+            The Message compact edition (The Message Bibles) by Eugene H. Peterson (2014) Imitation Leather</a><br />
+          <a className="aTag" href="https://amzn.to/3ckpvFg">
+            The New Strong's Expanded Exhaustive Concordance of the Bible</a><br />
+          <a className="aTag" href="https://www.biblegateway.com">
+            Bible Gateway</a><br /><br />
             Maximum 1™ is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to 
             provide a means for sites to earn advertising fees by advertising and linking to amazon.com<br /><br />
-            <h2>Find Us:</h2> 
-            <a className="aTag" href="https://iammaximum1.com/">iammaximum1.com</a>(for training and more information)<br />
+            <h2 className="tealText">Find Us</h2> 
+            <a className="aTag" href="https://iammaximum1.com/">iammaximum1.com</a> (for training and more information)<br />
           </pre>
         </div>
       </div>
