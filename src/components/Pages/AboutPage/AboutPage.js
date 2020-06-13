@@ -159,7 +159,7 @@ class AboutPage extends Component {
             Bible Gateway</a><br /><br />
             <iframe width="560" height="315" src="https://www.youtube.com/embed/6mXh4vNeoHQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br /><br />
             <h2 className="tealText">Find Us</h2> 
-            <a className="aTag" href="https://iammaximum1.com/">iammaximum1.com</a> (for training and more information)<br /><br /><br />
+            <a className="aTag" href="https://iammaximum1.com/">iammaximum1.com</a> (for training and more information)<br /><br />
             <h2 className="tealText">Feedback</h2> 
             <a className="aTag" href="https://forms.gle/F2aD4zw8c3KYnnbd8">Click here</a> to submit feedback regarding the app you have just previewed, including feedback on its structure, ease of use, and perceived benefit.<br /><br />
             <center><font size="1">Maximum 1™ is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to amazon.com</font></center>
