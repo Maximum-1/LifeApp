@@ -102,7 +102,7 @@ class AboutPage extends Component {
             <p>Thank you Prime Academy for equipping these developers with the skills necessary to create this application.</p>
             <p>To find out more about Prime Academy and the journey they took to become Full Stack Developers: <a className="aTag" href="https://primeacademy.io/courses/engineering">Prime Digital Academy</a></p>
           </div>
-          <br />
+          
           <h2 className="tealText">Resources</h2>
           <a className="aTag" href="https://amzn.to/2ZBWBOe">
             Boundaries in Marriage
@@ -160,7 +160,7 @@ class AboutPage extends Component {
             Maximum 1™ is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to 
             provide a means for sites to earn advertising fees by advertising and linking to amazon.com<br /><br />
             <h2 className="tealText">Find Us</h2> 
-            <a className="aTag" href="https://iammaximum1.com/">iammaximum1.com</a> (for training and more information)<br />
+            <font size="1"><a className="aTag" href="https://iammaximum1.com/">iammaximum1.com</a></font> (for training and more information)<br />
           </pre>
         </div>
       </div>
