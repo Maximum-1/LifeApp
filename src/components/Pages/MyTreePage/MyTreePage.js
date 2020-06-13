@@ -60,7 +60,7 @@ class MyTreePage extends Component {
     return (
 
       <div>
-        <h1>My Trees Page</h1>
+        
 
         <div class="form">
           <div class="input-form">
