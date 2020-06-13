@@ -156,11 +156,10 @@ class AboutPage extends Component {
           <a className="aTag" href="https://amzn.to/3ckpvFg">
             The New Strong's Expanded Exhaustive Concordance of the Bible</a><br />
           <a className="aTag" href="https://www.biblegateway.com">
-            Bible Gateway</a><br /><br />
-            Maximum 1™ is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to 
-            provide a means for sites to earn advertising fees by advertising and linking to amazon.com<br /><br />
+            Bible Gateway</a><br />
             <h2 className="tealText">Find Us</h2> 
-            <font size="1"><a className="aTag" href="https://iammaximum1.com/">iammaximum1.com</a></font> (for training and more information)<br />
+            <a className="aTag" href="https://iammaximum1.com/">iammaximum1.com</a> (for training and more information)<br /><br /><br />
+            <center><font size="1">Maximum 1™ is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to amazon.com</font></center>
           </pre>
         </div>
       </div>
