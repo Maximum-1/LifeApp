@@ -151,7 +151,7 @@ class TermsOfService extends Component {
               <li>Impersonating any person or entity including the Company and its employees or representatives.</li>
               <li>Violating the privacy of any third person.</li>
               <li>False information and features.</li>
-            </ul><br /><br />
+            </ul><br />
 
             The Company can also limit or revoke the use of the Service if You post or transmit such objectionable Content. 
             You understand that by using the Service, You may choose to share Content for rehabilitation purposes (e.g. sharing with a mental health practitioner) or personal reasons (e.g. to receive guidance or support). 
@@ -189,7 +189,7 @@ class TermsOfService extends Component {
               <li>Your address, telephone number, and email address.</li>
               <li>A statement by You that You have a good faith belief that the disputed use is not authorized by the copyright owner, its agent, or the law.</li>
               <li>A statement by You, made under penalty of perjury, that the above information in Your notice is accurate and that You are the copyright owner or authorized to act on the copyright owner's behalf.</li>
-            </ul><br /><br />
+            </ul><br />
 
             You can contact our copyright agent via email at marius.massie@iammaximum1.com. 
             Upon receipt of a notification, the Company will take whatever action, in its sole discretion, it deems appropriate, including removal of the challenged content from the Service. <br /><br />
