@@ -30,7 +30,7 @@ class NavigationBar extends Component {
           <img alt="" src="./images/Maximum_1_Logo_Yellow.png"
             className="d-inline-block align-top"
           />{' '}
-          <span className='show hide'>Maximum 1 Life App</span>
+          
       </Navbar.Brand>
       {this.props.user.id ? 
           <>
