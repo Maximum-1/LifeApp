@@ -44,43 +44,51 @@ class AboutPage extends Component {
           
           <h2 className="tealText">Helpful Strategies</h2>
           
-          <li><b>Jesus makes the difference.</b></li> Though you don’t have to be Christian to use our app, 
+          <li><b>Jesus makes the difference.</b></li>
+          Though you don’t have to be Christian to use our app, 
           if you have a relationship with Jesus, healing is highly probable if you are praying through each 
           step allowing the Holy Spirit to give you insight. Use the Resources we provide to find scriptures 
           attacking wrongly held beliefs you have at the root.<br /><br />
 
-          <li><b>Take care of you.</b></li> Throughout this process, you may feel anxious, stuck, or any number of uncomfortable 
+          <li><b>Take care of you.</b></li>
+          Throughout this process, you may feel anxious, stuck, or any number of uncomfortable 
           or new feelings. This is normal. Use these emotions as signals to give yourself permission to step back, 
           reset, and create some space (e.g. breaks, getting support, etc.), so you can resettle and when ready, 
           continue.<br /><br />
 
-          <li><b>Take your time.</b></li> Your goal isn’t speed, but accuracy.<br /><br />
+          <li><b>Take your time.</b></li>
+          Your goal isn’t speed, but accuracy.<br /><br />
 
-          <li><b>Meditation is critical.</b></li> Learn how to quiet your mind so you can “hear” from your 
+          <li><b>Meditation is critical.</b></li>
+          Learn how to quiet your mind so you can “hear” from your 
           heart. This is heart-work, not head-work. This is, for each step, an exercise in discovery, 
           not “figuring things out.” If you’re having difficulty, then working with a trusted and licensed 
           mental health care professional may help. If you’re a person of faith, prayer is a valuable tool 
           to quiet “noise” (i.e., anxiety, distractions, fear, etc.) so you can commune more effectively 
           with your Higher Power and get guidance.<br /><br />
 
-          <li><b>Some behaviors have many roots</b></li> Don’t be discouraged if after working through one 
+          <li><b>Some behaviors have many roots</b></li>
+          Don’t be discouraged if after working through one 
           trigger and “getting to the root” that some behaviors in your tree still exist. Especially with 
           addiction, some behaviors are “tied” into many different emotional learnings. It may take time 
           and working through many triggers to successfully “cut off” what sources are fueling certain 
           behaviors. Don’t quit! You’ll feel, with each completed tree, such behaviors bit-by-bit losing control.<br /><br />
 
-          <li><b>Get support.</b></li> Before working through your tree, please find trusted and qualified allies to help keep your behaviors 
+          <li><b>Get support.</b></li>
+          Before working through your tree, please find trusted and qualified allies to help keep your behaviors 
           stable. You may have to uncover deep emotional wounds that are painful or sensitive in order to fully 
           heal and recover your true self. It’s worth it! Imagine someone pushing down on an infected physical wound; 
           it’ll cause us to sharply react. This reaction may include resorting to an old coping behavior that’s no 
           longer helpful, or may even be harmful. Get help. Be accountable, and do your tree work in community.<br /><br />
 
-          <li><b>Brutal honesty is needed for full recovery.</b></li> It’ll be tempting to “sugar-coat” your data because it’s shocking or embarrassing. Avoid doing this. Yes, 
+          <li><b>Brutal honesty is needed for full recovery.</b></li>
+          It’ll be tempting to “sugar-coat” your data because it’s shocking or embarrassing. Avoid doing this. Yes, 
           maybe use abbreviations or coded language to honor your personal values, but let it come out as “raw” as 
           it really is, or you won’t be as successful finding patterns and the “truth” of your story. You could miss 
           the root. You’ll still get better, but not heal.<br /><br />
 
-          <li><b>Success is making this part of your daily lifestyle.</b></li> This isn’t a “one-and-done.” What we mean is disappointment, trauma (big “T,” little “t”), and discouragement 
+          <li><b>Success is making this part of your daily lifestyle.</b></li>
+          This isn’t a “one-and-done.” What we mean is disappointment, trauma (big “T,” little “t”), and discouragement 
           don’t stop coming. Though we heal one wound, we can get one phone call that creates another. The good news now 
           is you have a permanent tool to help heal and reclaim your true self. You have more power to keep your heart, 
           mind, and life together even when things go wrong.<br /><br />
