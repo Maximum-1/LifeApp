@@ -42,7 +42,7 @@ class LoginPage extends Component {
             {this.props.errors.loginMessage}
           </h2>
         )}
-        <h1>App Login</h1>
+        <h1>Master you.</h1>
         <div className="buffer-space"></div>
         <center>
           <form onSubmit={this.login}>
