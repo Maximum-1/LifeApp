@@ -161,7 +161,7 @@ class AboutPage extends Component {
             <h2 className="tealText">Find Us</h2> 
             <a className="aTag" href="https://iammaximum1.com/">iammaximum1.com</a> (for training and more information)<br /><br /><br />
             <h2 className="tealText">Feedback</h2> 
-            <a className="aTag" href="https://iammaximum1.com/">Click here</a> to submit feedback regarding the app you have just previewed, including feedback on its structure, ease of use, and perceived benefit.<br /><br /><br />
+            <a className="aTag" href="https://forms.gle/F2aD4zw8c3KYnnbd8">Click here</a> to submit feedback regarding the app you have just previewed, including feedback on its structure, ease of use, and perceived benefit.<br /><br />
             <center><font size="1">Maximum 1™ is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to amazon.com</font></center>
           </pre>
         </div>
