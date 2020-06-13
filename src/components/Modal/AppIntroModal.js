@@ -30,7 +30,7 @@ class AppIntroModal extends Component {
                 <Card.ImgOverlay> 
                 <Card.Title className="text-center">
                   <div><Image src="./images/Maximum_1_Logo_Yellow.png" thumbnail/> </div>
-                  <div>The Human Behavior (HB-X™)</div>
+                  <div>The Human Behavior Matrix (HB-X™)</div>
                 </Card.Title>
                   <div className="hero-text-div">
                     <div className="hero-text">
@@ -45,7 +45,7 @@ class AppIntroModal extends Component {
                       I’m able to consistently stay in my window of tolerance. 
                       Now, I’m much more focused and can handle complex mental tasks which is a miracle also having ADHD (Attention-Deficit/Hyperactivity Disorder). 
                       I’m systematically eliminating internal conflict from unhealed trauma.<br /><br /> 
-                      I’m different. I’m <b><i>calm</i></b>. I’m beginning to be the person I always wanted to be.”
+                      I’m different. I’m <b><i>calm</i></b>. I’m beginning to be the person I always wanted to be.”<br />
                       –Marius J. Massie, Creator, THE HB-X™<br /><br />
                       Much of the way we move in the world is built on emotional learning that was formed when we were
                       quite young. Some emotional learning produces healthy fruit (self-esteem, connectedness, healthy
