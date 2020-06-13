@@ -6,7 +6,7 @@ import './Footer.css'
 // This is a component to 
 const Footer = () => (
   <footer>
-    &copy; THE HB-X™ & Maximum 1™ Life App © 2020 | All rights reserved.
+    &copy; <font size="3">THE HB-X™ & Maximum 1™ Life App © 2020 | All rights reserved.</font>
   </footer>
 );
 
