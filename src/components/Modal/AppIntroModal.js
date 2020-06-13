@@ -25,7 +25,7 @@ class AppIntroModal extends Component {
               centered
           >
             <Modal.Body>
-              <Card className="bg-white text-black">
+              <Card className="bg-light text-black">
                  
                 <Card.Title className="text-center">
                   
