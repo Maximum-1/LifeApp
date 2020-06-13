@@ -25,10 +25,11 @@ class AppIntroModal extends Component {
               centered
           >
             <Modal.Body>
-              <Card className="bg-light text-black">
-                 
+              <Card className="bg-dark text-white">
+                <Card.Img src="./images/tree.jpg" alt="Explanation of the Human Behavior Matrix" />
+                <Card.ImgOverlay> 
                 <Card.Title className="text-center">
-                  
+                  <div><Image src="./images/Maximum_1_Logo_Yellow.png" thumbnail/> </div>
                   <div>The Human Behavior Matrix (HB-X™)</div>
                 </Card.Title>
                   <div className="hero-text-div">
