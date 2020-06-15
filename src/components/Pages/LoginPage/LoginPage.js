@@ -85,7 +85,7 @@ class LoginPage extends Component {
               </button>
             </div>
             <div>
-              <span>By Logging in you agree to Maximum 1's </span><a className="aTag" href="/#/termsOfService">Terms of Service</a>
+              <span>By logging in you agree to Maximum 1's </span><a className="aTag" href="/#/termsOfService">Terms of Service</a>
             </div>
           </center>
           <div className="buffer-space"></div>
