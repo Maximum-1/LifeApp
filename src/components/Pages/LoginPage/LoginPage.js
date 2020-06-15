@@ -75,7 +75,7 @@ class LoginPage extends Component {
             </div>
           </form>
             <div>
-              <span>New Here? </span>
+              <span>New here? </span>
               <button
                 type="button"
                 className="link-button"
