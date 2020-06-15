@@ -122,8 +122,8 @@ class AboutPage extends Component {
           <a className="aTag" href="https://www.goodtherapy.org/blog/psychpedia/window-of-tolerance">
             Window of Tolerance
           </a><br />
-          <a className="aTag" href="https://positivepsychology.com/emotion-wheel/">
-            Emotion Wheel
+          <a className="aTag" href="https://www.pjamal.com/2018/12/mood-meter-how-are-you-feeling-today.html">
+            Mood Meter             
           </a><br />
           <a className="aTag" href="https://www.youtube.com/channel/UCWbmr_ERQ-gEO3FzRQsxjQw">
             DappyTKeys instrumental music
