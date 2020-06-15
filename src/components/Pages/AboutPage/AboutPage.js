@@ -67,7 +67,7 @@ class AboutPage extends Component {
           to quiet “noise” (i.e., anxiety, distractions, fear, etc.) so you can commune more effectively 
           with your Higher Power and get guidance.<br /><br />
 
-          <li><b>Some behaviors have many roots</b></li>
+          <li><b>Some behaviors have many roots.</b></li>
           Don’t be discouraged if after working through one 
           trigger and “getting to the root” that some behaviors in your tree still exist. Especially with 
           addiction, some behaviors are “tied” into many different emotional learnings. It may take time 
