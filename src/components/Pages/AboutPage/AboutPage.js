@@ -61,16 +61,16 @@ class AboutPage extends Component {
           
           <h2 className="tealText">Definitions</h2>
           
-          <li><b>Tree (n.): something in the form of or resembling a tree.</b></li>
+          <li><b>Tree: something in the form of or resembling a tree.</b></li>
           A tree is the symbolic structure of one trigger “drilled-down” to its root, and then restructured to produce new behaviors.<br /><br />
             
-          <li><b>Virtual (adj.): being such in essence or effect though not formally recognized or admitted.</b></li>
+          <li><b>Virtual: being such in essence or effect though not formally recognized or admitted.</b></li>
           Virtual reality refers to insights, behaviors, and realities about us that are "floating" somewhere between conscious thoughts we know and subconscious thoughts we don't.<br /><br />    
     
-          <li><b>Root (n.): something that is an origin or source [as of a condition or quality].</b></li>
+          <li><b>Root: something that is an origin or source [as of a condition or quality].</b></li>
           The root is where we're headed. It's the bottom line, the endgame, your target. Without this uncovered, you will habitually be "trapped" in cycles of unwanted behaviors.<br /><br />   
 
-          <li><b>Legacy (n.): something transmitted by or received from an ancestor or predecessor or from the past.</b></li>
+          <li><b>Legacy: something transmitted by or received from an ancestor or predecessor or from the past.</b></li>
           A legacy is the story of someone's influence. Our thoughts and expressions leave "scripts" that impact (for their benefit or injury) others in our spheres of influence.<br /><br />   
     
           *Bold definitions from Merriam-Webster.<br /><br />
@@ -196,7 +196,6 @@ class AboutPage extends Component {
             The New Strong's Expanded Exhaustive Concordance of the Bible</a><br />
           <a className="aTag" href="https://www.biblegateway.com">
             Bible Gateway</a><br /><br />
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/6mXh4vNeoHQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br /><br />
             <h2 className="tealText">Find Us</h2> 
             <a className="aTag" href="https://iammaximum1.com/">iammaximum1.com</a> (for training and more information)<br /><br />
             <h2 className="tealText">Feedback</h2> 
