@@ -44,7 +44,7 @@ class AboutPage extends Component {
             
           <h2 className="tealText">Fruit Doesn’t Look Like the Root</h2>
           “THE HB-X™ is a powerful protocol that initiates a journey of healing, directing you through prompts of
-          self-reflection that uncover the roots of unwanted symptoms, behaviors and attitudes. It brings you
+          self-reflection that uncover the roots of unwanted symptoms, behaviors and attitudes (i.e., "fruit"). It brings you
           from this personal insight to the imperative step of replacing the old information with evidence that is
           based on the truth. When these negative beliefs and distortions come into contact with the truth, it has
           the potential to bring about transformational change that is lasting.”<br />
