@@ -9,6 +9,20 @@ class AboutPage extends Component {
         <hr />
         <div>
           <pre>
+          “THE HB-X™ (The Human Behavior Matrix™) is a <a className="aTag" href="https://www.healthline.com/health/cognitive-restructuring">cognitive restructuring</a> tool <b>to help heal the negative impacts of trauma.</b> It stabilized me. It drastically reduced, and in some cases eliminated, <b>fight, flight, freeze, and submit responses</b> I learned from past trauma that no longer serve me well. I’ve gained courage and maturity. I process better instead of reacting. I can stay silent or say what’s needed at the right time. I can work effectively without being recognized.<br /><br />
+
+          I want approval, but don’t need it. I once thought that impossible! I can relax, not worry, and disrupt negative thoughts. I’m able to consistently stay in my window of tolerance. Now, I’m much more focused and can handle complex mental tasks which is a miracle also having ADHD (Attention-Deficit/Hyperactivity Disorder). I’m systematically eliminating internal conflict from unhealed trauma.<br /><br /> 
+
+          I’m different. I’m <i><b>calm.</b></i> I’m beginning to be the person I always wanted to be.”<br />
+          –Marius J. Massie, Creator, THE HB-X™<br /><br />
+
+          <h2 className="tealText">Analyze Trauma and Heal</h2>
+          Trauma (big “T”, little “t”) is real. Adverse Childhood Experiences (ACEs) impact us throughout our lives. Some emotional learning produces healthy fruit (self-esteem, connectedness, healthy boundaries, etc.) and some produce unhealthy fruit (low self-worth, ambivalence, unsafe behaviors). As we mature, those ways of being follow us and can either continue to help us thrive or continue to keep us in survival mode (fight, flight, freeze, or submit) even when we no longer need to be.<br /><br />
+            
+          The good news is that this can change with some intention and willingness to do some deeper work. THE HB-X™ is just the instrument to help. This step-by-step protocol will help you work your way to the root of the problem and then change it with new evidence that is based on the truth.<br /><br />
+            
+          <h2 className="tealText">Disclaimer and Waiver of Liability</h2>
+
           It is understood that users downloading the Maximum 1™ Life App agree that its use is at their own risk.
           The user acknowledges the Human Behavior Matrix™ (THE HB-X™) process used within the app involves
           unpredictable, potentially triggering, and in-depth emotional work and that it is the user’s responsibility
@@ -27,6 +41,8 @@ class AboutPage extends Component {
 
           <h2 className="tealText">Vision</h2>
           To see leaders emerge who advance change in their spheres of influence.<br /><br />
+            
+          <h2 className="tealText">Fruit Doesn’t Look Like the Root</h2>
           “THE HB-X™ is a powerful protocol that initiates a journey of healing, directing you through prompts of
           self-reflection that uncover the roots of unwanted symptoms, behaviors and attitudes. It brings you
           from this personal insight to the imperative step of replacing the old information with evidence that is
@@ -34,14 +50,31 @@ class AboutPage extends Component {
           the potential to bring about transformational change that is lasting.”<br />
           –Jess Doughty, MA, LPCC<br />
           Clinical Counselor and Owner<br />
-          Resilient Life Therapy:<br />
+          Resilient Life Therapy<br />
           <a className="aTag" href="https://www.resilientlifetherapy.net/">www.resilientlifetherapy.net</a><br /><br />
           
+          <h2 className="tealText">Prepare for Deeper Work</h2>
           Virtual Trauma-Informed Group<br />
           Educational and Supportive<br />
           Tuesdays from 12-1:30PM CST<br />
           <a className="aTag" href = "mailto: resilientlifetherapy@gmail.com">resilientlifetherapy@gmail.com</a><br /><br />       
           
+          <h2 className="tealText">Definitions</h2>
+          
+          <li><b>Tree (n.): something in the form of or resembling a tree.</b></li>
+          A tree is the symbolic structure of one trigger “drilled-down” to its root, and then restructured to produce new behaviors.<br /><br />
+            
+          <li><b>Virtual (adj.): being such in essence or effect though not formally recognized or admitted.</b></li>
+          Virtual reality refers to insights, behaviors, and realities about us that are "floating" somewhere between conscious thoughts we know and subconscious thoughts we don't.<br /><br />    
+    
+          <li><b>Root (n.): something that is an origin or source [as of a condition or quality].</b></li>
+          The root is where we're headed. It's the bottom line, the endgame, your target. Without this uncovered, you will habitually be "trapped" in cycles of unwanted behaviors.<br /><br />   
+
+          <li><b>Legacy (n.): something transmitted by or received from an ancestor or predecessor or from the past.</b></li>
+          A legacy is the story of someone's influence. Our thoughts and expressions leave "scripts" that impact (for their benefit or injury) others in our spheres of influence.<br /><br />   
+    
+          *Bold definitions from Merriam-Webster.<br /><br />
+    
           <h2 className="tealText">Helpful Strategies</h2>
           
           <li><b>Jesus makes the difference.</b></li>
@@ -59,6 +92,12 @@ class AboutPage extends Component {
           <li><b>Take your time.</b></li>
           Your goal isn’t speed, but accuracy.<br /><br />
 
+          <li><b>Your skill will increase.</b></li>
+          Your time it takes to complete an entire tree will be significantly longer in the beginning (easily a couple of weeks) as you learn how to “be still” and rely on <a className="aTag" href="https://www.merriam-webster.com/dictionary/intuition">intuition</a> rather than logic. Intuition requires the almost supernatural ability to hear what is being spoken “from the heart.” It’s a “muscle” that’s developed over time.<br /><br />
+            
+          <li><b>After breaks, read again from the top. </b></li>
+          It’s important when you return to your tree to review completed steps. This helps solidify understanding and reopen your mind to new learning.<br /><br />
+            
           <li><b>Meditation is critical.</b></li>
           Learn how to quiet your mind so you can “hear” from your 
           heart. This is heart-work, not head-work. This is, for each step, an exercise in discovery, 
